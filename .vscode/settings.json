@@ -1,0 +1,26 @@
+{
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": false,
+    "editor.formatOnSave": true,
+    "javascript.preferences.quoteStyle": "single",
+    "eslint.alwaysShowStatus": true,
+    "eslint.lintTask.enable": true,
+    "eslint.packageManager": "npm",
+    "eslint.run": "onSave",
+    "eslint.options": {
+        "configFile": "./.eslintrc.json"
+	},
+	"editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "prettier.formatOnSave": true,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "eslint.format.enable": true,
+    "files.eol": "\r\n",
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    }
+}

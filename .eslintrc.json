@@ -1,0 +1,132 @@
+{
+	"root": true,
+	"env": {
+		"node": true,
+		"browser": true,
+		"jest": true
+	},
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true,
+			"modules": true,
+			"experimentalObjectRestSpread": true
+		}
+	},
+	"settings": {
+		"jsx-quotes": [2, "prefer-double"],
+		"react/jsx-curly-spacing": [2, "never", { "allowMultiline": true }],
+		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".jsx", ".ts", ".d.ts", ".tsx", ".json"]
+			}
+		}
+	},
+	"extends": [
+		"airbnb",
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:prettier/recommended",
+		"prettier/@typescript-eslint",
+		"prettier",
+		"prettier/react",
+		"prettier/standard"
+	],
+	"plugins": ["react", "@typescript-eslint", "react-hooks", "prettier"],
+	"rules": {
+		"prefer-template": "off",
+		"semi": ["error", "always"],
+		"no-plusplus": "off",
+		"prettier/prettier": [
+			"error",
+			{
+				"useTabs": true,
+				"semi": true,
+				"singleQuote": true,
+				"arrowParens": "always",
+				"quoteProps": "consistent",
+				"endOfLine":"auto"
+			},
+			{
+				"usePrettierrc": false
+			}
+		],
+		"padding-line-between-statements": 2,
+		"max-len": [
+			"warn",
+			{
+				"code": 128,
+				"ignoreTemplateLiterals": true
+			}
+		],
+		"react/jsx-filename-extension": [
+			1,
+			{
+				"extensions": ["tsx"]
+			}
+		],
+		"spaced-comment": [
+			"error",
+			"always",
+			{
+				"markers": ["/"]
+			}
+		],
+		"react-hooks/rules-of-hooks": "warn",
+		"react-hooks/exhaustive-deps": "warn",
+		"react/prop-types": 0,
+		"react/destructuring-assignment": 0,
+		"react/jsx-props-no-spreading": 0,
+		"import/no-unresolved": 0,
+		"import/prefer-default-export": 0,
+		"import/extensions": 0,
+		"@typescript-eslint/explicit-function-return-type": 0,
+		"react/jsx-indent": ["warn", "tab"],
+		"react/jsx-indent-props": ["warn", "tab"],
+		"indent": ["warn", "tab"],
+		"no-tabs": 0,
+		"no-multiple-empty-lines": [
+			2,
+			{
+				"max": 1
+			}
+		],
+		"linebreak-style": 0,
+		"@typescript-eslint/consistent-type-definitions": ["error", "type"],
+		"import/no-extraneous-dependencies": [
+			"error",
+			{
+				"devDependencies": [
+					"**/test.*",
+					"**/*.test.*"
+				]
+			}
+		],
+		"react/jsx-wrap-multilines": [
+			"error",
+			{
+				"declaration": "parens-new-line",
+				"assignment": "parens-new-line",
+				"return": "parens-new-line",
+				"arrow": "ignore",
+				"condition": "ignore",
+				"logical": "ignore",
+				"prop": "ignore"
+			}
+		],
+		// Shared should never export defaults
+		"import/no-default-export": "error",
+		"react/no-array-index-key": "warn"
+	},
+	"overrides": [
+		{
+			"files": ["*.test.ts","*.test.tsx"],
+			"rules": {
+			  "no-non-null-assertion": 0,
+			  "@typescript-eslint/no-non-null-assertion": 0
+			}
+		}
+	]
+}
