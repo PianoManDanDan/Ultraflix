@@ -1,14 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import {
+	ContentfulClient,
+	ContentfulProvider,
+	ContentfulClientInterface,
+} from 'react-contentful';
+import { App } from './App';
 import * as serviceWorker from './serviceWorker';
 
+const contentfulClient: ContentfulClientInterface = ContentfulClient({
+	accessToken: 'im2Om8TMefwnoIwcZsknuuh3mKseOiNucWFLwjsJKYg',
+	space: 'v9yjf2k31vk7',
+});
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<ContentfulProvider client={contentfulClient}>
+			<App />
+		</ContentfulProvider>
+	</React.StrictMode>,
+	document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
