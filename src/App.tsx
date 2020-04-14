@@ -2,7 +2,7 @@ import React from 'react';
 import { useContentful, HookResponse } from 'react-contentful';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 
 export const App: React.FC<{}> = () => {
 	/* johnDoe can be destructured to { data, error, fetched, loading } */
