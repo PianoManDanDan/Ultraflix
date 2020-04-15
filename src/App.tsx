@@ -13,6 +13,7 @@ export const App: React.FC<{}> = () => {
 	if (johnDoe.loading || !johnDoe.fetched) {
 		return null;
 	}
+
 	if (johnDoe.error) {
 		console.error(johnDoe.error);
 		return null;
