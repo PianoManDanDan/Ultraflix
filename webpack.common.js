@@ -1,11 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-	devtool: 'source-map',
 	entry: {
 		app: './src/index.tsx',
 	},
@@ -13,22 +11,7 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'ultraflix.[name].bundle.js',
 	},
-	plugins: [
-		new CleanWebpackPlugin(),
-		new HtmlWebpackPlugin({
-			title: 'Ultraflix',
-			templateContent: ({ htmlWebpackPlugin }) => `
-				<html>
-					<head>
-						${htmlWebpackPlugin.tags.headTags}
-					</head>
-					<body>
-						<div id="root"></div>
-					</body>
-				</html>
-			`,
-		}),
-	],
+	plugins: [new CleanWebpackPlugin()],
 
 	resolve: {
 		extensions: ['.ts', '.tsx', '.js', '.jsx'],
