@@ -1,13 +1,34 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
 	devtool: 'source-map',
-	entry: './src/index.tsx',
+	entry: {
+		app: './src/index.tsx',
+	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'ultraflix.bundle.js',
+		filename: 'ultraflix.[name].bundle.js',
 	},
+	plugins: [
+		new CleanWebpackPlugin(),
+		new HtmlWebpackPlugin({
+			title: 'Ultraflix',
+			templateContent: ({ htmlWebpackPlugin }) => `
+				<html>
+					<head>
+						${htmlWebpackPlugin.tags.headTags}
+					</head>
+					<body>
+						<div id="root"></div>
+					</body>
+				</html>
+			`,
+		}),
+	],
 
 	resolve: {
 		extensions: ['.ts', '.tsx', '.js', '.jsx'],
