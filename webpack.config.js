@@ -25,16 +25,16 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.scss$/,
+				test: /\.s?css$/,
 				exclude: /node_modules/,
 				use: ['style-loader', 'css-loader', 'sass-loader'],
 			},
 			{
-				test: /\.svg$/,
+				test: /\.(svg|png|jpe?g|gif)$/,
 				exclude: /node_modules/,
 				use: [
 					{
-						loader: 'svg-inline-loader',
+						loader: 'url-loader',
 					},
 				],
 			},
