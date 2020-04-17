@@ -1,0 +1,11 @@
+$sizes: ( breakpoints: ( xsmall: ( min: 320px, max: 669px ), small: ( min: 670px, max: 999px ), medium: ( min: 1000px, max: 1399px ), large: ( min: 1400px, max: 1920px ) ) );
+
+@function breakpoint($viewportName, $minOrMax) {
+	@return map-get(map-get(map-get($sizes, breakpoints), $viewportName), $minOrMax);
+}
+
+@mixin mediaQueryFor($viewportName, $minOrMax: min) {
+	@media (#{$minOrMax}-width: breakpoint($viewportName, #{$minOrMax})) {
+		@content;
+	}
+}
