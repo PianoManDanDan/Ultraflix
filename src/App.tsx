@@ -23,10 +23,6 @@ export const App: React.FC<{}> = () => {
 		return <p>Page does not exist.</p>;
 	}
 
-	if (johnDoe.data) {
-		console.log(johnDoe.data['fields']);
-	}
-
 	return (
 		<div className="App">
 			<header className="App-header">
