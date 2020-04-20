@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContentful, HookResponse } from 'react-contentful';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import logo from './logo.svg';
 import './App.scss';
 
@@ -23,10 +23,6 @@ export const App: React.FC<{}> = () => {
 		return <p>Page does not exist.</p>;
 	}
 
-	if (johnDoe.data) {
-		console.log(johnDoe.data['fields']);
-	}
-
 	return (
 		<div className="App">
 			<header className="App-header">
@@ -38,11 +34,7 @@ export const App: React.FC<{}> = () => {
 					{johnDoe.data['fields'].name} is a {johnDoe.data['fields'].title} at{' '}
 					{johnDoe.data['fields'].company}.
 				</p>
-				<div
-					dangerouslySetInnerHTML={{
-						__html: documentToHtmlString(johnDoe.data['fields'].longBio),
-					}}
-				/>
+				<div>{documentToReactComponents(johnDoe.data['fields'].longBio)}</div>
 				<a
 					className="App-link"
 					href="https://reactjs.org"
