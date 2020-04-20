@@ -1,0 +1,24 @@
+// Use @import './globalStyles/colors.scss'; when you want to use these colors in any other sass files
+
+
+$colors: (
+	homepage: (
+		penguin-yellow: (
+			1:  #ffaa00, 
+			2:  #ffb012, 
+			3: #ffc042
+		),
+		penguin-blue: (
+			1: #00ccff,
+			2: #4adbff
+		),
+		penguin-black: (
+			1: #13181f,
+			2: #1b232e
+		)
+	)
+);
+
+@function color($section, $name, $tint: 100) {
+	@return map-get(map-get(map-get($colors, $section), $name), $tint);
+}
