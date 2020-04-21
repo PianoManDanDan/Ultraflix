@@ -1,11 +1,11 @@
 import React from 'react';
-import { Thing } from '../src';
+import { Footer } from '../src';
 
 export default {
-	title: '{{componentName}}',
-	component: Thing
+	title: 'Footer',
+	component: Footer,
 };
 
 export const Story = () => {
-	return <Thing />;
+	return <Footer />;
 };
