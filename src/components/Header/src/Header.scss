@@ -1,15 +1,13 @@
 @import '../../../globalStyles/colors.scss';
-@import '../../../globalStyles/fonts.scss';
-@import url('https://fonts.googleapis.com/css?family=Monoton');
 
-header {
+.header {
 	position: fixed;
 	top: 0;
 	width: 100%;
 	background-color: color(homepage, penguin-black, 2);
-}
 
-.logo {
-	height: 80px;
-	padding: 15px 20px;
+	&__logo {
+		height: 60px;
+		padding: 15px 20px;
+	}
 }
