@@ -2,9 +2,20 @@ import React from 'react';
 import { useContentful, HookResponse } from 'react-contentful';
 import './Header.scss';
 
+export type HeaderProps = {
+	logo: {
+		url: string;
+		description: string;
+	};
+	companyName: string;
+};
+
 export const Header: React.FC<{}> = () => {
 	const headerContent: HookResponse = useContentful({
 		id: '5eQp4nydbaKnXdR3NCMC70',
+	});
+	const logo: HookResponse = useContentful({
+		id: '4V1H6JAO1iUCB0a9RW1kIs',
 	});
 	if (headerContent.loading || !headerContent.fetched) {
 		return null;
@@ -15,25 +26,34 @@ export const Header: React.FC<{}> = () => {
 		return null;
 	}
 
-	if (!headerContent.data) {
+	if (!logo.data) {
 		return <p>Page does not exist.</p>;
 	}
 
+	if (logo.loading || !logo.fetched) {
+		return null;
+	}
+
+	if (logo.error) {
+		console.error(logo.error);
+		return null;
+	}
+
+	if (!logo.data) {
+		return <p>Page does not exist.</p>;
+	}
+
+	console.log('logo data: ', logo.data);
+
 	return (
 		<header>
-			<img
-				src={headerContent.data['fields'].logo['fields'].file.url}
-				alt={headerContent.data['fields'].logo['fields'].description}
-			/>
-			<h1>{headerContent.data['fields'].companyName}</h1>
-			<h1>
-				ULTRAFL
+			<a className="logo-link" href="/">
 				<img
-					src={headerContent.data['fields'].logo['fields'].file.url}
-					alt={headerContent.data['fields'].logo['fields'].description}
+					className="logo"
+					src={logo.data['fields'].logo['fields'].file.url}
+					alt={logo.data['fields'].logo['fields'].title}
 				/>
-				X
-			</h1>
+			</a>
 		</header>
 	);
 };
