@@ -1,33 +1,23 @@
 import React from 'react';
-import { useContentful, HookResponse } from 'react-contentful';
+import { ContentfulImage } from '../../../types';
 // import './Footer.scss';
 
-export const Footer: React.FC<{}> = () => {
-	const footerContent: HookResponse = useContentful({
-		id: '4psLuIzH33I6TptbtKJkVX',
-	});
+export type FooterProps = {
+	copyrightText: string;
+	logo: ContentfulImage;
+	companyText: string;
+};
 
-	if (footerContent.loading || !footerContent.fetched) {
-		return null;
-	}
-
-	if (footerContent.error) {
-		console.error(footerContent.error);
-		return null;
-	}
-
-	if (!footerContent.data) {
-		return <p>Page does not exist.</p>;
-	}
-
+export const Footer: React.FC<FooterProps> = ({
+	copyrightText,
+	logo,
+	companyText,
+}) => {
 	return (
 		<div className="footer">
-			<div>{footerContent.data['fields'].copyrightText}</div>
-			<img
-				src={footerContent.data['fields'].logo['fields'].file.url}
-				alt={footerContent.data['fields'].logo['fields'].description}
-			/>
-			<div>{footerContent.data['fields'].companyText}</div>
+			<div>{copyrightText}</div>
+			<img src={logo.url} alt={logo.description} />
+			<div>{companyText}</div>
 		</div>
 	);
 };
