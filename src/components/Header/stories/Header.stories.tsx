@@ -1,10 +1,11 @@
 import React from 'react';
 import {
+	ContentfulClientInterface,
 	ContentfulClient,
 	ContentfulProvider,
-	ContentfulClientInterface,
 } from 'react-contentful';
 import { Header } from '../src';
+import { ExampleStory } from './story/ExampleStory.story';
 
 export default {
 	title: 'Header',
@@ -19,7 +20,7 @@ export const Story = () => {
 
 	return (
 		<ContentfulProvider client={contentfulClient}>
-			<Header />
+			<ExampleStory />
 		</ContentfulProvider>
 	);
 };
