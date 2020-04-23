@@ -24,7 +24,7 @@ export const Footer: React.FC<FooterProps> = ({
 	}
 
 	return (
-		<div className="footer">
+		<div className="footer app-content-container">
 			<div className="row">
 				<div className="col-xs-2">{copyrightText}</div>
 				<img className="col-xs-6" src={logo.url} alt={logo.description} />
