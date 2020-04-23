@@ -3,8 +3,6 @@ import {
 	ContentfulClientInterface,
 	ContentfulClient,
 	ContentfulProvider,
-	HookResponse,
-	useContentful,
 } from 'react-contentful';
 import { Footer } from '../src';
 import { ExampleStory } from './story/ExampleStory.story';
