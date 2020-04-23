@@ -1,0 +1,15 @@
+@import '../../../globalStyles/colors';
+@import '../../../globalStyles/fonts';
+
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: color(homepage, penguin-black, 2);
+	@include bodyFont();
+
+	&__logo {
+		width: 50%;
+		margin: 10px 20px;
+	}
+}
