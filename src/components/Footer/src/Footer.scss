@@ -2,16 +2,23 @@
 @import '../../../globalStyles/bootstrap';
 @import '../../../globalStyles/colors';
 @import '../../../globalStyles/fonts';
+@import '../../../globalStyles/global.scss';
 
 .footer {
-	text-align: center;
+	width: 100%;
 	background-color: color(homepage, penguin-black, 2);
-	@include bodyFont();
-	padding: 10px 0;
+	position: fixed;
+	bottom: 0;
 
-	.row {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+	.app-content-container {
+		text-align: center;
+		@include bodyFont();
+		padding: 1rem 0;
+
+		.row {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
 	}
 }
