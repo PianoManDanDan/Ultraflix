@@ -1,0 +1,28 @@
+// $bootstrap-sass-asset-helper: false !default;
+//
+// Variables
+// --------------------------------------------------
+
+// Small screen / tablet
+//** Deprecated `$screen-sm` as of v3.0.1
+$screen-sm: breakpoint(small, min); // 768px !default;
+$screen-sm-min: $screen-sm !default;
+
+// Medium screen / desktop
+//** Deprecated `$screen-md` as of v3.0.1
+$screen-md: breakpoint(medium, min); // 992px !default;
+$screen-md-min: $screen-md !default;
+
+// Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-lg: breakpoint(large, min); // 1200px !default;
+$screen-lg-min: $screen-lg !default;
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+//** Number of columns in the grid.
+$grid-columns: 12 !default;
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width: 20px; //30px !default;

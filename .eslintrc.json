@@ -123,17 +123,10 @@
 	},
 	"overrides": [
 		{
-			"files": ["*.test.{ts,tsx}"],
+			"files": ["*.test.ts","*.test.tsx"],
 			"rules": {
 			  "no-non-null-assertion": 0,
 			  "@typescript-eslint/no-non-null-assertion": 0
-			}
-		},
-		{
-			"files": ["*.{stories,story}.{ts,tsx}"],
-			"rules": {
-				"import/no-extraneous-dependencies": 0,
-				"import/no-default-export": 0
 			}
 		}
 	]
