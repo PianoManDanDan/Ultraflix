@@ -1,15 +1,16 @@
 import React from 'react';
+import { text } from '@storybook/addon-knobs';
 import { Footer } from '../../src';
 
 const logo = require('../assets/logo.png');
 
 export const FooterStory = () => (
 	<Footer
-		copyrightText="Test Copyright"
+		copyrightText={text('Copywrite Text', '© Copyright 2020 Ultraflix Media')}
 		logo={{
 			url: logo,
 			description: 'Logo Description',
 		}}
-		companyText="Test Company"
+		companyText={text('Company Text', 'A Penguin Huddle Company')}
 	/>
 );
