@@ -1,11 +1,12 @@
 import React from 'react';
+import './HomePage.scss';
 
-// Delete me
-export const HomePage = () => {
+export const HomePage: React.FC<{}> = () => {
 	return (
-		<>
-			<div>Ultraflix Homepage</div>
-		// want the header and the footer on the page
-		</>
+		<div >
+			<header className='test'>
+				Ultraflix Home Page
+			</header>
+		</div>
 	);
 };
