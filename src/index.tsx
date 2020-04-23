@@ -8,8 +8,8 @@ import {
 	ContentfulProvider,
 	ContentfulClientInterface,
 } from 'react-contentful';
-import { App } from './App';
 import * as serviceWorker from './serviceWorker';
+import { HomePage } from './pages';
 
 const contentfulClient: ContentfulClientInterface = ContentfulClient({
 	accessToken: 'im2Om8TMefwnoIwcZsknuuh3mKseOiNucWFLwjsJKYg',
@@ -19,7 +19,7 @@ const contentfulClient: ContentfulClientInterface = ContentfulClient({
 ReactDOM.render(
 	<React.StrictMode>
 		<ContentfulProvider client={contentfulClient}>
-			<App />
+			<HomePage />
 		</ContentfulProvider>
 	</React.StrictMode>,
 	document.getElementById('root')
