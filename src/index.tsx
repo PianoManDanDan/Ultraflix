@@ -9,7 +9,7 @@ import {
 	ContentfulClientInterface,
 } from 'react-contentful';
 import * as serviceWorker from './serviceWorker';
-import { HomePage } from './components/homePage/src';
+import { HomePage } from './pages';
 
 const contentfulClient: ContentfulClientInterface = ContentfulClient({
 	accessToken: 'im2Om8TMefwnoIwcZsknuuh3mKseOiNucWFLwjsJKYg',

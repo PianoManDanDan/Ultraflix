@@ -3,10 +3,8 @@ import './HomePage.scss';
 
 export const HomePage: React.FC<{}> = () => {
 	return (
-		<div >
-			<header className='test'>
-				Ultraflix Home Page
-			</header>
+		<div>
+			<header className="test">Ultraflix Home Page</header>
 		</div>
 	);
 };
