@@ -1,15 +1,16 @@
+@import '../../../globalStyles/bootstrap';
 @import '../../../globalStyles/colors';
 @import '../../../globalStyles/fonts';
 
 .footer {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	text-align: center;
 	background-color: color(homepage, penguin-black, 2);
 	@include bodyFont();
+	padding: 10px 0;
 
-	&__logo {
-		width: 50%;
-		margin: 10px 20px;
+	.row {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 }
