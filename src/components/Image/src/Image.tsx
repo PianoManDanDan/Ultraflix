@@ -10,5 +10,7 @@ export const Image: React.FC<ImageProps> = (logo) => {
 		return null;
 	}
 
-	return <img src={logo.url} alt={logo.description} />;
+	return (
+		<img className="row col-xs-12" src={logo.url} alt={logo.description} />
+	);
 };
