@@ -2,27 +2,22 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { Footer, FooterProps } from '../src';
-import { ContentfulImage } from '../../../types';
+import { ImageProps } from '../../Image/src';
 
 describe('Footer Component', () => {
 	let footerContent: Partial<FooterProps>;
-	let logo: Partial<ContentfulImage>;
+	let logo: ImageProps;
 
 	beforeEach(() => {
-		logo = {
-			url: 'logo_url',
-			description: 'Logo Description',
-		};
-
 		footerContent = {
 			copyrightText: 'Test copyright text',
-			logo: logo as ContentfulImage,
+			logo,
 			companyText: 'Test company text',
 		};
 	});
 
 	describe('When copyrightText is undefined', () => {
-		it('Returns null', () => {
+		it('Renders component without copyrightText', () => {
 			// Arrange
 			footerContent.copyrightText = undefined;
 
@@ -32,59 +27,13 @@ describe('Footer Component', () => {
 			);
 
 			// Assert
-			expect(container).toBeEmpty();
-		});
-	});
-
-	describe('When logo is undefined', () => {
-		it('Returns null', () => {
-			// Arrange
-			footerContent.logo = undefined;
-
-			// Act
-			const { container } = render(
-				<Footer {...(footerContent as FooterProps)} />
-			);
-
-			// Assert
-			expect(container).toBeEmpty();
-		});
-	});
-
-	describe('When logo.url is undefined', () => {
-		it('Returns null', () => {
-			// Arrange
-			logo.url = undefined;
-			footerContent.logo = logo as ContentfulImage;
-
-			// Act
-			const { container } = render(
-				<Footer {...(footerContent as FooterProps)} />
-			);
-
-			// Assert
-			expect(container).toBeEmpty();
-		});
-	});
-
-	describe('When logo.description is undefined', () => {
-		it('Returns null', () => {
-			// Arrange
-			logo.description = undefined;
-			footerContent.logo = logo as ContentfulImage;
-
-			// Act
-			const { container } = render(
-				<Footer {...(footerContent as FooterProps)} />
-			);
-
-			// Assert
-			expect(container).toBeEmpty();
+			expect(container).not.toHaveTextContent(footerContent.copyrightText!);
+			expect(container).toHaveTextContent(footerContent.companyText!);
 		});
 	});
 
 	describe('When companyText is undefined', () => {
-		it('Returns null', () => {
+		it('Renders component without companyText', () => {
 			// Arrange
 			footerContent.companyText = undefined;
 
@@ -94,12 +43,13 @@ describe('Footer Component', () => {
 			);
 
 			// Assert
-			expect(container).toBeEmpty();
+			expect(container).toHaveTextContent(footerContent.copyrightText!);
+			expect(container).not.toHaveTextContent(footerContent.companyText!);
 		});
 	});
 
 	describe('When all content is defined', () => {
-		it('Returns null', () => {
+		it('Renders component with all content', () => {
 			// Act
 			const { container } = render(
 				<Footer {...(footerContent as FooterProps)} />
