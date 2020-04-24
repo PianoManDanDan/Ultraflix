@@ -54,7 +54,8 @@ describe('Footer Component', () => {
 	describe('When logo.url is undefined', () => {
 		it('Returns null', () => {
 			// Arrange
-			footerContent.logo!.url = (undefined as unknown) as string;
+			logo.url = undefined;
+			footerContent.logo = logo as ContentfulImage;
 
 			// Act
 			const { container } = render(
@@ -69,7 +70,8 @@ describe('Footer Component', () => {
 	describe('When logo.description is undefined', () => {
 		it('Returns null', () => {
 			// Arrange
-			footerContent.logo!.description = (undefined as unknown) as string;
+			logo.description = undefined;
+			footerContent.logo = logo as ContentfulImage;
 
 			// Act
 			const { container } = render(
