@@ -6,3 +6,10 @@
 	font-size: 50px;
 	font-weight: 60;
 }
+
+@mixin bodyFont {
+	font-family: 'Lexend Giga';
+	font-size: 12px;
+	font-weight: 60;
+	color: white;
+}
