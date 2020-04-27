@@ -53,7 +53,7 @@
 	"scripts": {
 		"start": "react-scripts start",
 		"start:webpack": "webpack-dev-server --open --hot --config webpack.dev.js",
-		"storybook": "start-storybook -p 6006",
+		"storybook": "start-storybook -p 6006 -s ./.storybook/assets",
 		"build": "react-scripts build",
 		"build:webpack": "webpack --config webpack.prod.js",
 		"build:webpack-dev": "webpack --config webpack.dev.js",
