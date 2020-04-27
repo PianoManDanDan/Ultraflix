@@ -16,11 +16,9 @@ export const Footer: React.FC<FooterProps> = ({
 	<div className="footer">
 		<div className="app-content-container">
 			<div className="row">
-				<div className="col-xs-2">{copyrightText}</div>
-				<div className="col-xs-6">
-					<Image {...logo} />
-				</div>
-				<div className="col-xs-2">{companyText}</div>
+				<div className="footer__text col-xs-4">{copyrightText}</div>
+				<Image className="col-xs-4" {...logo} />
+				<div className="footer__text col-xs-4">{companyText}</div>
 			</div>
 		</div>
 	</div>
