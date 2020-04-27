@@ -33,7 +33,7 @@ export const HomePage: React.FC<{}> = () => {
 
 	if (
 		headerContent.loading ||
-		headerContent.fetched ||
+		!headerContent.fetched ||
 		!headerContent.data ||
 		footerContent.loading ||
 		!footerContent.fetched ||
@@ -44,6 +44,11 @@ export const HomePage: React.FC<{}> = () => {
 
 	if (footerContent.error) {
 		console.error(footerContent.error);
+		return null;
+	}
+
+	if (headerContent.error) {
+		console.error(headerContent.error);
 		return null;
 	}
 
