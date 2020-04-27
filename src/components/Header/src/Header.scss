@@ -13,9 +13,7 @@
 	background-color: color(homepage, penguin-black, 2);
 
 	&__logo {
-		display: flex;
-		width: 20%;
-		min-width: 20rem;
-		padding: 1.4rem 2rem;
+		height: 6rem;
+		padding: 1.5rem 2rem;
 	}
 }

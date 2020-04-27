@@ -12,11 +12,9 @@ export const Header: React.FC<HeaderProps> = ({ logo }) => {
 	}
 	return (
 		<header className="header">
-			<div className="header__logo">
-				<a className="header__logo-link" href="/">
-					<Image {...logo} />
-				</a>
-			</div>
+			<a className="header__logo-link" href="/">
+				<Image className="header__logo" {...logo} />
+			</a>
 		</header>
 	);
 };
