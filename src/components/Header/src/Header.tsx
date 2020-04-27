@@ -1,9 +1,9 @@
 import React from 'react';
 import './Header.scss';
-import { ContentfulImage } from '../../../types';
+import { Image, ImageProps } from '../../Image/src';
 
 export type HeaderProps = {
-	logo: ContentfulImage;
+	logo: ImageProps;
 };
 
 export const Header: React.FC<HeaderProps> = ({ logo }) => {
@@ -12,9 +12,11 @@ export const Header: React.FC<HeaderProps> = ({ logo }) => {
 	}
 	return (
 		<header className="header">
-			<a className="header__logo-link" href="/">
-				<img className="header__logo" src={logo.url} alt={logo.description} />
-			</a>
+			<div className="header__logo">
+				<a className="header__logo-link" href="/">
+					<Image {...logo} />
+				</a>
+			</div>
 		</header>
 	);
 };
