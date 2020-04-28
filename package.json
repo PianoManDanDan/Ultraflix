@@ -16,8 +16,7 @@
 		"react": "^16.13.1",
 		"react-app-polyfill": "^1.0.6",
 		"react-contentful": "^2.0.7",
-		"react-dom": "^16.13.1",
-		"react-scripts": "3.4.1"
+		"react-dom": "^16.13.1"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.9.0",
@@ -62,7 +61,6 @@
 		"test": "jest -i",
 		"test:watch": "jest --watch",
 		"test:ci": "jest --ci --reporters=default --reporters=jest-junit",
-		"eject": "react-scripts eject",
 		"lint": "eslint ./**",
 		"lint:fix": "eslint --fix ./**",
 		"eslint": "eslint"
