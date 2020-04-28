@@ -1,0 +1,19 @@
+@import '../../../globalStyles/global.scss';
+
+@mixin stick {
+	position: -webkit-sticky;
+	position: sticky;
+}
+
+.header {
+	@include stick;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: color(homepage, penguin-black, 2);
+
+	&__logo {
+		height: 6rem;
+		padding: 1.5rem 2rem;
+	}
+}
