@@ -53,8 +53,9 @@ export const HomePage: React.FC<{}> = () => {
 	}
 
 	return (
-		<div>
+		<div className="app-page-container">
 			<Header {...getHeaderContent(headerContent)} />
+			<div className="app-page-content-container" />
 			<Footer {...getFooterContent(footerContent)} />
 		</div>
 	);
