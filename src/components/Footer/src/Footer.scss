@@ -2,7 +2,7 @@
 @import '../../../globalStyles/bootstrap';
 @import '../../../globalStyles/colors';
 @import '../../../globalStyles/fonts';
-@import '../../../globalStyles/global.scss';
+@import '../../../globalStyles/sizes';
 
 .footer {
 	width: 100%;
@@ -12,6 +12,26 @@
 
 	&__text {
 		padding: 0 8%;
+
+		@include mediaQueryFor(small, max) {
+			padding: 0.5rem 0;
+		}
+	}
+
+	&__copyright-text {
+		@include mediaQueryFor(small, max) {
+			font-size: 0.8rem;
+		}
+	}
+
+	&__logo {
+		img {
+			width: 100%;
+
+			@include mediaQueryFor(small, max) {
+				width: 30rem;
+			}
+		}
 	}
 
 	.app-content-container {
@@ -21,8 +41,13 @@
 
 		.row {
 			display: flex;
-			justify-content: center;
 			align-items: center;
+
+			@include mediaQueryFor(small, max) {
+				flex-direction: column;
+				:nth-child(1) {order: 3;}
+				padding: 0.5rem 0;
+			}
 		}
 	}
 }
