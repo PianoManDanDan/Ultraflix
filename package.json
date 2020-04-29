@@ -16,8 +16,7 @@
 		"react": "^16.13.1",
 		"react-app-polyfill": "^1.0.6",
 		"react-contentful": "^2.0.7",
-		"react-dom": "^16.13.1",
-		"react-scripts": "^3.4.1"
+		"react-dom": "^16.13.1"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.9.0",
@@ -47,6 +46,7 @@
 		"jest-extended": "^0.11.5",
 		"jest-junit": "^10.0.0",
 		"prettier": "^2.0.2",
+		"react-scripts": "^3.4.1",
 		"sass-loader": "^8.0.2",
 		"source-map-loader": "^0.2.4",
 		"style-loader": "^1.2.0",
