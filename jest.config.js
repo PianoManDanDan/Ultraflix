@@ -9,13 +9,14 @@ module.exports = {
 	// The test environment that will be used for testing
 	testEnvironment: 'jsdom',
 	// The glob patterns Jest uses to detect test files
+	testPathIgnorePatterns: ['/node_modules/', '/templates/'],
 	testMatch: [
 		'**/__tests__/!(data)/*.+(ts|tsx|js)',
 		'**/?(*.)+(spec|test).+(ts|tsx|js)',
 	],
 	// A map from regular expressions to paths to transformers
 	transform: {
-		'^.+\\.(js|ts|tsx)$': '<rootDir>/__jest__/babel-jest-transformer.js',
+		'^.+\\.(js|ts|tsx)$': '<rootDir>/configs/babel-jest-transformer.js',
 		// "\\.svg$":
 	},
 	collectCoverageFrom: [
