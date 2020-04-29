@@ -2,8 +2,13 @@
 @import 'colors';
 @import 'fonts';
 @import 'sizes';
-@import '_bootstrap';
+@import 'bootstrap';
 
 html {
 	font-size: 10px;
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
 }
