@@ -45,7 +45,6 @@
 		"jest-junit": "^10.0.0",
 		"prettier": "^2.0.2",
 		"source-map-loader": "^0.2.4",
-		"style-loader": "^1.2.1",
 		"svg-url-loader": "^5.0.0",
 		"ts-loader": "^6.2.2",
 		"typescript": "^3.8.3",
@@ -54,10 +53,11 @@
 		"webpack-merge": "^4.2.2"
 	},
 	"scripts": {
-		"start": "webpack-dev-server --open --hot --config webpack.dev.js",
+		"start": "webpack-dev-server --open --hot --config configs/webpack.dev.js",
+		"start:prod": "webpack-dev-server --open --hot --config configs/webpack.prod.js",
 		"storybook": "start-storybook -p 6006 -s ./.storybook/assets",
-		"build": "webpack --config webpack.dev.js",
-		"build:prod": "webpack --config webpack.prod.js",
+		"build": "webpack --config configs/webpack.dev.js",
+		"build:prod": "webpack --config configs/webpack.prod.js",
 		"test": "jest -i",
 		"test:watch": "jest --watch",
 		"test:ci": "jest --ci --reporters=default --reporters=jest-junit",

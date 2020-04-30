@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: {
@@ -11,7 +12,19 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'ultraflix.[name].bundle.js',
 	},
-	plugins: [new CleanWebpackPlugin()],
+	plugins: [
+		new CleanWebpackPlugin(),
+		new HtmlWebpackPlugin({
+			title: 'Ultraflix',
+			favicon: './public/favicon.ico',
+			showErrors: false,
+			template: './configs/webpackTemplate.index.ejs',
+			meta: {
+				viewport: 'width=device-width, initial-scale=1.0',
+				robots: 'noindex,nofollow',
+			},
+		}),
+	],
 
 	resolve: {
 		extensions: ['.ts', '.tsx', '.js', '.jsx'],
