@@ -43,6 +43,7 @@
 		"jest": "^25.4.0",
 		"jest-extended": "^0.11.5",
 		"jest-junit": "^10.0.0",
+		"plop": "^2.6.0",
 		"prettier": "^2.0.2",
 		"source-map-loader": "^0.2.4",
 		"style-loader": "^1.2.1",
@@ -63,7 +64,8 @@
 		"test:ci": "jest --ci --reporters=default --reporters=jest-junit",
 		"lint": "eslint ./**",
 		"lint:fix": "eslint --fix ./**",
-		"eslint": "eslint"
+		"eslint": "eslint",
+		"generate": "plop"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
