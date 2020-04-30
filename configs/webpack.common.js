@@ -9,7 +9,7 @@ module.exports = {
 		app: './src/index.tsx',
 	},
 	output: {
-		path: path.resolve(__dirname, 'dist'),
+		path: path.resolve(__dirname, '../dist'),
 		filename: 'ultraflix.[name].bundle.js',
 	},
 	plugins: [
