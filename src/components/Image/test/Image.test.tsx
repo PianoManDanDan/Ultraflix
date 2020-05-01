@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { Image, ImageProps } from '../src';
+import { Image } from '../src';
+import { ImageProps } from '../src/types';
 
 describe('Image Component', () => {
 	let logo: Partial<ImageProps>;
