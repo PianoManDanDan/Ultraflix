@@ -16,4 +16,4 @@ steps:
     npm ci
     npm run build
     npm run test
-  displayName: 'Install Dependencies and Build App'
+  displayName: 'Install Dependencies, Build App and Run Tests'
