@@ -1,0 +1,36 @@
+@import './sizes.scss';
+
+.app-content-container {
+    $contentMargin--xsmall: 10px;
+    $contentMargin--small: 20px;
+    $contentMargin--medium: 18px;
+    $contentWidth--max: 1180px;
+    margin: 0 $contentMargin--xsmall;
+    min-width: breakpoint(xsmall, min) - ($contentMargin--xsmall * 2);
+    @include mediaQueryFor(small) {
+        margin: 0 $contentMargin--small;
+    }
+    @include mediaQueryFor(medium) {
+        margin: 0 $contentMargin--medium;
+    }
+    @media (min-width: $contentWidth--max + ($contentMargin--medium * 2)) {
+        margin: 0 auto;
+        width: $contentWidth--max;
+    }
+    .app-narrow & {
+        @include mediaQueryFor(medium) {
+            margin: 0 auto;
+            width: breakpoint(medium, min) - ($contentMargin--medium * 2);
+        }
+    }
+}
+
+.app-page-container {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.app-page-content-container {
+	flex: 1 0 auto;
+}

@@ -1,0 +1,51 @@
+@import '../../../globalStyles/app';
+@import '../../../globalStyles/bootstrap';
+@import '../../../globalStyles/colors';
+@import '../../../globalStyles/fonts';
+@import '../../../globalStyles/sizes';
+
+.footer {
+	background-color: color(homepage, penguin-black, 2);
+
+	&__text {
+		padding: 0 8%;
+
+		@include mediaQueryFor(small, max) {
+			padding: 0.5rem 0;
+		}
+	}
+
+	&__copyright-text {
+		@include mediaQueryFor(small, max) {
+			font-size: 0.8rem;
+		}
+	}
+
+	&__logo {
+		img {
+			width: 100%;
+
+			@include mediaQueryFor(small, max) {
+				width: 30rem;
+			}
+		}
+	}
+
+	.app-content-container {
+		text-align: center;
+		@include bodyFont();
+
+		.row {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 8rem;
+
+			@include mediaQueryFor(small, max) {
+				flex-direction: column;
+				:nth-child(1) {order: 3;}
+				height: 13rem;
+			}
+		}
+	}
+}

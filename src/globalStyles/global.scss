@@ -1,0 +1,14 @@
+@import 'app';
+@import 'colors';
+@import 'fonts';
+@import 'sizes';
+@import 'bootstrap';
+
+html {
+	font-size: 10px;
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+}
