@@ -18,7 +18,7 @@ module.exports = {
 			title: 'Ultraflix',
 			favicon: './public/favicon.ico',
 			showErrors: false,
-			template: './configs/webpackTemplate.index.ejs',
+			template: './public/index.ejs',
 			meta: {
 				viewport: 'width=device-width, initial-scale=1.0',
 				robots: 'noindex,nofollow',
