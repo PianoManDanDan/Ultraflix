@@ -1,7 +1,9 @@
 import React from 'react';
 import { HookResponse, useContentful } from 'react-contentful';
-import { Header, HeaderProps } from '../components/Header/src';
-import { Footer, FooterProps } from '../components/Footer/src';
+import { Header } from '../components/Header/src';
+import { HeaderProps } from '../components/Header/src/types';
+import { Footer } from '../components/Footer/src';
+import { FooterProps } from '../components/Footer/src/types';
 
 const getHeaderContent = (headerContent): HeaderProps => {
 	return {
