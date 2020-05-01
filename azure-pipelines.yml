@@ -15,4 +15,5 @@ steps:
 - script: |
     npm ci
     npm run build
+    npm run test
   displayName: 'Install Dependencies and Build App'
