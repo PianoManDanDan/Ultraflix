@@ -1,12 +1,7 @@
 import React from 'react';
-import { Image, ImageProps } from '../../Image/src';
+import { Image } from '../../Image/src';
+import { FooterProps } from './types';
 import './Footer.scss';
-
-export type FooterProps = {
-	copyrightText: string;
-	logo: ImageProps;
-	companyText: string;
-};
 
 export const Footer: React.FC<FooterProps> = ({
 	copyrightText,
