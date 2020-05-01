@@ -19,33 +19,74 @@ module.exports = plop => {
 				// Path for the new file
 				path: 'src/components/{{pascalCase name}}/src/{{pascalCase name}}.ts',
 				// Handlebars template used to generate content of new file
-				templateFile: 'plop-templates/Component/Component.ts.hbs',
-			},
-			{
-				type: 'add',
-				path: 'src/components/{{pascalCase name}}/test/{{pascalCase name}}.test.tsx',
-				templateFile:
-					'plop-templates/Component/Component.test.tsx.hbs',
+				templateFile: 'plop-templates/Component/src/Component.ts.hbs',
 			},
 			{
 				type: 'add',
 				path:
 					'src/components/{{pascalCase name}}/src/{{pascalCase name}}.scss',
 				templateFile:
-					'plop-templates/Component/Component.scss.hbs',
+					'plop-templates/Component/src/Component.scss.hbs',
 			},
 			{
 				type: 'add',
 				path: 'src/components/{{pascalCase name}}/src/index.ts',
-				templateFile: 'plop-templates/Component/index.ts.hbs',
+				templateFile: 'plop-templates/Component/src/index.ts.hbs',
+			},
+			{
+				type: 'add',
+				path: 'src/components/{{pascalCase name}}/test/{{pascalCase name}}.test.tsx',
+				templateFile:
+					'plop-templates/Component/test/Component.test.tsx.hbs',
 			},
 			{
 				type: 'add',
 				path:
 					'src/components/{{pascalCase name}}/stories/{{pascalCase name}}.stories.tsx',
 				templateFile:
-					'plop-templates/Component/Component.stories.tsx.hbs',
+					'plop-templates/Component/stories/Component.stories.tsx.hbs',
 			},
+			{
+				type: 'add',
+				path:
+					'src/components/{{pascalCase name}}/stories/story/{{pascalCase name}}.story.tsx',
+				templateFile:
+					'plop-templates/Component/stories/Component.stories.tsx.hbs',
+			},
+			{
+				type: 'add',
+				path: 'src/components/{{pascalCase name}}/src/subcomponents/ExampleSubcomponent.ts',
+				templateFile:
+					'plop-templates/Component/src/subcomponents/ExampleSubcomponent.ts.hbs',
+			},
+			{
+				type: 'add',
+				path: 'src/components/{{pascalCase name}}/src/subcomponents/index.ts',
+				templateFile: 'plop-templates/Component/src/subcomponents/indexForSubcomponents.ts.hbs',
+			},
+			{
+				type: 'add',
+				path: 'src/components/{{pascalCase name}}/src/types/ExampleType.ts',
+				templateFile:
+					'plop-templates/Component/src/types/Type.ts.hbs',
+			},
+			{
+				type: 'add',
+				path: 'src/components/{{pascalCase name}}/src/types/index.ts',
+				templateFile: 'plop-templates/Component/src/types/indexForTypes.ts.hbs',
+			},
+			{
+				type: 'add',
+				path: 'src/components/{{pascalCase name}}/src/utils/ExampleUtil.ts',
+				templateFile:
+					'plop-templates/Component/src/utils/ExampleUtil.ts.hbs',
+			},
+			{
+				type: 'add',
+				path: 'src/components/{{pascalCase name}}/src/utils/index.ts',
+				templateFile:
+					'plop-templates/Component/src/utils/indexForUtils.ts.hbs',
+			}
 		],
 	});
 };
