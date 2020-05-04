@@ -17,9 +17,9 @@ module.exports = plop => {
 				// Add a new file
 				type: 'add',
 				// Path for the new file
-				path: 'src/components/{{pascalCase name}}/src/{{pascalCase name}}.ts',
+				path: 'src/components/{{pascalCase name}}/src/{{pascalCase name}}.tsx',
 				// Handlebars template used to generate content of new file
-				templateFile: 'plop-templates/Component/src/Component.ts.hbs',
+				templateFile: 'plop-templates/Component/src/Component.tsx.hbs',
 			},
 			{
 				type: 'add',
@@ -55,9 +55,9 @@ module.exports = plop => {
 			},
 			{
 				type: 'add',
-				path: 'src/components/{{pascalCase name}}/src/subcomponents/ExampleSubcomponent.ts',
+				path: 'src/components/{{pascalCase name}}/src/subcomponents/ExampleSubcomponent.tsx',
 				templateFile:
-					'plop-templates/Component/src/subcomponents/ExampleSubcomponent.ts.hbs',
+					'plop-templates/Component/src/subcomponents/ExampleSubcomponent.tsx.hbs',
 			},
 			{
 				type: 'add',
@@ -66,9 +66,9 @@ module.exports = plop => {
 			},
 			{
 				type: 'add',
-				path: 'src/components/{{pascalCase name}}/src/types/ExampleType.ts',
+				path: 'src/components/{{pascalCase name}}/src/types/ExampleType.tsx',
 				templateFile:
-					'plop-templates/Component/src/types/Type.ts.hbs',
+					'plop-templates/Component/src/types/Type.tsx.hbs',
 			},
 			{
 				type: 'add',
@@ -77,9 +77,9 @@ module.exports = plop => {
 			},
 			{
 				type: 'add',
-				path: 'src/components/{{pascalCase name}}/src/utils/ExampleUtil.ts',
+				path: 'src/components/{{pascalCase name}}/src/utils/ExampleUtil.tsx',
 				templateFile:
-					'plop-templates/Component/src/utils/ExampleUtil.ts.hbs',
+					'plop-templates/Component/src/utils/ExampleUtil.tsx.hbs',
 			},
 			{
 				type: 'add',
