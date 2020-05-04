@@ -1,8 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { Header, HeaderProps } from '../src';
-import { ImageProps } from '../../Image/src';
+import { Header } from '../src';
+import { HeaderProps } from '../src/types';
+import { ImageProps } from '../../Image/src/types';
 
 describe('Header Component', () => {
 	let headerContent: Partial<HeaderProps>;

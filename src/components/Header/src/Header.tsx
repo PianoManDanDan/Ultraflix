@@ -1,10 +1,7 @@
 import React from 'react';
+import { Image } from '../../Image/src';
+import { HeaderProps } from './types';
 import './Header.scss';
-import { Image, ImageProps } from '../../Image/src';
-
-export type HeaderProps = {
-	logo: ImageProps;
-};
 
 export const Header: React.FC<HeaderProps> = ({ logo }) => {
 	if (!logo) {

@@ -1,10 +1,5 @@
 import React from 'react';
-
-export type ImageProps = {
-	className?: string;
-	url: string;
-	description?: string;
-};
+import { ImageProps } from './types';
 
 export const Image: React.FC<ImageProps> = (image) => {
 	if (!image || !image.url) {
