@@ -1,0 +1,20 @@
+
+.movie-slide {
+	.app-content-container {
+		text-align: center;
+		@include bodyFont();
+
+		.row {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 8rem;
+
+			@include mediaQueryFor(small, max) {
+				flex-direction: column;
+				:nth-child(1) {order: 3;}
+				height: 13rem;
+			}
+		}
+	}
+}
