@@ -1,8 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { Footer, FooterProps } from '../src';
-import { ImageProps } from '../../Image/src';
+import { Footer } from '../src';
+import { FooterProps } from '../src/types';
+import { ImageProps } from '../../Image/src/types';
 
 describe('Footer Component', () => {
 	let footerContent: Partial<FooterProps>;

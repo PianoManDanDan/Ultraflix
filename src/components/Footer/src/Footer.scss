@@ -2,23 +2,50 @@
 @import '../../../globalStyles/bootstrap';
 @import '../../../globalStyles/colors';
 @import '../../../globalStyles/fonts';
-@import '../../../globalStyles/global.scss';
+@import '../../../globalStyles/sizes';
 
 .footer {
-	width: 100%;
 	background-color: color(homepage, penguin-black, 2);
-	position: fixed;
-	bottom: 0;
+
+	&__text {
+		padding: 0 8%;
+
+		@include mediaQueryFor(small, max) {
+			padding: 0.5rem 0;
+		}
+	}
+
+	&__copyright-text {
+		@include mediaQueryFor(small, max) {
+			font-size: 0.8rem;
+		}
+	}
+
+	&__logo {
+		img {
+			width: 100%;
+
+			@include mediaQueryFor(small, max) {
+				width: 30rem;
+			}
+		}
+	}
 
 	.app-content-container {
 		text-align: center;
 		@include bodyFont();
-		padding: 1rem 0;
 
 		.row {
 			display: flex;
-			justify-content: center;
 			align-items: center;
+			justify-content: center;
+			height: 8rem;
+
+			@include mediaQueryFor(small, max) {
+				flex-direction: column;
+				:nth-child(1) {order: 3;}
+				height: 13rem;
+			}
 		}
 	}
 }

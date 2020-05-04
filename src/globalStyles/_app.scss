@@ -24,3 +24,13 @@
         }
     }
 }
+
+.app-page-container {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.app-page-content-container {
+	flex: 1 0 auto;
+}
