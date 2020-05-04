@@ -1,11 +1,14 @@
 @import 'app';
-@import 'colors';
-@import 'fonts';
-@import 'sizes';
 @import 'bootstrap';
+@import 'colors';
+
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.googleapis.com/css?family=Lexend+Giga');
 
 html {
 	font-size: 10px;
+	color: color(homepage, penguin-white, 1);
+	background-color: color(homepage, penguin-black, 1);
 }
 
 #root {
