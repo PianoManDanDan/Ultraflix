@@ -12,7 +12,7 @@ export const Story = () => (
 			url: '/movie_slide_image.jpg',
 			description: 'Movie Slide Image',
 		}}
-		title="Test"
+		title="Happy Feet Two"
 		runtime="2 HR 4 MIN"
 		ageRating="PG"
 		releaseYear="2020"

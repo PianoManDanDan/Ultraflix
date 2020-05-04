@@ -1,20 +1,32 @@
+@import '../../../../../../globalStyles/fonts';
 
 .movie-slide {
-	.app-content-container {
-		text-align: center;
-		@include bodyFont();
+	text-align: center;
+	@include bodyFont();
 
-		.row {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 8rem;
+	&__title {
+		padding: 1rem 0;
+		@include titleFont();
+	}
 
-			@include mediaQueryFor(small, max) {
-				flex-direction: column;
-				:nth-child(1) {order: 3;}
-				height: 13rem;
-			}
-		}
+	&__info {
+		padding-bottom: 5rem;
+	}
+
+	&__runtime {
+		padding-right: 1rem;
+		border-right: 1px solid white;
+	}
+
+	&__age-rating {
+		padding-left: 1rem;
+	}
+
+	&__release-year {
+		padding: 0.5rem 0
+	}
+
+	img {
+		width: 30rem;
 	}
 }

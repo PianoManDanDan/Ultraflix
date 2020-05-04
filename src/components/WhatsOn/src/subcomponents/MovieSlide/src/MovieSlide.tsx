@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { MovieSlideProps } from './types';
 import { Image } from '../../../../../Image/src';
+import './MovieSlide.scss';
 
 export const MovieSlide: React.FC<MovieSlideProps> = ({
 	image,
@@ -18,8 +19,8 @@ export const MovieSlide: React.FC<MovieSlideProps> = ({
 					<div>
 						<span className="movie-slide__runtime">{runtime}</span>
 						<span className="movie-slide__age-rating">{ageRating}</span>
-						<span className="movie-slide__release-year">{releaseYear}</span>
 					</div>
+					<div className="movie-slide__release-year">{releaseYear}</div>
 				</div>
 			</div>
 		</div>

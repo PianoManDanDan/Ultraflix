@@ -1,10 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
 @import url('https://fonts.googleapis.com/css?family=Lexend+Giga');
-@import url('https://fonts.googleapis.com/css?family=Poppins');
 
 @mixin titleFont {
-	font-family: 'Poppins';
-	font-size: 50px;
-	font-weight: 60;
+	font-family: 'Oswald';
+	font-size: 4rem;
+	font-weight: 600;
 }
 
 @mixin bodyFont {
