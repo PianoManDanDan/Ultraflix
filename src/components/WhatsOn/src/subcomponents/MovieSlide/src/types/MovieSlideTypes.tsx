@@ -4,8 +4,6 @@ export type MovieSlideProps = {
 	image: ImageProps;
 	title: string;
 	runtime: string;
-	ageRating: MovieRating;
+	ageRating: string;
 	releaseYear: string;
 };
-
-export type MovieRating = 'PG' | '12A' | '18';
