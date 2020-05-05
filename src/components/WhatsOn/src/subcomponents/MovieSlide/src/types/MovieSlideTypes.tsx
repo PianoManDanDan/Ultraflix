@@ -1,9 +1,9 @@
 import { ImageProps } from '../../../../../../Image/src/types';
 
 export type MovieSlideProps = {
-	image: ImageProps;
+	posterImage: ImageProps;
 	title: string;
 	runtime: string;
-	ageRating: string;
-	releaseYear: string;
+	certificate: string;
+	releaseYear: number;
 };
