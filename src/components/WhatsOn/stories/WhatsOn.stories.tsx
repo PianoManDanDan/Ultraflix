@@ -2,7 +2,7 @@ import React from 'react';
 import { WhatsOn } from '../src';
 
 export default {
-	title: 'Whats On',
+	title: 'WhatsOn',
 	component: WhatsOn,
 };
 
