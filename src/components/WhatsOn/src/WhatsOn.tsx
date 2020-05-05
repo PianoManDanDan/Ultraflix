@@ -1,5 +1,5 @@
 import React from 'react';
-import { SubThing } from './subcomponents/Carousel';
+import { SubThing } from './subcomponents/Carousel/src';
 
 export const WhatsOn: React.FC<{}> = () => {
 	return (
