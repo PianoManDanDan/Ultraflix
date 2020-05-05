@@ -1,1 +1,1 @@
-export * from './ExampleUtil';
+export * from './MovieSlidePropsMapper';
