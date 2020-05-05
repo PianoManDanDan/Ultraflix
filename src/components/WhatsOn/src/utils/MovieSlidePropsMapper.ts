@@ -13,10 +13,10 @@ const calculateRuntime = (contentfulTime: string): string => {
 export const MovieSlidePropsMapper = (contentfulMovies: any[]) => {
 	const mappedContent: MovieSlideProps[] = contentfulMovies.map((movie) => {
 		const mappedMovie: MovieSlideProps = {
-			image: ImagePropsMapper(movie['fields'].posterImage['fields']),
+			posterImage: ImagePropsMapper(movie['fields'].posterImage['fields']),
 			title: movie['fields'].title,
 			runtime: calculateRuntime(movie['fields'].runtime),
-			ageRating: movie['fields'].certificate,
+			certificate: movie['fields'].certificate,
 			releaseYear: movie['fields'].releaseYear,
 		};
 		return mappedMovie;
