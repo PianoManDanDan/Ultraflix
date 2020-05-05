@@ -1,8 +1,8 @@
 import React from 'react';
 import { useContentful, HookResponse } from 'react-contentful';
-import { MovieSlide } from './subcomponents/MovieSlide/src';
 import { MovieSlideProps } from './subcomponents/MovieSlide/src/types';
 import { MovieSlidePropsMapper } from './utils';
+import { Carousel } from './subcomponents/Carousel/src';
 // import { SubThing } from './subcomponents/Carousel';
 
 export const WhatsOn: React.FC<{}> = () => {
@@ -23,18 +23,14 @@ export const WhatsOn: React.FC<{}> = () => {
 		return null;
 	}
 
-	console.error(filmListContent);
-
 	const mappedContent: MovieSlideProps[] = MovieSlidePropsMapper(
 		filmListContent.data['fields'].movies
 	);
 
 	return (
 		<div>
-			<p>What&apos;s On in the cinema</p>
-			<MovieSlide {...mappedContent[0]} />
-			<MovieSlide {...mappedContent[1]} />
-			<MovieSlide {...mappedContent[2]} />
+			<p>{filmListContent.data['fields'].heading}</p>
+			<Carousel movieList={mappedContent} />
 		</div>
 	);
 };
