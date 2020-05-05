@@ -1,12 +1,11 @@
 import React from 'react';
 import { SubThing } from './subcomponents/Carousel';
 
-// Delete me
-export const Thing = () => {
+export const WhatsOn: React.FC<{}> = () => {
 	return (
-		<>
-			<div>the snozzberries taste like snozzberries</div>
+		<div>
+			<p>What&apos;s On in the cinema</p>
 			<SubThing />
-		</>
+		</div>
 	);
 };
