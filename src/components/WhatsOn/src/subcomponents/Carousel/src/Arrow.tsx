@@ -1,13 +1,17 @@
 import React from 'react';
-import { Image, ImageProps } from '../../../../../Image/src';
+import { Image } from '../../../../../Image/src';
+import { ImageProps } from '../../../../../Image/src/types/ImageTypes';
 
 export type ArrowProps = {
-	arrowImage: ImageProps;
+	arrowImage: ImageProps | null;
 	arrowClick: () => void;
 };
 
-export const Arrow: React.FC<ArrowProps> = ({ arrowImage, arrowClick }) => (
-	<div className="arrow" onClick={arrowClick}>
+export const Arrow: React.FC<ArrowProps> = ({ arrowImage, arrowClick }) => {
+	if (!arrowImage) {
+		return null;
+	}
+	return <div className="arrow" onClick={arrowClick}>
 		<Image {...arrowImage} />
 	</div>
-);
+};
