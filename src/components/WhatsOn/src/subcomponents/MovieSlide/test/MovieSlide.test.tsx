@@ -4,9 +4,15 @@ import '@testing-library/jest-dom/extend-expect';
 import { MovieSlide } from '../src';
 import { MovieSlideProps } from '../src/types';
 
-const test = ['posterImage', 'title', 'runtime', 'certificate', 'releaseYear'];
-
 describe('MovieSlide Component', () => {
+	const movieSlideKeys = [
+		'posterImage',
+		'title',
+		'runtime',
+		'certificate',
+		'releaseYear',
+	];
+
 	let movieSlideContent: Partial<MovieSlideProps>;
 
 	beforeEach(() => {
@@ -22,7 +28,7 @@ describe('MovieSlide Component', () => {
 		};
 	});
 
-	test.forEach((key) => {
+	movieSlideKeys.forEach((key) => {
 		describe(`When ${key} is undefined`, () => {
 			it('Returns null', () => {
 				// Arrange
