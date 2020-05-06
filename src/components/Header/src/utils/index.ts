@@ -1,1 +1,2 @@
-export * from './HeaderPropsMapper';
+export * from './ContentfulHeaderMapper';
+export * from './UseGetContentfulHeader';

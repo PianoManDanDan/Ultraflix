@@ -1,1 +1,2 @@
-export * from './FooterPropsMapper';
+export * from './ContentfulFooterMapper';
+export * from './UseGetContentfulFooter';

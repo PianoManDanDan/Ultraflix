@@ -1,1 +1,2 @@
-export * from './ImagePropsMapper';
+export * from './ContentfulImageMapper';
+export * from './UseGetContentfulImage';
