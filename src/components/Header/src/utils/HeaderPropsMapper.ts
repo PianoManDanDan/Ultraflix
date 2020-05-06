@@ -1,5 +1,5 @@
-import { imagePropsMapper } from '../../Image/src/utils';
-import { HeaderProps } from '../src/types';
+import { imagePropsMapper } from '../../../Image/src/utils';
+import { HeaderProps } from '../types';
 
 export const headerPropsMapper = (headerContent: any): HeaderProps => {
 	return {
