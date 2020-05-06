@@ -1,7 +1,7 @@
 import React from 'react';
 import { HookResponse, useContentful } from 'react-contentful';
 import { Header } from '../components/Header/src';
-import { headerPropsMapper } from '../components/Header/utils';
+import { headerPropsMapper } from '../components/Header/src/utils';
 import { Footer } from '../components/Footer/src';
 import { footerPropsMapper } from '../components/Footer/src/utils';
 

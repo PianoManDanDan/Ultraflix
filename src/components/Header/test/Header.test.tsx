@@ -16,7 +16,7 @@ describe('Header Component', () => {
 	});
 
 	describe('When all content is defined', () => {
-		it('Returns null', () => {
+		it('Renders component', () => {
 			// Act
 			const { container } = render(
 				<Header {...(headerContent as HeaderProps)} />
