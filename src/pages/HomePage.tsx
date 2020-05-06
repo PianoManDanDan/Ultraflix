@@ -1,9 +1,7 @@
 import React from 'react';
 import { HookResponse, useContentful } from 'react-contentful';
-import { Header } from '../components/Header/src';
-import { headerPropsMapper } from '../components/Header/utils';
-import { Footer } from '../components/Footer/src';
-import { footerPropsMapper } from '../components/Footer/src/utils';
+import { Header, headerPropsMapper } from '../components/Header/src';
+import { Footer, footerPropsMapper } from '../components/Footer/src';
 
 export const HomePage: React.FC<{}> = () => {
 	const headerContent: HookResponse = useContentful({
