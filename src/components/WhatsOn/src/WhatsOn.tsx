@@ -3,7 +3,6 @@ import { useContentful, HookResponse } from 'react-contentful';
 import { MovieSlideProps } from './subcomponents/MovieSlide/src/types';
 import { movieSlidePropsMapper } from './utils';
 import { Carousel } from './subcomponents/Carousel/src';
-// import { SubThing } from './subcomponents/Carousel';
 
 export const WhatsOn: React.FC<{}> = () => {
 	const filmListContent: HookResponse = useContentful({
