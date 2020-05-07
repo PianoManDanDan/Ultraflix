@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { Arrow } from './Arrow';
-import { MovieSlide } from '../../MovieSlide/src/MovieSlide';
-import { MovieSlideProps } from '../../MovieSlide/src/types';
+import { Arrow } from '.';
+import { MovieSlide, MovieSlideProps } from '../../MovieSlide/src';
 import { ImageProps } from '../../../../../Image/src';
 import './Carousel.scss';
 
