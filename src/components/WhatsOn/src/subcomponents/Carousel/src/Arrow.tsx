@@ -4,15 +4,14 @@ import { ImageProps } from '../../../../../Image/src/types/ImageTypes';
 
 export type ArrowProps = {
 	arrowImage: ImageProps;
-	arrowClick: () => void;
 };
 
-export const Arrow: React.FC<ArrowProps> = ({ arrowImage, arrowClick }) => {
+export const Arrow: React.FC<ArrowProps> = ({ arrowImage }) => {
 	if (!arrowImage) {
 		return null;
 	}
 	return (
-		<div className="arrow" onClick={arrowClick}>
+		<div className="arrow">
 			<Image {...arrowImage} />
 		</div>
 	);

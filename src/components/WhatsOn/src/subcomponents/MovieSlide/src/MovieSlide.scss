@@ -7,10 +7,11 @@
 	&__title {
 		padding: 1rem 0;
 		@include titleFont();
+		padding-bottom: 2rem;
 	}
 
 	&__info {
-		padding-bottom: 5rem;
+		height: 20rem;
 	}
 
 	&__runtime {
@@ -27,6 +28,6 @@
 	}
 
 	img {
-		width: 30rem;
+		width: 100%;
 	}
 }

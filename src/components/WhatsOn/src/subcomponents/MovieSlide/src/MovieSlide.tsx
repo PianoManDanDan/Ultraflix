@@ -16,16 +16,14 @@ export const MovieSlide: React.FC<MovieSlideProps> = ({
 
 	return (
 		<div className="movie-slide">
-			<div className="app-content-container">
-				<Image {...posterImage} />
-				<div className="movie-slide__info">
-					<div className="movie-slide__title">{title}</div>
-					<div>
-						<span className="movie-slide__runtime">{runtime}</span>
-						<span className="movie-slide__certificate">{certificate}</span>
-					</div>
-					<div className="movie-slide__release-year">{releaseYear}</div>
+			<Image {...posterImage} />
+			<div className="movie-slide__info">
+				<div className="movie-slide__title">{title}</div>
+				<div>
+					<span className="movie-slide__runtime">{runtime}</span>
+					<span className="movie-slide__certificate">{certificate}</span>
 				</div>
+				<div className="movie-slide__release-year">{releaseYear}</div>
 			</div>
 		</div>
 	);
