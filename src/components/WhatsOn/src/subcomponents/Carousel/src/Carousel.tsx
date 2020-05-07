@@ -73,13 +73,15 @@ export const Carousel: React.FC<CarouselProps> = ({ movieList }) => {
 					if (movie === movieList[selectedMovie]) {
 						return (
 							<div className="col col-xs-2">
-								<MovieSlide {...movie} />
+								<div className="carousel__selected-movie">
+									<MovieSlide {...movie} />
+								</div>
 							</div>
 						);
 					}
 					return (
 						<div key={movie.title} className="col col-xs-2">
-							<div className="unselected-movie">
+							<div className="carousel__unselected-movie">
 								<MovieSlide {...movie} />
 							</div>
 						</div>
