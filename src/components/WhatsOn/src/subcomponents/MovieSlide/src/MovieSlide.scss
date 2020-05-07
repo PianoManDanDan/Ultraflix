@@ -7,6 +7,7 @@
 	&__title {
 		padding: 1rem 0;
 		@include titleFont();
+		padding-bottom: 2rem;
 	}
 
 	&__info {
@@ -27,6 +28,6 @@
 	}
 
 	img {
-		width: 30rem;
+		width: 100%;
 	}
 }
