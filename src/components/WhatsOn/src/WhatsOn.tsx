@@ -1,6 +1,7 @@
 import React from 'react';
 import { Carousel } from './subcomponents/Carousel/src';
 import { useGetContentfulWhatsOn } from './utils';
+import './WhatsOn.scss';
 
 export const WhatsOn: React.FC<{}> = () => {
 	const contentfulFilmData = useGetContentfulWhatsOn('3eClse9t6aIwURH79xlUAK');
