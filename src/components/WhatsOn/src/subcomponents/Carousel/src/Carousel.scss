@@ -1,10 +1,16 @@
-.unselected-movie {
-	// some kind of faded effect for non selected movie?
-	padding: 10px;
-}
-
 .carousel {
+	.row {
+		display: flex;
+		justify-content: center;
+	}
+
 	.col {
+		box-sizing: border-box;
 		padding: 0 1rem;
+	}
+
+	.unselected-movie {
+		// some kind of faded effect for non selected movie?
+		padding: 10px;
 	}
 }

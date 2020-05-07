@@ -9,7 +9,7 @@ export type CarouselProps = {
 	movieList: MovieSlideProps[];
 };
 
-const getIndex = (index, listLength) => {
+const getIndexInList = (index, listLength) => {
 	if (index >= listLength) {
 		return index - listLength;
 	}
@@ -22,10 +22,13 @@ const getIndex = (index, listLength) => {
 export const Carousel: React.FC<CarouselProps> = ({ movieList }) => {
 	const [selectedMovie, setSelectedMovie] = useState(0);
 
-	const onLeftArrowClick = () =>
-		setSelectedMovie(getIndex(selectedMovie - 1, movieList.length));
-	const onRightArrowClick = () =>
-		setSelectedMovie(getIndex(selectedMovie + 1, movieList.length));
+	const incrementIndex = (indexIncrement) => {
+		const newIndex = getIndexInList(
+			selectedMovie + indexIncrement,
+			movieList.length
+		);
+		setSelectedMovie(newIndex);
+	};
 
 	// const leftChevron: ImageProps | null = useGetContentfulImage(
 	// 	'3X7T8xFIMkjRTOtQi1bd91'
@@ -35,64 +38,57 @@ export const Carousel: React.FC<CarouselProps> = ({ movieList }) => {
 	// );
 
 	const leftChevron: ImageProps = {
-		url: '',
+		url: '/left-chevron.svg',
 		description: 'Movie Slide Image',
 	};
 
-	const rightChevron = leftChevron;
+	const rightChevron: ImageProps = {
+		url: '/right-chevron.svg',
+		description: 'Movie Slide Image',
+	};
 
 	if (!leftChevron || !rightChevron) {
 		return null;
 	}
 
+	const getDisplayedMovies = (): MovieSlideProps[] => {
+		return [
+			movieList[getIndexInList(selectedMovie - 2, movieList.length)],
+			movieList[getIndexInList(selectedMovie - 1, movieList.length)],
+			movieList[getIndexInList(selectedMovie, movieList.length)],
+			movieList[getIndexInList(selectedMovie + 1, movieList.length)],
+			movieList[getIndexInList(selectedMovie + 2, movieList.length)],
+		];
+	};
+
 	return (
 		<div className="carousel">
 			<div className="row">
 				<div className="col col-xs-1">
-					<button type="button" onClick={() => onLeftArrowClick()}>
-						<Arrow
-							arrowImage={leftChevron}
-							arrowClick={() => onLeftArrowClick()}
-						/>
+					<button type="button" onClick={() => incrementIndex(-1)}>
+						<Arrow arrowImage={leftChevron} />
 					</button>
 				</div>
-				{movieList.map((movie, index) => {
-					if (index === selectedMovie) {
+				{getDisplayedMovies().map((movie) => {
+					if (movie === movieList[selectedMovie]) {
 						return (
 							<div className="col col-xs-2">
 								<MovieSlide {...movie} />
 							</div>
 						);
 					}
-					if (
-						index === getIndex(selectedMovie - 2, movieList.length) ||
-						index === getIndex(selectedMovie - 1, movieList.length) ||
-						index === getIndex(selectedMovie + 1, movieList.length) ||
-						index === getIndex(selectedMovie + 2, movieList.length)
-					) {
-						console.log('length');
-						console.log(movieList.length);
-						console.log('index');
-						console.log(selectedMovie);
-						console.log(getIndex(selectedMovie - 2, movieList.length));
-						console.log(getIndex(selectedMovie - 1, movieList.length));
-						console.log(getIndex(selectedMovie + 1, movieList.length));
-						console.log(getIndex(selectedMovie + 2, movieList.length));
-						return (
-							<div className="col col-xs-2">
-								<div className="unselected-movie">
-									<MovieSlide {...movie} />
-								</div>
+					return (
+						<div key={movie.title} className="col col-xs-2">
+							<div className="unselected-movie">
+								<MovieSlide {...movie} />
 							</div>
-						);
-					}
-					return null;
+						</div>
+					);
 				})}
 				<div className="col col-xs-1">
-					<Arrow
-						arrowImage={rightChevron}
-						arrowClick={() => onRightArrowClick()}
-					/>
+					<button type="button" onClick={() => incrementIndex(1)}>
+						<Arrow arrowImage={rightChevron} />
+					</button>
 				</div>
 			</div>
 		</div>
