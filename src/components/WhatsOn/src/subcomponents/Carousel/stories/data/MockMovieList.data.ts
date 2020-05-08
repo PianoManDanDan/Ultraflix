@@ -1,86 +1,84 @@
-import { CarouselProps } from '../../src';
+import { MovieSlideProps } from '../../../MovieSlide/src';
 
-export const mockMovieList: CarouselProps = {
-	movieList: [
-		{
-			posterImage: {
-				url: '/movie_slide_image.jpg',
-				description: 'Movie Slide Image',
-			},
-			title: 'Happy Feet One',
-			runtime: '2 HR 4 MIN',
-			certificate: 'PG',
-			releaseYear: 2020,
+export const mockMovieList: MovieSlideProps[] = [
+	{
+		posterImage: {
+			url: '/movie_slide_image.jpg',
+			description: 'Movie Slide Image',
 		},
-		{
-			posterImage: {
-				url: '/movie_slide_image.jpg',
-				description: 'Movie Slide Image',
-			},
-			title: 'Happy Feet Two',
-			runtime: '2 HR 4 MIN',
-			certificate: 'PG',
-			releaseYear: 2020,
+		title: 'Happy Feet One',
+		runtime: '2 HR 4 MIN',
+		certificate: 'PG',
+		releaseYear: 2020,
+	},
+	{
+		posterImage: {
+			url: '/movie_slide_image.jpg',
+			description: 'Movie Slide Image',
 		},
-		{
-			posterImage: {
-				url: '/movie_slide_image.jpg',
-				description: 'Movie Slide Image',
-			},
-			title: 'Happy Feet Three',
-			runtime: '2 HR 4 MIN',
-			certificate: 'PG',
-			releaseYear: 2020,
+		title: 'Happy Feet Two',
+		runtime: '2 HR 4 MIN',
+		certificate: 'PG',
+		releaseYear: 2020,
+	},
+	{
+		posterImage: {
+			url: '/movie_slide_image.jpg',
+			description: 'Movie Slide Image',
 		},
-		{
-			posterImage: {
-				url: '/movie_slide_image.jpg',
-				description: 'Movie Slide Image',
-			},
-			title: 'Happy Feet Four',
-			runtime: '2 HR 4 MIN',
-			certificate: 'PG',
-			releaseYear: 2020,
+		title: 'Happy Feet Three',
+		runtime: '2 HR 4 MIN',
+		certificate: 'PG',
+		releaseYear: 2020,
+	},
+	{
+		posterImage: {
+			url: '/movie_slide_image.jpg',
+			description: 'Movie Slide Image',
 		},
-		{
-			posterImage: {
-				url: '/movie_slide_image.jpg',
-				description: 'Movie Slide Image',
-			},
-			title: 'Happy Feet Five',
-			runtime: '2 HR 4 MIN',
-			certificate: 'PG',
-			releaseYear: 2020,
+		title: 'Happy Feet Four',
+		runtime: '2 HR 4 MIN',
+		certificate: 'PG',
+		releaseYear: 2020,
+	},
+	{
+		posterImage: {
+			url: '/movie_slide_image.jpg',
+			description: 'Movie Slide Image',
 		},
-		{
-			posterImage: {
-				url: '/movie_slide_image.jpg',
-				description: 'Movie Slide Image',
-			},
-			title: 'Happy Feet Six',
-			runtime: '2 HR 4 MIN',
-			certificate: 'PG',
-			releaseYear: 2020,
+		title: 'Happy Feet Five',
+		runtime: '2 HR 4 MIN',
+		certificate: 'PG',
+		releaseYear: 2020,
+	},
+	{
+		posterImage: {
+			url: '/movie_slide_image.jpg',
+			description: 'Movie Slide Image',
 		},
-		{
-			posterImage: {
-				url: '/movie_slide_image.jpg',
-				description: 'Movie Slide Image',
-			},
-			title: 'Happy Feet Seven',
-			runtime: '2 HR 4 MIN',
-			certificate: 'PG',
-			releaseYear: 2020,
+		title: 'Happy Feet Six',
+		runtime: '2 HR 4 MIN',
+		certificate: 'PG',
+		releaseYear: 2020,
+	},
+	{
+		posterImage: {
+			url: '/movie_slide_image.jpg',
+			description: 'Movie Slide Image',
 		},
-		{
-			posterImage: {
-				url: '/movie_slide_image.jpg',
-				description: 'Movie Slide Image',
-			},
-			title: 'Happy Feet Eight',
-			runtime: '2 HR 4 MIN',
-			certificate: 'PG',
-			releaseYear: 2020,
+		title: 'Happy Feet Seven',
+		runtime: '2 HR 4 MIN',
+		certificate: 'PG',
+		releaseYear: 2020,
+	},
+	{
+		posterImage: {
+			url: '/movie_slide_image.jpg',
+			description: 'Movie Slide Image',
 		},
-	],
-};
+		title: 'Happy Feet Eight',
+		runtime: '2 HR 4 MIN',
+		certificate: 'PG',
+		releaseYear: 2020,
+	},
+];

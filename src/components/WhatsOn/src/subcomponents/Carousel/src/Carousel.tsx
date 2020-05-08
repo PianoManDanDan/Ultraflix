@@ -19,15 +19,31 @@ const getIndexInList = (index, listLength) => {
 	return index;
 };
 
-export const Carousel: React.FC<CarouselProps> = ({ movieList }) => {
-	const [selectedMovie, setSelectedMovie] = useState(0);
+const getDisplayedMovies = (
+	selectedMovieIndex: number,
+	numberOfMoviesToShow: number,
+	movieList: MovieSlideProps[]
+): MovieSlideProps[] => {
+	const lowerIndex = -Math.floor(numberOfMoviesToShow / 2);
+	const upperIndex = numberOfMoviesToShow + lowerIndex;
+	const displayedMovies: MovieSlideProps[] = [];
 
-	const incrementIndex = (indexIncrement) => {
-		const newIndex = getIndexInList(
-			selectedMovie + indexIncrement,
-			movieList.length
+	for (let i = lowerIndex; i < upperIndex; i++) {
+		const movieIndex = getIndexInList(selectedMovieIndex + i, movieList.length);
+		displayedMovies.push(movieList[movieIndex]);
+	}
+
+	return displayedMovies;
+};
+
+export const Carousel: React.FC<CarouselProps> = ({ movieList }) => {
+	const [selectedMovieIndex, setSelectedMovieIndex] = useState(0);
+	const numberOfMoviesToShow = 5;
+
+	const incrementSelectedMovieIndex = (indexIncrement) => {
+		setSelectedMovieIndex(
+			getIndexInList(selectedMovieIndex + indexIncrement, movieList.length)
 		);
-		setSelectedMovie(newIndex);
 	};
 
 	// const leftChevron: ImageProps | null = useGetContentfulImage(
@@ -51,26 +67,20 @@ export const Carousel: React.FC<CarouselProps> = ({ movieList }) => {
 		return null;
 	}
 
-	const getDisplayedMovies = (): MovieSlideProps[] => {
-		return [
-			movieList[getIndexInList(selectedMovie - 2, movieList.length)],
-			movieList[getIndexInList(selectedMovie - 1, movieList.length)],
-			movieList[getIndexInList(selectedMovie, movieList.length)],
-			movieList[getIndexInList(selectedMovie + 1, movieList.length)],
-			movieList[getIndexInList(selectedMovie + 2, movieList.length)],
-		];
-	};
-
 	return (
 		<div className="carousel">
 			<div className="row">
 				<div className="col col-xs-1">
-					<button type="button" onClick={() => incrementIndex(-1)}>
+					<button type="button" onClick={() => incrementSelectedMovieIndex(-1)}>
 						<Arrow arrowImage={leftChevron} />
 					</button>
 				</div>
-				{getDisplayedMovies().map((movie) => {
-					if (movie === movieList[selectedMovie]) {
+				{getDisplayedMovies(
+					selectedMovieIndex,
+					numberOfMoviesToShow,
+					movieList
+				).map((movie) => {
+					if (movie === movieList[selectedMovieIndex]) {
 						return (
 							<div className="col col-xs-2">
 								<div className="carousel__selected-movie">
@@ -88,7 +98,7 @@ export const Carousel: React.FC<CarouselProps> = ({ movieList }) => {
 					);
 				})}
 				<div className="col col-xs-1">
-					<button type="button" onClick={() => incrementIndex(1)}>
+					<button type="button" onClick={() => incrementSelectedMovieIndex(1)}>
 						<Arrow arrowImage={rightChevron} />
 					</button>
 				</div>

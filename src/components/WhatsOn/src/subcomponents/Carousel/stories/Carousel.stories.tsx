@@ -7,4 +7,4 @@ export default {
 	component: Carousel,
 };
 
-export const Story = () => <Carousel {...mockMovieList} />;
+export const Story = () => <Carousel movieList={mockMovieList} />;
