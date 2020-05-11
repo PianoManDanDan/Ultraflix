@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { Arrow } from '.';
 import { MovieSlide, MovieSlideProps } from '../../MovieSlide/src';
-import { ImageProps } from '../../../../../Image/src';
+import { Image, ImageProps } from '../../../../../Image/src';
 import './Carousel.scss';
 
 export type CarouselProps = {
@@ -72,7 +71,7 @@ export const Carousel: React.FC<CarouselProps> = ({ movieList }) => {
 			<div className="row">
 				<div className="col col-xs-1">
 					<button type="button" onClick={() => incrementSelectedMovieIndex(-1)}>
-						<Arrow arrowImage={leftChevron} />
+						<Image {...leftChevron} />
 					</button>
 				</div>
 				{getDisplayedMovies(
@@ -99,7 +98,7 @@ export const Carousel: React.FC<CarouselProps> = ({ movieList }) => {
 				})}
 				<div className="col col-xs-1">
 					<button type="button" onClick={() => incrementSelectedMovieIndex(1)}>
-						<Arrow arrowImage={rightChevron} />
+						<Image {...rightChevron} />
 					</button>
 				</div>
 			</div>

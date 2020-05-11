@@ -6,6 +6,8 @@
 	}
 
 	.col {
+		display: flex;
+		justify-content: center;
 		box-sizing: border-box;
 		padding: 0 1rem;
 	}
@@ -13,5 +15,12 @@
 	&__unselected-movie {
 		// some kind of faded effect for non selected movie?
 		padding: 10px;
+	}
+
+	button {
+		background-color: transparent;
+		outline: none;
+		border: none;
+		margin-bottom: 20rem;
 	}
 }
