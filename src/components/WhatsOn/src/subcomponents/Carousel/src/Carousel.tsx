@@ -67,7 +67,7 @@ export const Carousel: React.FC<CarouselProps> = ({ movieList }) => {
 	}
 
 	return (
-		<div className="carousel">
+		<div className="carousel container">
 			<div className="row">
 				<div className="col col-xs-1">
 					<button type="button" onClick={() => incrementSelectedMovieIndex(-1)}>

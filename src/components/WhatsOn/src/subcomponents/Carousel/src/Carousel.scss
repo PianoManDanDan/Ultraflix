@@ -1,15 +1,8 @@
 .carousel {
-	.row {
+	.row, .col {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-	}
-
-	.col {
-		display: flex;
-		justify-content: center;
-		box-sizing: border-box;
-		padding: 0 1rem;
 	}
 
 	&__unselected-movie {

@@ -3,6 +3,7 @@
 .movie-slide {
 	text-align: center;
 	@include bodyFont();
+	padding: 0 1rem;
 
 	&__title {
 		padding: 1rem 0;
@@ -25,9 +26,5 @@
 
 	&__release-year {
 		padding: 0.5rem 0
-	}
-
-	img {
-		width: 100%;
 	}
 }

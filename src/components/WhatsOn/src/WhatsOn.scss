@@ -1,10 +1,11 @@
 @import '../../../globalStyles/colors';
 @import '../../../globalStyles/fonts';
 
-.whatsOn {
+.whats-on {
 	&__header {
 		@include titleFont();
 		color: color(homepage, penguin-white, 2);
+		// Different header font?
 		font-size: 6rem;
 	}
 }
