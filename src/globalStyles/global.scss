@@ -1,6 +1,9 @@
-@import 'app';
-@import 'bootstrap';
 @import 'colors';
+
+// These are imported globally here
+// Don't import elsewhere
+@import 'app';
+@import 'grid';
 
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 @import url('https://fonts.googleapis.com/css?family=Lexend+Giga');
