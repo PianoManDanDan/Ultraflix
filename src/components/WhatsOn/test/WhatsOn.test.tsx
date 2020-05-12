@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import 'jest-extended';
 import { useContentful } from 'react-contentful';
 import { WhatsOn } from '../src';
-import { Carousel } from '../src/subcomponents/Carousel/src';
+import { CarouselContainer } from '../src/subcomponents/CarouselContainer/src';
 
 jest.mock('react-contentful');
 jest.mock('../src/subcomponents/Carousel/src');
@@ -44,7 +44,7 @@ describe('WhatsOn Component', () => {
 				},
 			},
 		});
-		Carousel.mockReturnValue('');
+		CarouselContainer.mockReturnValue('');
 
 		// Act
 		const { container } = render(<WhatsOn />);
@@ -83,7 +83,7 @@ describe('WhatsOn Component', () => {
 				},
 			},
 		});
-		Carousel.mockReturnValue(mockCarousel);
+		CarouselContainer.mockReturnValue(mockCarousel);
 
 		// Act
 		const { container } = render(<WhatsOn />);

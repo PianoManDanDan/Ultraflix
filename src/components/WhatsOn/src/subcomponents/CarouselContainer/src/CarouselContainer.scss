@@ -1,4 +1,9 @@
-.carousel {
+//@import "../../../../../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
+@import "~react-multi-carousel/lib/styles.css";
+
+.carousel-container {
+	width: 60%;
+
 	.row {
 		display: flex;
 		justify-content: center;

@@ -27,14 +27,14 @@ module.exports = {
 	],
 
 	resolve: {
-		extensions: ['.ts', '.tsx', '.js', '.jsx'],
+		extensions: ['.ts', '.tsx', '.js', '.jsx', '.css', '.scss', '.eot', '.ttf', '.woff'],
 	},
 
 	module: {
 		rules: [
 			{
 				test: /\.ts(x?)$/,
-				exclude: [/node_modules/, /\.stories\.ts(x?)$/],
+				exclude: [/node_modules/, /\.stories\.ts(x?)$/, /\.story\.ts(x?)$/, /\.test\.ts(x?)$/],
 				use: [
 					{
 						loader: 'ts-loader',
@@ -42,7 +42,8 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.s?css$/,
+				test: /\.(s?)css$/,
+				include: [/node_modules\/react-multi-carousel\/lib\/styles.css/, /src/],
 				exclude: /node_modules/,
 				use: ['style-loader', 'css-loader', 'sass-loader'],
 			},
@@ -52,6 +53,18 @@ module.exports = {
 				use: [
 					{
 						loader: 'url-loader',
+					},
+				],
+			},
+			{
+				test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[name].[ext]',
+							outputPath: 'fonts/'
+						},
 					},
 				],
 			},

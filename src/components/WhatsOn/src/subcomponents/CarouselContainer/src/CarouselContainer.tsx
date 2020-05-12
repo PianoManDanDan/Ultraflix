@@ -1,11 +1,22 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { Arrow } from '.';
 import { MovieSlide, MovieSlideProps } from '../../MovieSlide/src';
 import { ImageProps } from '../../../../../Image/src';
-import './Carousel.scss';
+import Carousel from 'react-multi-carousel';
+import './CarouselContainer.scss';
 
-export type CarouselProps = {
+
+// var settings = {
+// 	dots: false,
+// 	infinite: true,
+// 	speed: 1000,
+// 	slidesToShow: 5,
+// 	slidesToScroll: 1
+// };
+
+
+
+export type CarouselContainerProps = {
 	movieList: MovieSlideProps[];
 };
 
@@ -36,7 +47,7 @@ const getDisplayedMovies = (
 	return displayedMovies;
 };
 
-export const Carousel: React.FC<CarouselProps> = ({ movieList }) => {
+export const CarouselContainer: React.FC<CarouselContainerProps> = ({ movieList }) => {
 	const [selectedMovieIndex, setSelectedMovieIndex] = useState(0);
 	const numberOfMoviesToShow = 5;
 
@@ -67,9 +78,29 @@ export const Carousel: React.FC<CarouselProps> = ({ movieList }) => {
 		return null;
 	}
 
+	const responsiveSizes = {
+		superLargeDesktop: {
+			// the naming can be any, depends on you.
+			breakpoint: { max: 4000, min: 3000 },
+			items: 5
+		},
+		desktop: {
+			breakpoint: { max: 3000, min: 1024 },
+			items: 3
+		},
+		tablet: {
+			breakpoint: { max: 1024, min: 464 },
+			items: 2
+		},
+		mobile: {
+			breakpoint: { max: 464, min: 0 },
+			items: 1
+		}
+	};
+
 	return (
-		<div className="carousel">
-			<div className="row">
+		<div className="carousel-container">
+			{/* <div className="row">
 				<div className="col col-xs-1">
 					<button type="button" onClick={() => incrementSelectedMovieIndex(-1)}>
 						<Arrow arrowImage={leftChevron} />
@@ -102,7 +133,15 @@ export const Carousel: React.FC<CarouselProps> = ({ movieList }) => {
 						<Arrow arrowImage={rightChevron} />
 					</button>
 				</div>
-			</div>
+			</div> */}
+			<Carousel responsive={responsiveSizes}>
+				{movieList.map((movie) => {
+					return (
+						<div key={movie.title} className="col col-xs-2">
+							<MovieSlide {...movie} />
+						</div>);
+				})}
+			</Carousel>
 		</div>
 	);
 };

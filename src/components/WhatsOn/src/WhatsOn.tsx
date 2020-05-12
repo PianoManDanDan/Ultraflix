@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel } from './subcomponents/Carousel/src';
+import { CarouselContainer } from './subcomponents/CarouselContainer/src';
 import { useGetContentfulWhatsOn } from './utils';
 import './WhatsOn.scss';
 
@@ -13,7 +13,7 @@ export const WhatsOn: React.FC<{}> = () => {
 	return (
 		<div>
 			<h1 className="whatsOn__header">{contentfulFilmData.header}</h1>
-			<Carousel movieList={contentfulFilmData.filmList} />
+			<CarouselContainer movieList={contentfulFilmData.filmList} />
 		</div>
 	);
 };
