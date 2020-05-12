@@ -4,13 +4,13 @@ import '@testing-library/jest-dom/extend-expect';
 import 'jest-extended';
 import * as contentful from 'react-contentful';
 import { WhatsOn } from '../src';
-import * as carousel from '../src/subcomponents/Carousel/src';
+import * as carousel from '../src/subcomponents/CarouselContainer/src';
 
 const mockUseContentful = jest.spyOn(contentful, 'useContentful');
-jest.mock('../src/subcomponents/Carousel/src', () => ({
+jest.mock('../src/subcomponents/CarouselContainer/src', () => ({
 	Carousel: jest.fn(),
 }));
-const mockCarousel = jest.spyOn(carousel, 'Carousel');
+const mockCarouselContainer = jest.spyOn(carousel, 'CarouselContainer');
 
 describe('WhatsOn Component', () => {
 	afterEach(() => {
@@ -47,7 +47,7 @@ describe('WhatsOn Component', () => {
 				},
 			},
 		});
-		mockCarousel.mockReturnValue(<p />);
+		mockCarouselContainer.mockReturnValue(<p />);
 
 		// Act
 		const { container } = render(<WhatsOn />);
@@ -86,7 +86,7 @@ describe('WhatsOn Component', () => {
 				},
 			},
 		});
-		mockCarousel.mockReturnValue(<p>{mockCarouselContent}</p>);
+		mockCarouselContainer.mockReturnValue(<p>{mockCarouselContent}</p>);
 
 		// Act
 		const { container } = render(<WhatsOn />);

@@ -13,7 +13,7 @@ export const WhatsOn: React.FC<{}> = () => {
 	return (
 		<div>
 			<h1 className="whats-on__header">{contentfulFilmData.header}</h1>
-			<Carousel movieList={contentfulFilmData.filmList} />
+			<CarouselContainer movieList={contentfulFilmData.filmList} />
 		</div>
 	);
 };
