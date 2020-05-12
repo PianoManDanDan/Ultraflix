@@ -12,8 +12,8 @@ export const WhatsOn: React.FC<{}> = () => {
 
 	return (
 		<div>
-			<h1 className="whatsOn__header">{contentfulFilmData.header}</h1>
-			<CarouselContainer movieList={contentfulFilmData.filmList} />
+			<h1 className="whats-on__header">{contentfulFilmData.header}</h1>
+			<Carousel movieList={contentfulFilmData.filmList} />
 		</div>
 	);
 };

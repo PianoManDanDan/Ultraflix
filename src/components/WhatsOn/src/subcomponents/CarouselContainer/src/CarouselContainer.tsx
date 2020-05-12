@@ -103,7 +103,7 @@ export const CarouselContainer: React.FC<CarouselContainerProps> = ({ movieList 
 			{/* <div className="row">
 				<div className="col col-xs-1">
 					<button type="button" onClick={() => incrementSelectedMovieIndex(-1)}>
-						<Arrow arrowImage={leftChevron} />
+						<Image {...leftChevron} />
 					</button>
 				</div>
 				{getDisplayedMovies(
@@ -130,7 +130,7 @@ export const CarouselContainer: React.FC<CarouselContainerProps> = ({ movieList 
 				})}
 				<div className="col col-xs-1">
 					<button type="button" onClick={() => incrementSelectedMovieIndex(1)}>
-						<Arrow arrowImage={rightChevron} />
+						<Image {...rightChevron} />
 					</button>
 				</div>
 			</div> */}

@@ -15,7 +15,7 @@ export const MovieSlide: React.FC<MovieSlideProps> = ({
 	}
 
 	return (
-		<div className="movie-slide">
+		<div className="movie-slide container">
 			<Image {...posterImage} />
 			<div className="movie-slide__info">
 				<div className="movie-slide__title">{title}</div>
