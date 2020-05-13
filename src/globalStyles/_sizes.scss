@@ -9,3 +9,14 @@ $sizes: ( breakpoints: ( xsmall: ( min: 320px, max: 669px ), small: ( min: 670px
 		@content;
 	}
 }
+
+:export {
+	xsMinBreakpoint: breakpoint(xsmall, min);
+	xsMaxBreakpoint: breakpoint(xsmall, max);
+	smMinBreakpoint: breakpoint(small, min);
+	smMaxBreakpoint: breakpoint(small, max);
+	mdMinBreakpoint: breakpoint(medium, min);
+	mdMaxBreakpoint: breakpoint(medium, max);
+	lgMinBreakpoint: breakpoint(large, min);
+	lgMaxBreakpoint: breakpoint(large, max);
+}
