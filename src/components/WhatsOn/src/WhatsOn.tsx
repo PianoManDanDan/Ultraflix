@@ -11,7 +11,7 @@ export const WhatsOn: React.FC<{}> = () => {
 	}
 
 	return (
-		<div>
+		<div className="app-content-container">
 			<h1 className="whats-on__header">{contentfulFilmData.header}</h1>
 			<CarouselContainer movieList={contentfulFilmData.filmList} />
 		</div>

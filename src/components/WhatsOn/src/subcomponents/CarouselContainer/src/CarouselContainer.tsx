@@ -1,18 +1,19 @@
 import * as React from 'react';
-import { useState } from 'react';
+import Carousel from 'react-multi-carousel';
 import { MovieSlide, MovieSlideProps } from '../../MovieSlide/src';
 import { ImageProps } from '../../../../../Image/src';
-import sizes from '../../../../../../globalStyles/_sizes.scss';
-import Carousel from 'react-multi-carousel';
 import './CarouselContainer.scss';
+import { getBreakpoints } from '.';
 
 export type CarouselContainerProps = {
 	movieList: MovieSlideProps[];
 };
 
-export const CarouselContainer: React.FC<CarouselContainerProps> = ({ movieList }) => {
-	const [selectedMovieIndex, setSelectedMovieIndex] = useState(0);
-	const numberOfMoviesToShow = 5;
+export const CarouselContainer: React.FC<CarouselContainerProps> = ({
+	movieList,
+}) => {
+	// const [selectedMovieIndex, setSelectedMovieIndex] = useState(0);
+	// const numberOfMoviesToShow = 5;
 
 	// const leftChevron: ImageProps | null = useGetContentfulImage(
 	// 	'3X7T8xFIMkjRTOtQi1bd91'
@@ -37,34 +38,32 @@ export const CarouselContainer: React.FC<CarouselContainerProps> = ({ movieList 
 
 	const responsiveSizes = {
 		large: {
-			breakpoint: { min: 1400, max: 1920 },
-			items: 5
+			breakpoint: getBreakpoints('lg'),
+			items: 5,
 		},
 		medium: {
-			breakpoint: { min: 1000, max: 1399 },
-			items: 5
+			breakpoint: getBreakpoints('md'),
+			items: 5,
 		},
 		small: {
-			breakpoint: { min: 670, max: 999 },
-			items: 2
+			breakpoint: getBreakpoints('sm'),
+			items: 2,
 		},
 		xsmall: {
-			breakpoint: { min: 320, max: 669 },
-			items: 1
-		}
+			breakpoint: getBreakpoints('xs'),
+			items: 1,
+		},
 	};
 
 	return (
 		<div className="carousel-container">
-			<Carousel
-				showDots={true}
-				responsive={responsiveSizes}
-				infinite={true}
-				keyBoardControl={true}
-			>
+			<Carousel showDots responsive={responsiveSizes} infinite keyBoardControl>
 				{movieList.map((movie) => {
 					return (
-						<MovieSlide {...movie} />);
+						<div key={movie.title}>
+							<MovieSlide {...movie} />
+						</div>
+					);
 				})}
 			</Carousel>
 		</div>
