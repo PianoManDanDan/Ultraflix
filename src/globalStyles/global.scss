@@ -1,12 +1,20 @@
-@import 'app';
-@import 'bootstrap';
+// colors, fonts, and sizes need to be imported for each use case
 @import 'colors';
+
+// app and grid styles are imported globally here
+// Don't import elsewhere
+@import 'app';
+@import 'grid';
 
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 @import url('https://fonts.googleapis.com/css?family=Lexend+Giga');
 
 html {
 	font-size: 10px;
+}
+
+body {
+	margin: 0;
 	color: color(homepage, penguin-white, 1);
 	background-color: color(homepage, penguin-black, 1);
 }

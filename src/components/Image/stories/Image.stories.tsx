@@ -7,5 +7,7 @@ export default {
 };
 
 export const Story = () => (
-	<Image url="/logo.png" description="Logo Description" />
+	<div className="container">
+		<Image url="/logo.png" description="Logo Description" />
+	</div>
 );
