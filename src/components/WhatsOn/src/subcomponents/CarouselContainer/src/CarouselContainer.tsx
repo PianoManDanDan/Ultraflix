@@ -47,7 +47,7 @@ export const CarouselContainer: React.FC<CarouselContainerProps> = ({
 		},
 		small: {
 			breakpoint: getBreakpoints('sm'),
-			items: 2,
+			items: 3,
 		},
 		xsmall: {
 			breakpoint: getBreakpoints('xs'),
@@ -57,7 +57,14 @@ export const CarouselContainer: React.FC<CarouselContainerProps> = ({
 
 	return (
 		<div className="carousel-container">
-			<Carousel showDots responsive={responsiveSizes} infinite keyBoardControl>
+			<Carousel
+				showDots
+				responsive={responsiveSizes}
+				centerMode
+				focusOnSelect
+				infinite
+				keyBoardControl
+			>
 				{movieList.map((movie) => {
 					return (
 						<div key={movie.title}>
