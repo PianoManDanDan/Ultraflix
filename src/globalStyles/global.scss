@@ -1,6 +1,7 @@
+// colors, fonts, and sizes need to be imported for each use case
 @import 'colors';
 
-// These are imported globally here
+// app and grid styles are imported globally here
 // Don't import elsewhere
 @import 'app';
 @import 'grid';
