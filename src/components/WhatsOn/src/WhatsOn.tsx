@@ -2,18 +2,29 @@ import React from 'react';
 import { CarouselContainer } from './subcomponents/CarouselContainer/src';
 import { useGetContentfulWhatsOn } from './utils';
 import './WhatsOn.scss';
+import { MovieSlideProps } from './subcomponents/MovieSlide/src';
+import { ImageProps } from '../../Image/src';
+
+export type WhatsOnProps = {
+	header: string;
+	movieList: MovieSlideProps[];
+	leftChevron: ImageProps;
+	rightChevron: ImageProps;
+};
 
 export const WhatsOn: React.FC<{}> = () => {
-	const contentfulFilmData = useGetContentfulWhatsOn('3eClse9t6aIwURH79xlUAK');
+	const whatsOnContent = useGetContentfulWhatsOn('3eClse9t6aIwURH79xlUAK');
 
-	if (!contentfulFilmData) {
+	if (!whatsOnContent) {
 		return null;
 	}
 
+	const { header, ...carouselContent } = whatsOnContent;
+
 	return (
-		<div className="app-content-container">
-			<h1 className="whats-on__header">{contentfulFilmData.header}</h1>
-			<CarouselContainer movieList={contentfulFilmData.filmList} />
+		<div>
+			<div className="whats-on__header">{header}</div>
+			<CarouselContainer {...carouselContent} />
 		</div>
 	);
 };

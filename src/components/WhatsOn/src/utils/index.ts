@@ -1,2 +1,2 @@
-export * from './MovieSlidePropsMapper';
 export * from './UseGetContentfulWhatsOn';
+export * from './ContentfulWhatsOnMapper';

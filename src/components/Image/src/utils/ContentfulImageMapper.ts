@@ -1,9 +1,8 @@
 import { ImageProps } from '../types';
 
 export const contentfulImageMapper = (contentfulImage: any): ImageProps => {
-	const image: ImageProps = {
-		url: contentfulImage.file.url,
-		description: contentfulImage.description || '',
+	return {
+		url: contentfulImage['fields']?.file.url,
+		description: contentfulImage['fields']?.description || '',
 	};
-	return image;
 };

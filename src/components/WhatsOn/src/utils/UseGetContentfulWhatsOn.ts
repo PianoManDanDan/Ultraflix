@@ -1,31 +1,26 @@
 import { HookResponse, useContentful } from 'react-contentful';
-import { movieSlidePropsMapper } from './MovieSlidePropsMapper';
-import { WhatsOnContentful } from '../types';
+import { WhatsOnProps } from '..';
+import { contentfulWhatsOnMapper } from '.';
 
 export const useGetContentfulWhatsOn = (
 	contentfulID: string
-): WhatsOnContentful | null => {
-	const contentfulFilmContent: HookResponse = useContentful({
+): WhatsOnProps | null => {
+	const contentfulResponse: HookResponse = useContentful({
 		id: contentfulID,
 	});
 
 	if (
-		contentfulFilmContent.loading ||
-		!contentfulFilmContent.fetched ||
-		!contentfulFilmContent.data
+		contentfulResponse.loading ||
+		!contentfulResponse.fetched ||
+		!contentfulResponse.data
 	) {
 		return null;
 	}
 
-	if (contentfulFilmContent.error) {
-		console.error(contentfulFilmContent.error);
+	if (contentfulResponse.error) {
+		console.error(contentfulResponse.error);
 		return null;
 	}
 
-	return {
-		header: contentfulFilmContent.data['fields'].heading,
-		filmList: movieSlidePropsMapper(
-			contentfulFilmContent.data['fields'].movies
-		),
-	};
+	return contentfulWhatsOnMapper(contentfulResponse);
 };

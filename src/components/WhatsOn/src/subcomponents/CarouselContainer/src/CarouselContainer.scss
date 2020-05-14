@@ -2,8 +2,6 @@
 @import "~slick-carousel/slick/slick-theme.css";
 
 .carousel-container {
-	width: 100%;
-
 	.row {
 		display: flex;
 		justify-content: center;
@@ -23,24 +21,40 @@
 	}
 
 	.slick-prev {
-		left: -5rem;
+		left: 2rem;
+		z-index: 99;
 	}
 
 	.slick-next {
-		right: -5rem;
+		right: 2rem;
+		z-index: 99;
 	}
 
 	.slick-arrow {
 		height: auto;
-		width: 3rem;
-		top: 30%;
+		width: 5rem;
+		top: 35%;
+		opacity: 0.7;
 
-		:hover {
-			opacity: 0.8;
+		&:hover {
+			opacity: 1.0;
 		}
 
 		&::before {
 			display: none;
+		}
+	}
+
+	.slick-slide {
+		box-sizing: border-box;
+		transform: scale(0.9, 0.9);
+		transition: transform 0.5s ease;
+		transition: opacity 0.5s ease;
+		opacity: 0.5;
+
+		&.slick-center {
+			transform: scale(1, 1);
+			opacity: 1;
 		}
 	}
 }
