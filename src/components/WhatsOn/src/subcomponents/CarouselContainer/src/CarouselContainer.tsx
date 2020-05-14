@@ -66,6 +66,7 @@ export const CarouselContainer: React.FC<CarouselContainerProps> = ({
 				speed={500}
 				centerMode
 				focusOnSelect
+				centerPadding="0"
 				slidesToShow={5}
 				prevArrow={<PrevArrow />}
 				nextArrow={<NextArrow />}

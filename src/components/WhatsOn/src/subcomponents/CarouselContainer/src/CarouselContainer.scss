@@ -1,7 +1,23 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
+@import '../../../../../../globalStyles/sizes';
+
 .carousel-container {
+	// padding: 0;
+	// margin: auto;
+
+	@include mediaQueryFor(small, max) {
+		box-sizing: border-box;
+		padding: 0;
+	}
+
+	@include mediaQueryFor(medium, max) {
+		margin: auto;
+		padding: 0;
+	}
+
+
 	.row {
 		display: flex;
 		justify-content: center;
@@ -21,20 +37,25 @@
 	}
 
 	.slick-prev {
-		left: 2rem;
+		left: -7rem;
 		z-index: 99;
 	}
 
 	.slick-next {
-		right: 2rem;
+		right: -7rem;
 		z-index: 99;
 	}
 
 	.slick-arrow {
+		visibility: hidden;
 		height: auto;
 		width: 5rem;
 		top: 35%;
 		opacity: 0.7;
+
+		@include mediaQueryFor(large) {
+			visibility: visible;
+		}
 
 		&:hover {
 			opacity: 1.0;
