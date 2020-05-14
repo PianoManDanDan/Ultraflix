@@ -15,3 +15,8 @@ export const getBreakpoints = (viewportName: string) => {
 		max: formatBreakpoints(maxBreakpoint),
 	};
 };
+
+export const getMaxBreakpoint = (viewportName: string) => {
+	const maxBreakpoint = sizes[`${viewportName}MaxBreakpoint`];
+	return formatBreakpoints(maxBreakpoint);
+};

@@ -21,4 +21,26 @@
 		border: none;
 		margin-bottom: 20rem;
 	}
+
+	.slick-prev {
+		left: -5rem;
+	}
+
+	.slick-next {
+		right: -5rem;
+	}
+
+	.slick-arrow {
+		height: auto;
+		width: 3rem;
+		top: 30%;
+
+		:hover {
+			opacity: 0.8;
+		}
+
+		&::before {
+			display: none;
+		}
+	}
 }
