@@ -8,7 +8,7 @@ import * as carousel from '../src/subcomponents/CarouselContainer/src';
 
 const mockUseContentful = jest.spyOn(contentful, 'useContentful');
 jest.mock('../src/subcomponents/CarouselContainer/src', () => ({
-	Carousel: jest.fn(),
+	CarouselContainer: jest.fn(),
 }));
 const mockCarouselContainer = jest.spyOn(carousel, 'CarouselContainer');
 
