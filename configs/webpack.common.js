@@ -27,14 +27,29 @@ module.exports = {
 	],
 
 	resolve: {
-		extensions: ['.ts', '.tsx', '.js', '.jsx', '.css', '.scss', '.eot', '.ttf', '.woff'],
+		extensions: [
+			'.ts',
+			'.tsx',
+			'.js',
+			'.jsx',
+			'.css',
+			'.scss',
+			'.eot',
+			'.ttf',
+			'.woff',
+		],
 	},
 
 	module: {
 		rules: [
 			{
 				test: /\.ts(x?)$/,
-				exclude: [/node_modules/, /\.stories\.ts(x?)$/, /\.story\.ts(x?)$/, /\.test\.ts(x?)$/],
+				exclude: [
+					/node_modules/,
+					/\.stories\.ts(x?)$/,
+					/\.story\.ts(x?)$/,
+					/\.test\.ts(x?)$/,
+				],
 				use: [
 					{
 						loader: 'ts-loader',
@@ -43,13 +58,14 @@ module.exports = {
 			},
 			{
 				test: /\.(s?)css$/,
-				include: [/node_modules\/react-multi-carousel\/lib\/styles.css/, /src/],
 				exclude: /node_modules/,
 				use: ['style-loader', 'css-loader', 'sass-loader'],
 			},
 			{
 				test: /\.(svg|png|jpe?g|gif)$/,
-				exclude: /node_modules/,
+				// TODO
+				// include: [/node_modules\/slick-carousel\/slick\//, /src/],
+				// exclude: /node_modules/,
 				use: [
 					{
 						loader: 'url-loader',
@@ -63,7 +79,7 @@ module.exports = {
 						loader: 'file-loader',
 						options: {
 							name: '[name].[ext]',
-							outputPath: 'fonts/'
+							outputPath: 'fonts/',
 						},
 					},
 				],

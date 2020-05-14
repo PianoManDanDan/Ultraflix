@@ -1,5 +1,6 @@
 import * as React from 'react';
-import Carousel from 'react-multi-carousel';
+// import Carousel from 'react-multi-carousel';
+import Slider from 'react-slick';
 import { MovieSlide, MovieSlideProps } from '../../MovieSlide/src';
 import { ImageProps } from '../../../../../Image/src';
 import './CarouselContainer.scss';
@@ -57,7 +58,7 @@ export const CarouselContainer: React.FC<CarouselContainerProps> = ({
 
 	return (
 		<div className="carousel-container">
-			<Carousel
+			{/* <Carousel
 				showDots
 				responsive={responsiveSizes}
 				centerMode
@@ -72,7 +73,23 @@ export const CarouselContainer: React.FC<CarouselContainerProps> = ({
 						</div>
 					);
 				})}
-			</Carousel>
+			</Carousel> */}
+			<Slider
+				dots
+				infinite
+				speed={500}
+				slidesToShow={5}
+				centerMode
+				focusOnSelect
+			>
+				{movieList.map((movie) => {
+					return (
+						<div key={movie.title}>
+							<MovieSlide {...movie} />
+						</div>
+					);
+				})}
+			</Slider>
 		</div>
 	);
 };
