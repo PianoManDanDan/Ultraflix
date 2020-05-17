@@ -1,4 +1,4 @@
-import { MovieSlideProps } from '../../../MovieSlide/src';
+import { MovieSlideProps } from '../../src/subcomponents/MovieSlide/src';
 
 export const mockMovieList: MovieSlideProps[] = [
 	{

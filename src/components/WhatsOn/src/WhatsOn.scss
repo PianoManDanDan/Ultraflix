@@ -1,12 +1,74 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 @import '../../../globalStyles/colors';
 @import '../../../globalStyles/fonts';
+@import '../../../globalStyles/sizes';
 
 .whats-on {
 	&__header {
 		@include titleFont();
 		color: color(homepage, penguin-white, 2);
-		// Different header font?
-		font-size: 6rem;
-		padding: 4rem;
+		font-size: 10vw;
+		padding: 2rem;
+
+		@include mediaQueryFor(small, max) {
+			text-align: center;
+		}
+		
+		// Different header font?		
+		@include mediaQueryFor(small) {
+			font-size: 7rem;
+			padding: 4rem;
+		}
+	}
+
+	&__carousel {
+		@include mediaQueryFor(large) {
+			padding: 0 15rem;
+		}
+
+		@include mediaQueryFor(medium, max) {
+			box-sizing: border-box;
+
+			.slick-arrow {
+				visibility: hidden;
+			}
+		}
+
+		.slick-prev {
+			left: 5rem;
+		}
+
+		.slick-next {
+			right: 5rem;
+		}
+
+		.slick-arrow {
+			width: 3%;
+			top: 27%;
+			opacity: 0.7;
+
+			&:hover {
+				opacity: 1.0;
+			}
+
+			&::before {
+				display: none;
+			}
+		}
+
+		.slick-slide {
+			box-sizing: border-box;
+			transform: scale(0.9, 0.9);
+			transition: transform 0.5s ease;
+			transition: opacity 0.5s ease;
+			opacity: 0.5;
+
+			&.slick-center {
+				transform: scale(1, 1);
+				opacity: 1;
+			}
+		}
 	}
 }

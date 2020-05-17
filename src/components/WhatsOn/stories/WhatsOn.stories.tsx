@@ -1,24 +1,29 @@
 import React from 'react';
-import {
-	ContentfulClient,
-	ContentfulClientInterface,
-	ContentfulProvider,
-} from 'react-contentful';
-import { WhatsOn } from '../src';
+import { text } from '@storybook/addon-knobs';
+import { WhatsOn, WhatsOnProps } from '../src';
+import { ImageProps } from '../../Image/src';
+import { mockMovieList } from './data/MockMovieList.data';
+
+const leftChevron: ImageProps = {
+	url: '/left-chevron.svg',
+	description: 'Movie Slide Image',
+};
+
+const rightChevron: ImageProps = {
+	url: '/right-chevron.svg',
+	description: 'Movie Slide Image',
+};
+
+const whatsOnProps: WhatsOnProps = {
+	header: text('Header', 'Movies at Ultraflix'),
+	movieList: mockMovieList,
+	leftChevron,
+	rightChevron,
+};
 
 export default {
 	title: 'WhatsOn',
 	component: WhatsOn,
 };
 
-export const Story = () => {
-	const contentfulClient: ContentfulClientInterface = ContentfulClient({
-		accessToken: 'im2Om8TMefwnoIwcZsknuuh3mKseOiNucWFLwjsJKYg',
-		space: 'v9yjf2k31vk7',
-	});
-	return (
-		<ContentfulProvider client={contentfulClient}>
-			<WhatsOn />
-		</ContentfulProvider>
-	);
-};
+export const Story = () => <WhatsOn {...whatsOnProps} />;
