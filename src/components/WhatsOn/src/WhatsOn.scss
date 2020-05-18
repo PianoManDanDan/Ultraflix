@@ -9,17 +9,14 @@
 	&__header {
 		@include titleFont();
 		color: color(homepage, penguin-white, 2);
-		font-size: 10vw;
-		padding: 2rem;
+		// Different header font?		
+		font-size: 7rem;
+		padding: 4rem;
 
 		@include mediaQueryFor(small, max) {
 			text-align: center;
-		}
-		
-		// Different header font?		
-		@include mediaQueryFor(small) {
-			font-size: 7rem;
-			padding: 4rem;
+			font-size: 10vw;
+			padding: 2rem;
 		}
 	}
 
@@ -29,8 +26,6 @@
 		}
 
 		@include mediaQueryFor(medium, max) {
-			box-sizing: border-box;
-
 			.slick-arrow {
 				visibility: hidden;
 			}
