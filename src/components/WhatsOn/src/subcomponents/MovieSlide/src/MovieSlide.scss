@@ -6,8 +6,8 @@
 	padding: 0 1rem;
 
 	&__title {
+		@include itemHeaderFont();
 		padding: 1rem 0;
-		@include titleFont();
 		padding-bottom: 2rem;
 	}
 

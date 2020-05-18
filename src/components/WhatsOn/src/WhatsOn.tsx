@@ -62,7 +62,7 @@ export const WhatsOn: React.FC<WhatsOnProps> = ({
 	];
 
 	return (
-		<div>
+		<div className="whats-on">
 			<div className="whats-on__header">{header}</div>
 			<Slider
 				className="whats-on__carousel"

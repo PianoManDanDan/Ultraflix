@@ -7,20 +7,21 @@
 
 .whats-on {
 	&__header {
-		@include titleFont();
+		@include sectionHeaderFont();
 		color: color(homepage, penguin-white, 2);
-		// Different header font?		
-		font-size: 7rem;
 		padding: 4rem;
 
 		@include mediaQueryFor(small, max) {
 			text-align: center;
-			font-size: 10vw;
 			padding: 2rem;
 		}
 	}
 
 	&__carousel {
+		@include mediaQueryFor(xsmall, max) {
+			padding: 0 3rem;
+		}
+
 		@include mediaQueryFor(large) {
 			padding: 0 15rem;
 		}
