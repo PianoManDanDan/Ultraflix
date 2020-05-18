@@ -20,7 +20,7 @@ export const contentfulWhatsOnMapper = (
 			throw new Error('No chevron in response');
 		}
 	} catch (err) {
-		console.log(err);
+		console.error(err);
 	}
 	return {
 		header: whatsOnContent.data['fields'].heading,
