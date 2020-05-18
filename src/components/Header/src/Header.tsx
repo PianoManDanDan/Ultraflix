@@ -10,7 +10,7 @@ export const Header: React.FC<HeaderProps> = ({ logo }) => {
 	return (
 		<header className="header">
 			<div className="header__logo">
-				<a className="" href="/">
+				<a href="/">
 					<Image {...logo} />
 				</a>
 			</div>
