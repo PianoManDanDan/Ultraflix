@@ -1,9 +1,9 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { getMaxBreakpoint, WhatsOnProps } from '.';
+import { WhatsOnProps, getMaxBreakpoint } from '.';
 import { MovieSlide } from './subcomponents/MovieSlide/src';
-import { Image } from '../../Image/src';
 import './WhatsOn.scss';
+import { Arrow } from './subcomponents/Arrow';
 
 export const WhatsOn: React.FC<WhatsOnProps> = ({
 	heading,
@@ -20,38 +20,6 @@ export const WhatsOn: React.FC<WhatsOnProps> = ({
 	) {
 		return null;
 	}
-
-	const PrevArrow = (props) => {
-		const { className, style, onClick } = props;
-		return (
-			<div
-				className={className}
-				style={style}
-				onClick={onClick}
-				onKeyPress={onClick}
-				role="button"
-				tabIndex={0}
-			>
-				<Image {...leftChevron} />
-			</div>
-		);
-	};
-
-	const NextArrow = (props) => {
-		const { arrow, className, style, onClick } = props;
-		return (
-			<div
-				className={className}
-				style={style}
-				onClick={onClick}
-				onKeyPress={onClick}
-				role="button"
-				tabIndex={0}
-			>
-				<Image {...arrow} />
-			</div>
-		);
-	};
 
 	const responsiveSizes = [
 		{
@@ -85,8 +53,8 @@ export const WhatsOn: React.FC<WhatsOnProps> = ({
 				focusOnSelect
 				centerPadding="0"
 				slidesToShow={5}
-				prevArrow={<PrevArrow />}
-				nextArrow={<NextArrow arrow={rightChevron} />}
+				prevArrow={<Arrow arrow={leftChevron} />}
+				nextArrow={<Arrow arrow={rightChevron} />}
 				responsive={responsiveSizes}
 			>
 				{movieList.map((movie) => {

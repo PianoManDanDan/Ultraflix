@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-extended';
-import { WhatsOn, getMaxBreakpoint, WhatsOnProps } from '../src';
+import { WhatsOn, WhatsOnProps } from '../src';
 
 const mockSlider = jest.fn(() => <div />);
 
@@ -11,20 +11,16 @@ jest.mock('react-slick', () => ({
 	default: () => mockSlider(),
 }));
 
-jest.mock('../src', () => ({
+jest.mock('../src/utils', () => ({
 	getMaxBreakpoint: (): number => 0,
 }));
 
 describe('WhatsOn Component', () => {
-	afterEach(() => {
-		jest.resetAllMocks();
-	});
+	let whatsOnContent: Partial<WhatsOnProps>;
 
-	it('renders the correct heading', () => {
-		// Arrange
-		const mockHeading = 'test Heading';
-		const whatsOnContent: WhatsOnProps = {
-			heading: mockHeading,
+	beforeEach(() => {
+		whatsOnContent = {
+			heading: 'Test',
 			movieList: [
 				{
 					posterImage: {
@@ -46,68 +42,93 @@ describe('WhatsOn Component', () => {
 				description: '',
 			},
 		};
-
-		// Act
-		const { container } = render(<WhatsOn {...whatsOnContent} />);
-
-		// Assert
-		expect(container).toHaveTextContent(mockHeading);
-		expect(mockSlider).toHaveBeenCalledTimes(1); // toHaveTextContent(mockHeading);
 	});
 
-	// it('renders the Carousel component', () => {
-	// 	// Arrange
-	// 	const mockCarouselContent = 'Carousel Component';
-	// 	mockUseContentful.mockReturnValue({
-	// 		fetched: true,
-	// 		loading: false,
-	// 		data: {
-	// 			fields: {
-	// 				heading: '',
-	// 				movies: [
-	// 					{
-	// 						fields: {
-	// 							posterImage: {
-	// 								fields: {
-	// 									file: {
-	// 										url: '',
-	// 									},
-	// 									description: '',
-	// 								},
-	// 							},
-	// 							title: '',
-	// 							runtime: '',
-	// 							certificate: '',
-	// 							releaseYear: 0,
-	// 						},
-	// 					},
-	// 				],
-	// 			},
-	// 		},
-	// 	});
+	afterEach(() => {
+		jest.resetAllMocks();
+	});
 
-	// 	// Act
-	// 	const { container } = render(<WhatsOn {...whatsOnContent} />);
+	describe('Renders component with heading and slider', () => {
+		it('When all content is defined', () => {
+			// Arrange
+			const mockHeading = 'Test';
+			whatsOnContent.heading = mockHeading;
 
-	// 	// Assert
-	// 	expect(container).toHaveTextContent(mockCarouselContent);
-	// });
+			// Act
+			const { container } = render(
+				<WhatsOn {...(whatsOnContent as WhatsOnProps)} />
+			);
 
-	// it('Renders the slider component', () => {
-	// 	//Arrange
-	// 	const mockSlider = jest.spyOn(Slider, 'Slider');
-	// 	mockSlider.mockReturnValue(<p />)
+			// Assert
+			expect(container).toHaveTextContent(mockHeading);
+			expect(mockSlider).toHaveBeenCalledTimes(1);
+		});
+	});
 
-	// 	// Act
-	// 	const { container } = render(
-	// 		<Slider {...responsiveSizes}>
-	// 			<div>Movie</div>
-	// 			<div>Movie</div>
-	// 			<div>Movie</div>
-	// 		</Slider>
-	// 	);
+	describe('Returns null', () => {
+		it('When heading is undefined', () => {
+			// Arrange
+			whatsOnContent.heading = undefined;
 
-	// 	// Assert
-	// 	expect(container).toBeInTheDocument();
-	// });
+			// Act
+			const { container } = render(
+				<WhatsOn {...(whatsOnContent as WhatsOnProps)} />
+			);
+
+			// Assert
+			expect(container.innerHTML).toBeEmpty();
+		});
+
+		it('When movieList is undefined', () => {
+			// Arrange
+			whatsOnContent.movieList = undefined;
+
+			// Act
+			const { container } = render(
+				<WhatsOn {...(whatsOnContent as WhatsOnProps)} />
+			);
+
+			// Assert
+			expect(container.innerHTML).toBeEmpty();
+		});
+
+		it('When movieList is empty', () => {
+			// Arrange
+			whatsOnContent.movieList = [];
+
+			// Act
+			const { container } = render(
+				<WhatsOn {...(whatsOnContent as WhatsOnProps)} />
+			);
+
+			// Assert
+			expect(container.innerHTML).toBeEmpty();
+		});
+
+		it('When leftChevron is undefined', () => {
+			// Arrange
+			whatsOnContent.leftChevron = undefined;
+
+			// Act
+			const { container } = render(
+				<WhatsOn {...(whatsOnContent as WhatsOnProps)} />
+			);
+
+			// Assert
+			expect(container.innerHTML).toBeEmpty();
+		});
+
+		it('When rightChevron is undefined', () => {
+			// Arrange
+			whatsOnContent.rightChevron = undefined;
+
+			// Act
+			const { container } = render(
+				<WhatsOn {...(whatsOnContent as WhatsOnProps)} />
+			);
+
+			// Assert
+			expect(container.innerHTML).toBeEmpty();
+		});
+	});
 });
