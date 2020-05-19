@@ -61,6 +61,10 @@
 			transition: opacity 0.5s ease;
 			opacity: 0.5;
 
+			&:hover {
+				opacity: 1;
+			}
+
 			&.slick-center {
 				transform: scale(1, 1);
 				opacity: 1;

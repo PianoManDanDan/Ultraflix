@@ -1,6 +1,7 @@
 import * as contentful from 'react-contentful';
 import * as UseContefulWhatsOnMapper from '../../src/utils/ContentfulWhatsOnMapper';
 import { useGetContentfulWhatsOn } from '../../src/utils';
+import { WhatsOnProps } from '../../src';
 
 const mockUseContentful = jest.spyOn(contentful, 'useContentful');
 const mockContentfulWhatsOnMapper = jest.spyOn(
@@ -16,8 +17,8 @@ describe('useGetContentfulWhatsOn', () => {
 	describe('When all data is present in the useContentful response', () => {
 		it('returns a call to the contentfulWhatsOnMapper', () => {
 			// Arrange
-			const mockContentfulMapperResult = {
-				header: 'header',
+			const mockContentfulMapperResult: WhatsOnProps = {
+				heading: 'header',
 				movieList: [
 					{
 						posterImage: { url: 'url' },

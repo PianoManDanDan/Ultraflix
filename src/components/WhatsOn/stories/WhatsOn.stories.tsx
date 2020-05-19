@@ -15,7 +15,7 @@ const rightChevron: ImageProps = {
 };
 
 const whatsOnProps: WhatsOnProps = {
-	header: text('Header', 'Movies at Ultraflix'),
+	heading: text('Header', 'Movies at Ultraflix'),
 	movieList: mockMovieList,
 	leftChevron,
 	rightChevron,
