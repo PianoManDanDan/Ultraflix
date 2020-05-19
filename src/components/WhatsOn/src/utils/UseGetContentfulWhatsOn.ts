@@ -9,11 +9,7 @@ export const useGetContentfulWhatsOn = (
 		id: contentfulID,
 	});
 
-	if (
-		contentfulResponse.loading ||
-		!contentfulResponse.fetched ||
-		!contentfulResponse.data
-	) {
+	if (contentfulResponse.loading || !contentfulResponse.fetched) {
 		return null;
 	}
 

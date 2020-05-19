@@ -2,60 +2,58 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-extended';
-import * as contentful from 'react-contentful';
-import * as slider from 'react-slick';
 import { WhatsOn, getMaxBreakpoint, WhatsOnProps } from '../src';
-import { ImageProps } from '../../Image/src';
-import { MovieSlideProps } from '../src/subcomponents/MovieSlide/src';
+
+const mockSlider = jest.fn(() => <div />);
 
 jest.mock('react-slick', () => ({
-	slider: jest.fn().mockReturnValue(<div>Test</div>),
+	__esModule: true,
+	default: () => mockSlider(),
 }));
 
-// const mockSlider = jest.spyOn(slider, 'Slider' as never);
-// mockSlider.mockImplementation(() => 'Slider'never);
+jest.mock('../src', () => ({
+	getMaxBreakpoint: (): number => 0,
+}));
 
-
-describe('WhatsOn Component', () =>
+describe('WhatsOn Component', () => {
 	afterEach(() => {
 		jest.resetAllMocks();
 	});
 
-it('renders the correct heading', () => {
-	// Arrange
-	const mockHeading = 'test Heading';
-	const whatsOnContent: WhatsOnProps = {
-		header: mockHeading,
-		movieList: [
-			{
-				posterImage: {
-					url: '',
-					description: '',
+	it('renders the correct heading', () => {
+		// Arrange
+		const mockHeading = 'test Heading';
+		const whatsOnContent: WhatsOnProps = {
+			heading: mockHeading,
+			movieList: [
+				{
+					posterImage: {
+						url: '',
+						description: '',
+					},
+					title: '',
+					runtime: '',
+					certificate: '',
+					releaseYear: 0,
 				},
-				title: '',
-				runtime: '',
-				certificate: '',
-				releaseYear: 0,
+			],
+			leftChevron: {
+				url: '',
+				description: '',
 			},
-		],
-		leftChevron: {
-			url: '',
-			description: '',
-		},
-		rightChevron: {
-			url: '',
-			description: '',
-		}
-	};
+			rightChevron: {
+				url: '',
+				description: '',
+			},
+		};
 
-	// Act
-	const { container } = render(<WhatsOn {...whatsOnContent} />);
+		// Act
+		const { container } = render(<WhatsOn {...whatsOnContent} />);
 
-	// Assert
-	console.log(container);
-	expect(container).toHaveTextContent(mockHeading);
-	expect(container).toHaveTextContent('Slider'); // toHaveTextContent(mockHeading);
-});
+		// Assert
+		expect(container).toHaveTextContent(mockHeading);
+		expect(mockSlider).toHaveBeenCalledTimes(1); // toHaveTextContent(mockHeading);
+	});
 
 	// it('renders the Carousel component', () => {
 	// 	// Arrange
@@ -99,7 +97,6 @@ it('renders the correct heading', () => {
 	// 	//Arrange
 	// 	const mockSlider = jest.spyOn(Slider, 'Slider');
 	// 	mockSlider.mockReturnValue(<p />)
-
 
 	// 	// Act
 	// 	const { container } = render(

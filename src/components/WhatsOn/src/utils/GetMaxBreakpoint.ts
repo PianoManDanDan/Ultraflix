@@ -6,7 +6,7 @@ const formatBreakpoints = (breakpoint: string): number => {
 	return parseInt(updatedBreakpoint, 10);
 };
 
-export const getMaxBreakpoint = (viewportName: string) => {
+export const getMaxBreakpoint = (viewportName: string): number => {
 	const maxBreakpoint = sizes[`${viewportName}MaxBreakpoint`];
 	return formatBreakpoints(maxBreakpoint);
 };

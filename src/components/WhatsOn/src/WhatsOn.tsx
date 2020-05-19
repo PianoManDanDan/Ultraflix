@@ -6,12 +6,18 @@ import { Image } from '../../Image/src';
 import './WhatsOn.scss';
 
 export const WhatsOn: React.FC<WhatsOnProps> = ({
-	header,
+	heading,
 	movieList,
 	leftChevron,
 	rightChevron,
 }) => {
-	if (!header || !movieList || !leftChevron || !rightChevron) {
+	if (
+		!heading ||
+		!movieList ||
+		movieList.length === 0 ||
+		!leftChevron ||
+		!rightChevron
+	) {
 		return null;
 	}
 
@@ -32,7 +38,7 @@ export const WhatsOn: React.FC<WhatsOnProps> = ({
 	};
 
 	const NextArrow = (props) => {
-		const { className, style, onClick } = props;
+		const { arrow, className, style, onClick } = props;
 		return (
 			<div
 				className={className}
@@ -42,7 +48,7 @@ export const WhatsOn: React.FC<WhatsOnProps> = ({
 				role="button"
 				tabIndex={0}
 			>
-				<Image {...rightChevron} />
+				<Image {...arrow} />
 			</div>
 		);
 	};
@@ -70,7 +76,7 @@ export const WhatsOn: React.FC<WhatsOnProps> = ({
 
 	return (
 		<div className="whats-on">
-			<div className="whats-on__header">{header}</div>
+			<div className="whats-on__header">{heading}</div>
 			<Slider
 				className="whats-on__carousel"
 				infinite
@@ -80,7 +86,7 @@ export const WhatsOn: React.FC<WhatsOnProps> = ({
 				centerPadding="0"
 				slidesToShow={5}
 				prevArrow={<PrevArrow />}
-				nextArrow={<NextArrow />}
+				nextArrow={<NextArrow arrow={rightChevron} />}
 				responsive={responsiveSizes}
 			>
 				{movieList.map((movie) => {

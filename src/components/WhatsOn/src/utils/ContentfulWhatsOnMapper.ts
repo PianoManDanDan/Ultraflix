@@ -1,12 +1,15 @@
 import { HookResponse } from 'react-contentful';
-import { WhatsOnProps } from '../WhatsOn';
+import { WhatsOnProps } from '../types/WhatsOnProps';
 import { contentfulImageMapper } from '../../../Image/src';
 import { movieSlidePropsMapper } from '../subcomponents/MovieSlide/src';
 
 export const contentfulWhatsOnMapper = (
 	whatsOnContent: HookResponse
-): WhatsOnProps => {
+): WhatsOnProps | null => {
 	try {
+		if (!whatsOnContent.data) {
+			throw new Error('No data in reponse');
+		}
 		if (!whatsOnContent.data['fields'].heading) {
 			throw new Error('No heading in response');
 		}
@@ -21,9 +24,10 @@ export const contentfulWhatsOnMapper = (
 		}
 	} catch (err) {
 		console.error(err);
+		return null;
 	}
 	return {
-		header: whatsOnContent.data['fields'].heading,
+		heading: whatsOnContent.data['fields'].heading,
 		movieList: movieSlidePropsMapper(whatsOnContent.data['fields'].movies),
 		leftChevron: contentfulImageMapper(
 			whatsOnContent.data['fields'].leftChevron
