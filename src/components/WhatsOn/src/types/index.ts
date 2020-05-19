@@ -1,1 +1,1 @@
-export * from './WhatsOnContentful';
+export * from './WhatsOnProps';
