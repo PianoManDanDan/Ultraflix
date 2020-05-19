@@ -1,16 +1,9 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { getMaxBreakpoint } from '.';
-import { MovieSlide, MovieSlideProps } from './subcomponents/MovieSlide/src';
-import { Image, ImageProps } from '../../Image/src';
+import { getMaxBreakpoint, WhatsOnProps } from '.';
+import { MovieSlide } from './subcomponents/MovieSlide/src';
+import { Image } from '../../Image/src';
 import './WhatsOn.scss';
-
-export type WhatsOnProps = {
-	header: string;
-	movieList: MovieSlideProps[];
-	leftChevron: ImageProps;
-	rightChevron: ImageProps;
-};
 
 export const WhatsOn: React.FC<WhatsOnProps> = ({
 	header,
@@ -25,7 +18,14 @@ export const WhatsOn: React.FC<WhatsOnProps> = ({
 	const PrevArrow = (props) => {
 		const { className, style, onClick } = props;
 		return (
-			<div className={className} style={style} onClick={onClick}>
+			<div
+				className={className}
+				style={style}
+				onClick={onClick}
+				onKeyPress={onClick}
+				role="button"
+				tabIndex={0}
+			>
 				<Image {...leftChevron} />
 			</div>
 		);
@@ -34,7 +34,14 @@ export const WhatsOn: React.FC<WhatsOnProps> = ({
 	const NextArrow = (props) => {
 		const { className, style, onClick } = props;
 		return (
-			<div className={className} style={style} onClick={onClick}>
+			<div
+				className={className}
+				style={style}
+				onClick={onClick}
+				onKeyPress={onClick}
+				role="button"
+				tabIndex={0}
+			>
 				<Image {...rightChevron} />
 			</div>
 		);
