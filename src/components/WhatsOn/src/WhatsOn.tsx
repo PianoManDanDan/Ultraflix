@@ -2,8 +2,8 @@ import React from 'react';
 import Slider from 'react-slick';
 import { WhatsOnProps, getMaxBreakpoint } from '.';
 import { MovieSlide } from './subcomponents/MovieSlide/src';
-import './WhatsOn.scss';
 import { Arrow } from './subcomponents/Arrow';
+import './WhatsOn.scss';
 
 export const WhatsOn: React.FC<WhatsOnProps> = ({
 	heading,
