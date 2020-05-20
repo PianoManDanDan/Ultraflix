@@ -1,4 +1,4 @@
-module.exports = plop => {
+module.exports = (plop) => {
 	plop.setGenerator('component', {
 		description: 'Create a component',
 		// User input prompts provided as arguments to the template
@@ -9,7 +9,7 @@ module.exports = plop => {
 				// Variable name for this input
 				name: 'name',
 				// Prompt to display on command line
-				message: 'What is your component name?'
+				message: 'What is your component name?',
 			},
 		],
 		actions: [
@@ -23,10 +23,8 @@ module.exports = plop => {
 			},
 			{
 				type: 'add',
-				path:
-					'src/components/{{pascalCase name}}/src/{{pascalCase name}}.scss',
-				templateFile:
-					'plop-templates/Component/src/Component.scss.hbs',
+				path: 'src/components/{{pascalCase name}}/src/{{pascalCase name}}.scss',
+				templateFile: 'plop-templates/Component/src/Component.scss.hbs',
 			},
 			{
 				type: 'add',
@@ -35,9 +33,9 @@ module.exports = plop => {
 			},
 			{
 				type: 'add',
-				path: 'src/components/{{pascalCase name}}/test/{{pascalCase name}}.test.tsx',
-				templateFile:
-					'plop-templates/Component/test/Component.test.tsx.hbs',
+				path:
+					'src/components/{{pascalCase name}}/test/{{pascalCase name}}.test.tsx',
+				templateFile: 'plop-templates/Component/test/Component.test.tsx.hbs',
 			},
 			{
 				type: 'add',
@@ -55,20 +53,21 @@ module.exports = plop => {
 			},
 			{
 				type: 'add',
-				path: 'src/components/{{pascalCase name}}/src/subcomponents/ExampleSubcomponent.tsx',
+				path:
+					'src/components/{{pascalCase name}}/src/subcomponents/ExampleSubcomponent.tsx',
 				templateFile:
 					'plop-templates/Component/src/subcomponents/ExampleSubcomponent.tsx.hbs',
 			},
 			{
 				type: 'add',
 				path: 'src/components/{{pascalCase name}}/src/subcomponents/index.ts',
-				templateFile: 'plop-templates/Component/src/subcomponents/indexForSubcomponents.ts.hbs',
+				templateFile:
+					'plop-templates/Component/src/subcomponents/indexForSubcomponents.ts.hbs',
 			},
 			{
 				type: 'add',
-				path: 'src/components/{{pascalCase name}}/src/types/ExampleType.tsx',
-				templateFile:
-					'plop-templates/Component/src/types/Type.tsx.hbs',
+				path: 'src/components/{{pascalCase name}}/src/types/ExampleType.ts',
+				templateFile: 'plop-templates/Component/src/types/Type.ts.hbs',
 			},
 			{
 				type: 'add',
@@ -77,16 +76,14 @@ module.exports = plop => {
 			},
 			{
 				type: 'add',
-				path: 'src/components/{{pascalCase name}}/src/utils/ExampleUtil.tsx',
-				templateFile:
-					'plop-templates/Component/src/utils/ExampleUtil.tsx.hbs',
+				path: 'src/components/{{pascalCase name}}/src/utils/ExampleUtil.ts',
+				templateFile: 'plop-templates/Component/src/utils/ExampleUtil.ts.hbs',
 			},
 			{
 				type: 'add',
 				path: 'src/components/{{pascalCase name}}/src/utils/index.ts',
-				templateFile:
-					'plop-templates/Component/src/utils/indexForUtils.ts.hbs',
-			}
+				templateFile: 'plop-templates/Component/src/utils/indexForUtils.ts.hbs',
+			},
 		],
 	});
 };
