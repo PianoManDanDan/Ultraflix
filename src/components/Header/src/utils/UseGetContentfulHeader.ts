@@ -1,5 +1,5 @@
 import { HookResponse, useContentful } from 'react-contentful';
-import { HeaderProps } from '../types';
+import { HeaderProps } from '..';
 import { contentfulHeaderMapper } from '.';
 
 export const useGetContentfulHeader = (
@@ -9,11 +9,7 @@ export const useGetContentfulHeader = (
 		id: contentfulID,
 	});
 
-	if (
-		contentfulHeader.loading ||
-		!contentfulHeader.fetched ||
-		!contentfulHeader.data
-	) {
+	if (contentfulHeader.loading || !contentfulHeader.fetched) {
 		return null;
 	}
 

@@ -1,6 +1,6 @@
 import { HookResponse, useContentful } from 'react-contentful';
-import { FooterProps } from '../types';
-import { contentfulFooterMapper } from './ContentfulFooterMapper';
+import { FooterProps } from '..';
+import { contentfulFooterMapper } from '.';
 
 export const useGetContentfulFooter = (
 	contentfulID: string
@@ -9,11 +9,7 @@ export const useGetContentfulFooter = (
 		id: contentfulID,
 	});
 
-	if (
-		contentfulFooter.loading ||
-		!contentfulFooter.fetched ||
-		!contentfulFooter.data
-	) {
+	if (contentfulFooter.loading || !contentfulFooter.fetched) {
 		return null;
 	}
 
