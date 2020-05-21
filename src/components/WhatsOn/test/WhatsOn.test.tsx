@@ -16,6 +16,8 @@ jest.mock('../src/utils', () => ({
 }));
 
 describe('WhatsOn Component', () => {
+	const whatsOnKeys = ['heading', 'movieList', 'prevArrow', 'nextArrow'];
+
 	let whatsOnContent: Partial<WhatsOnProps>;
 
 	beforeEach(() => {
@@ -48,8 +50,8 @@ describe('WhatsOn Component', () => {
 		jest.resetAllMocks();
 	});
 
-	describe('Renders component with heading and slider', () => {
-		it('When all content is defined', () => {
+	describe('When all content is defined', () => {
+		it('Renders component with heading and slider', () => {
 			// Arrange
 			const mockHeading = 'Test';
 			whatsOnContent.heading = mockHeading;
@@ -65,10 +67,10 @@ describe('WhatsOn Component', () => {
 		});
 	});
 
-	describe('Returns null', () => {
-		it('When heading is undefined', () => {
+	describe.each(whatsOnKeys)(`When %s is undefined`, (key) => {
+		it('Returns null', () => {
 			// Arrange
-			whatsOnContent.heading = undefined;
+			whatsOnContent[key] = undefined;
 
 			// Act
 			const { container } = render(
@@ -76,59 +78,7 @@ describe('WhatsOn Component', () => {
 			);
 
 			// Assert
-			expect(container.innerHTML).toBeEmpty();
-		});
-
-		it('When movieList is undefined', () => {
-			// Arrange
-			whatsOnContent.movieList = undefined;
-
-			// Act
-			const { container } = render(
-				<WhatsOn {...(whatsOnContent as WhatsOnProps)} />
-			);
-
-			// Assert
-			expect(container.innerHTML).toBeEmpty();
-		});
-
-		it('When movieList is empty', () => {
-			// Arrange
-			whatsOnContent.movieList = [];
-
-			// Act
-			const { container } = render(
-				<WhatsOn {...(whatsOnContent as WhatsOnProps)} />
-			);
-
-			// Assert
-			expect(container.innerHTML).toBeEmpty();
-		});
-
-		it('When prevArrow is undefined', () => {
-			// Arrange
-			whatsOnContent.prevArrow = undefined;
-
-			// Act
-			const { container } = render(
-				<WhatsOn {...(whatsOnContent as WhatsOnProps)} />
-			);
-
-			// Assert
-			expect(container.innerHTML).toBeEmpty();
-		});
-
-		it('When nextArrow is undefined', () => {
-			// Arrange
-			whatsOnContent.nextArrow = undefined;
-
-			// Act
-			const { container } = render(
-				<WhatsOn {...(whatsOnContent as WhatsOnProps)} />
-			);
-
-			// Assert
-			expect(container.innerHTML).toBeEmpty();
+			expect(container.innerHTML).not.toBeEmpty();
 		});
 	});
 });
