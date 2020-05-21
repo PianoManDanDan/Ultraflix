@@ -46,7 +46,7 @@ describe('contentfulWhatsOnMapper', () => {
 				url: 'Image mapper url',
 			});
 			// Act
-			const result = contentfulWhatsOnMapper(mockUseContentfulResponse);
+			const result = contentfulWhatsOnMapper(mockUseContentfulResponse.data);
 			// Assert
 			expect(result).toStrictEqual(result as WhatsOnProps);
 		});
