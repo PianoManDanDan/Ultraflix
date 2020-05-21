@@ -6,7 +6,7 @@ export const contentfulWhatsOnMapper = (
 	whatsOnContent: object
 ): WhatsOnProps => ({
 	heading: whatsOnContent['fields'].heading,
-	movieList: contentfulMovieListMapper(whatsOnContent['fields'].movies),
-	leftChevron: contentfulImageMapper(whatsOnContent['fields'].leftChevron),
-	rightChevron: contentfulImageMapper(whatsOnContent['fields'].rightChevron),
+	movieList: contentfulMovieListMapper(whatsOnContent['fields'].items),
+	prevArrow: contentfulImageMapper(whatsOnContent['fields'].prevArrow),
+	nextArrow: contentfulImageMapper(whatsOnContent['fields'].nextArrow),
 });

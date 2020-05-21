@@ -4,12 +4,12 @@ import { WhatsOn, WhatsOnProps } from '../src';
 import { ImageProps } from '../../Image/src';
 import { mockMovieList } from './data/MockMovieList.data';
 
-const leftChevron: ImageProps = {
+const prevArrow: ImageProps = {
 	url: '/left-chevron.svg',
 	description: 'Movie Slide Image',
 };
 
-const rightChevron: ImageProps = {
+const nextArrow: ImageProps = {
 	url: '/right-chevron.svg',
 	description: 'Movie Slide Image',
 };
@@ -17,8 +17,8 @@ const rightChevron: ImageProps = {
 const whatsOnProps: WhatsOnProps = {
 	heading: text('Header', 'Movies at Ultraflix'),
 	movieList: mockMovieList,
-	leftChevron,
-	rightChevron,
+	prevArrow,
+	nextArrow,
 };
 
 export default {

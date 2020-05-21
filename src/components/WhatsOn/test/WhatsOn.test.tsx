@@ -33,11 +33,11 @@ describe('WhatsOn Component', () => {
 					releaseYear: 0,
 				},
 			],
-			leftChevron: {
+			prevArrow: {
 				url: '',
 				description: '',
 			},
-			rightChevron: {
+			nextArrow: {
 				url: '',
 				description: '',
 			},
@@ -105,9 +105,9 @@ describe('WhatsOn Component', () => {
 			expect(container.innerHTML).toBeEmpty();
 		});
 
-		it('When leftChevron is undefined', () => {
+		it('When prevArrow is undefined', () => {
 			// Arrange
-			whatsOnContent.leftChevron = undefined;
+			whatsOnContent.prevArrow = undefined;
 
 			// Act
 			const { container } = render(
@@ -118,9 +118,9 @@ describe('WhatsOn Component', () => {
 			expect(container.innerHTML).toBeEmpty();
 		});
 
-		it('When rightChevron is undefined', () => {
+		it('When nextArrow is undefined', () => {
 			// Arrange
-			whatsOnContent.rightChevron = undefined;
+			whatsOnContent.nextArrow = undefined;
 
 			// Act
 			const { container } = render(

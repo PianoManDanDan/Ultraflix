@@ -28,8 +28,8 @@ describe('useGetContentfulWhatsOn', () => {
 						releaseYear: 1,
 					},
 				],
-				leftChevron: { url: 'url' },
-				rightChevron: { url: 'url' },
+				prevArrow: { url: 'url' },
+				nextArrow: { url: 'url' },
 			};
 			mockUseContentful.mockReturnValue({
 				fetched: true,

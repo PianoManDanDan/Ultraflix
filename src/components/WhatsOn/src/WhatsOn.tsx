@@ -8,8 +8,8 @@ import './WhatsOn.scss';
 export const WhatsOn: React.FC<WhatsOnProps> = ({
 	heading,
 	movieList,
-	leftChevron,
-	rightChevron,
+	prevArrow,
+	nextArrow,
 }) => {
 	if (
 		!heading ||
@@ -53,8 +53,8 @@ export const WhatsOn: React.FC<WhatsOnProps> = ({
 				focusOnSelect
 				centerPadding="0"
 				slidesToShow={5}
-				prevArrow={<Arrow arrow={leftChevron} />}
-				nextArrow={<Arrow arrow={rightChevron} />}
+				prevArrow={<Arrow arrow={prevArrow} />}
+				nextArrow={<Arrow arrow={nextArrow} />}
 				responsive={responsiveSizes}
 			>
 				{movieList.map((movie) => {
