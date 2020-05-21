@@ -4,6 +4,12 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const SRC_PATH = path.join(__dirname, '../src');
+const SLICK_PATH = path.join(
+	__dirname,
+	'../node_modules/slick-carousel/slick/'
+);
+
 module.exports = {
 	entry: {
 		app: './src/index.tsx',
@@ -44,12 +50,8 @@ module.exports = {
 		rules: [
 			{
 				test: /\.ts(x?)$/,
-				exclude: [
-					/node_modules/,
-					/\.stories\.ts(x?)$/,
-					/\.story\.ts(x?)$/,
-					/\.test\.ts(x?)$/,
-				],
+				include: [SRC_PATH],
+				exclude: [/\.stories\.ts(x?)$/, /\.story\.ts(x?)$/, /\.test\.ts(x?)$/],
 				use: [
 					{
 						loader: 'ts-loader',
@@ -58,14 +60,12 @@ module.exports = {
 			},
 			{
 				test: /\.(s?)css$/,
-				exclude: /node_modules/,
+				include: [SRC_PATH],
 				use: ['style-loader', 'css-loader', 'sass-loader'],
 			},
 			{
 				test: /\.(svg|png|jpe?g|gif)$/,
-				// TODO
-				// include: [/node_modules\/slick-carousel\/slick\//, /src/],
-				// exclude: /node_modules/,
+				include: [SLICK_PATH],
 				use: [
 					{
 						loader: 'url-loader',
@@ -74,6 +74,7 @@ module.exports = {
 			},
 			{
 				test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+				include: [SLICK_PATH],
 				use: [
 					{
 						loader: 'file-loader',
