@@ -15,8 +15,8 @@ export const WhatsOn: React.FC<WhatsOnProps> = ({
 		!heading ||
 		!movieList ||
 		movieList.length === 0 ||
-		!leftChevron ||
-		!rightChevron
+		!prevArrow ||
+		!nextArrow
 	) {
 		return null;
 	}
