@@ -1,1 +1,1 @@
-export * from './FooterTypes';
+export * from './FooterProps';

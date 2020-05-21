@@ -1,14 +1,14 @@
 import { contentfulWhatsOnMapper } from '../../src/utils';
 import { WhatsOnProps } from '../../src';
-import * as MovieSlidePropsMapper from '../../src/subcomponents/MovieSlide/src/utils/MovieSlidePropsMapper';
-import * as ImageMapper from '../../../Image/src/utils/ContentfulImageMapper';
+import * as contentfulMovieListMapper from '../../src/subcomponents/MovieSlide/src/utils/ContentfulMovieListMapper';
+import * as contenfulImageMapper from '../../../Image/src/utils/ContentfulImageMapper';
 
 const mockMovieSlidePropsMapper = jest.spyOn(
-	MovieSlidePropsMapper,
-	'movieSlidePropsMapper'
+	contentfulMovieListMapper,
+	'contentfulMovieListMapper'
 );
 const mockContentfulImageMapper = jest.spyOn(
-	ImageMapper,
+	contenfulImageMapper,
 	'contentfulImageMapper'
 );
 

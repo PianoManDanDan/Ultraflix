@@ -5,18 +5,28 @@ import { contentfulFooterMapper } from '.';
 export const useGetContentfulFooter = (
 	contentfulID: string
 ): FooterProps | null => {
-	const contentfulFooter: HookResponse = useContentful({
+	const contentfulResponse: HookResponse = useContentful({
 		id: contentfulID,
 	});
 
-	if (contentfulFooter.loading || !contentfulFooter.fetched) {
+	if (
+		contentfulResponse.loading ||
+		!contentfulResponse.fetched ||
+		!contentfulResponse.data
+	) {
 		return null;
 	}
 
-	if (contentfulFooter.error) {
-		console.error(contentfulFooter.error);
+	if (contentfulResponse.error) {
+		console.error(contentfulResponse.error);
 		return null;
 	}
 
-	return contentfulFooterMapper(contentfulFooter);
+	try {
+		return contentfulFooterMapper(contentfulResponse.data);
+	} catch (err) {
+		console.error('Cannot retrieve Footer content');
+		console.error(err);
+		return null;
+	}
 };
