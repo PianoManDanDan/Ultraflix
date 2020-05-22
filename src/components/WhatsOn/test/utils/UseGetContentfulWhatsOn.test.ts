@@ -1,24 +1,25 @@
 import * as contentful from 'react-contentful';
-import * as UseContefulWhatsOnMapper from '../../src/utils/ContentfulWhatsOnMapper';
 import { useGetContentfulWhatsOn } from '../../src/utils';
 import { WhatsOnProps } from '../../src';
 
 const mockUseContentful = jest.spyOn(contentful, 'useContentful');
 
-const mockMapper = jest.fn(() => ({
-	heading: 'header',
-	movieList: [
-		{
-			posterImage: { url: 'url' },
-			title: 'title',
-			runtime: 'runtime',
-			certificate: 'certificate',
-			releaseYear: 1,
-		},
-	],
-	prevArrow: { url: 'url' },
-	nextArrow: { url: 'url' },
-}));
+const mockMapper = jest.fn(
+	(): WhatsOnProps => ({
+		heading: 'header',
+		movieList: [
+			{
+				posterImage: { url: 'url' },
+				title: 'title',
+				runtime: 'runtime',
+				certificate: 'certificate',
+				releaseYear: 1,
+			},
+		],
+		prevArrow: { url: 'url' },
+		nextArrow: { url: 'url' },
+	})
+);
 jest.mock('../../src/utils/ContentfulWhatsOnMapper', () => ({
 	contentfulWhatsOnMapper: () => mockMapper(),
 }));
