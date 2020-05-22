@@ -14,7 +14,7 @@ describe('useGetContentfulWhatsOn', () => {
 		jest.resetAllMocks();
 	});
 
-	describe('When all data is present in the useContentful response', () => {
+	describe('When all data is present in the useContentful response, and object is fetched and not loading', () => {
 		it('returns a call to the contentfulWhatsOnMapper', () => {
 			// Arrange
 			const mockContentfulMapperResult: WhatsOnProps = {
@@ -142,7 +142,6 @@ describe('useGetContentfulWhatsOn', () => {
 
 			// Assert
 			expect(result).toBeNull();
-			expect(console.error).toHaveBeenCalledTimes(1);
 		});
 	});
 });
