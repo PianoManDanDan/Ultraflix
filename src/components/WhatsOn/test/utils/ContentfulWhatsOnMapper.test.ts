@@ -16,7 +16,7 @@ describe('contentfulWhatsOnMapper', () => {
 	beforeEach(() => {
 		jest.resetAllMocks();
 	});
-	describe('When passed expected data', () => {
+	describe('When passed valid data with correct fields and types', () => {
 		it('should return correct props', () => {
 			// Arrange
 			const mockUseContentfulResponse = {
