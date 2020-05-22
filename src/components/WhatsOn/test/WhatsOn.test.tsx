@@ -78,7 +78,7 @@ describe('WhatsOn Component', () => {
 			);
 
 			// Assert
-			expect(container.innerHTML).not.toBeEmpty();
+			expect(container.innerHTML).toBeEmpty();
 		});
 	});
 });
