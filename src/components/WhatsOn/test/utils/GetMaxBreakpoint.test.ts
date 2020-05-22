@@ -2,7 +2,8 @@ import { getMaxBreakpoint } from '../../src/utils/GetMaxBreakpoint';
 
 describe('GetMaxBreakpoint', () => {
 	describe('When passed a valid viewport name', () => {
-		describe.each(['xs', 'sm', 'md', 'lg'])(
+		const validViewportNames = ['xs', 'sm', 'md', 'lg'];
+		describe.each(validViewportNames)(
 			'When passed %s as a viewport name',
 			(viewport) => {
 				it('returns an integer', () => {
