@@ -1,21 +1,19 @@
-import { getMaxBreakpoint } from '../../src/utils/GetMaxBreakpoint';
+import { getMaxBreakpoint } from '../../src/utils';
 
 describe('GetMaxBreakpoint', () => {
-	describe('When passed a valid viewport name', () => {
-		const validViewportNames = ['xs', 'sm', 'md', 'lg'];
-		describe.each(validViewportNames)(
-			'When passed %s as a viewport name',
-			(viewport) => {
-				it('returns an integer', () => {
-					// Act
-					const result = getMaxBreakpoint(viewport);
+	const validViewportNames = ['xs', 'sm', 'md', 'lg'];
+	describe.each(validViewportNames)(
+		'When passed %s as a viewport name',
+		(viewport) => {
+			it('returns an integer', () => {
+				// Act
+				const result = getMaxBreakpoint(viewport);
 
-					// Assert
-					expect(typeof result === 'number').toBe(true);
-				});
-			}
-		);
-	});
+				// Assert
+				expect(typeof result === 'number').toBe(true);
+			});
+		}
+	);
 	describe('When passed an invalid viewport name', () => {
 		it('returns a NaN', () => {
 			// Arrange
