@@ -1,64 +1,24 @@
 import React from 'react';
-import { HookResponse, useContentful } from 'react-contentful';
-import { Header } from '../components/Header/src';
-import { HeaderProps } from '../components/Header/src/types';
-import { Footer } from '../components/Footer/src';
-import { FooterProps } from '../components/Footer/src/types';
-
-const getHeaderContent = (headerContent): HeaderProps => {
-	return {
-		logo: {
-			url: headerContent.data['fields'].logo['fields'].file.url,
-			description: headerContent.data['fields'].logo['fields'].description,
-		},
-	};
-};
-
-const getFooterContent = (footerContent): FooterProps => {
-	return {
-		copyrightText: footerContent.data['fields'].copyrightText,
-		logo: {
-			url: footerContent.data['fields'].logo['fields'].file.url,
-			description: footerContent.data['fields'].logo['fields'].description,
-		},
-		companyText: footerContent.data['fields'].companyText,
-	};
-};
+import { Header, useGetContentfulHeader } from '../components/Header/src';
+import { Footer, useGetContentfulFooter } from '../components/Footer/src';
+import { WhatsOn, useGetContentfulWhatsOn } from '../components/WhatsOn/src';
 
 export const HomePage: React.FC<{}> = () => {
-	const headerContent: HookResponse = useContentful({
-		id: '4V1H6JAO1iUCB0a9RW1kIs',
-	});
-	const footerContent: HookResponse = useContentful({
-		id: '4psLuIzH33I6TptbtKJkVX',
-	});
+	const headerContent = useGetContentfulHeader('4V1H6JAO1iUCB0a9RW1kIs');
+	const footerContent = useGetContentfulFooter('4psLuIzH33I6TptbtKJkVX');
+	const whatsOnContent = useGetContentfulWhatsOn('3eClse9t6aIwURH79xlUAK');
 
-	if (
-		headerContent.loading ||
-		!headerContent.fetched ||
-		!headerContent.data ||
-		footerContent.loading ||
-		!footerContent.fetched ||
-		!footerContent.data
-	) {
-		return null;
-	}
-
-	if (footerContent.error) {
-		console.error(footerContent.error);
-		return null;
-	}
-
-	if (headerContent.error) {
-		console.error(headerContent.error);
+	if (!headerContent || !footerContent || !whatsOnContent) {
 		return null;
 	}
 
 	return (
 		<div className="app-page-container">
-			<Header {...getHeaderContent(headerContent)} />
-			<div className="app-page-content-container" />
-			<Footer {...getFooterContent(footerContent)} />
+			<Header {...headerContent} />
+			<div className="app-page-content-container">
+				<WhatsOn {...whatsOnContent} />
+			</div>
+			<Footer {...footerContent} />
 		</div>
 	);
 };

@@ -1,1 +1,1 @@
-export * from './HeaderTypes';
+export * from './HeaderProps';

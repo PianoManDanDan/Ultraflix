@@ -1,0 +1,30 @@
+@import '../../../../../../globalStyles/fonts';
+
+.movie-slide {
+	text-align: center;
+	@include bodyFont();
+	padding: 0 1rem;
+
+	&__title {
+		@include itemHeaderFont();
+		padding: 1rem 0;
+		padding-bottom: 2rem;
+	}
+
+	&__info {
+		height: 20rem;
+	}
+
+	&__runtime {
+		padding-right: 1rem;
+		border-right: 1px solid white;
+	}
+
+	&__certificate {
+		padding-left: 1rem;
+	}
+
+	&__release-year {
+		padding: 0.5rem 0
+	}
+}

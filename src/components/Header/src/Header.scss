@@ -11,6 +11,7 @@
 	left: 0;
 	width: 100%;
 	background-color: color(homepage, penguin-black, 2);
+	z-index: 999;
 
 	&__logo {
 		width: 27rem;
