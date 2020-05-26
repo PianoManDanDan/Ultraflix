@@ -3,8 +3,21 @@ import { MovieSlideProps } from '../../src/subcomponents/MovieSlide/src';
 import { ImageProps } from '../../../Image/src';
 import { WhatsOnProps } from '../../src';
 
+const mockContentfulMovieListMapper = jest.fn((movieList) => movieList);
+
 jest.mock('../../src/subcomponents/MovieSlide/src', () => ({
-	contentfulMovieListMapper: (): MovieSlideProps[] => [
+	contentfulMovieListMapper: (movieList) =>
+		mockContentfulMovieListMapper(movieList),
+}));
+
+const mockContentfulImageMapper = jest.fn((image) => image);
+
+jest.mock('../../../Image/src', () => ({
+	contentfulImageMapper: (image) => mockContentfulImageMapper(image),
+}));
+
+describe('contentfulWhatsOnMapper', () => {
+	const mockMovieList: MovieSlideProps[] = [
 		{
 			posterImage: {
 				url: 'Movie slide props mapper url',
@@ -14,16 +27,16 @@ jest.mock('../../src/subcomponents/MovieSlide/src', () => ({
 			certificate: 'certificate',
 			releaseYear: 0,
 		},
-	],
-}));
+	];
 
-jest.mock('../../../Image/src', () => ({
-	contentfulImageMapper: (): ImageProps => ({
-		url: 'Image mapper url',
-	}),
-}));
+	const mockPrevArrow: ImageProps = {
+		url: 'prevArrow url',
+	};
 
-describe('contentfulWhatsOnMapper', () => {
+	const mockNextArrow: ImageProps = {
+		url: 'nextArrow url',
+	};
+
 	afterEach(() => {
 		jest.resetAllMocks();
 	});
@@ -34,17 +47,33 @@ describe('contentfulWhatsOnMapper', () => {
 			const mockContentfulData = {
 				fields: {
 					heading: 'Heading',
-					movies: ['movie'],
-					leftChevron: 'leftChevron',
-					rightChevron: 'rightChevron',
+					items: mockMovieList,
+					prevArrow: mockPrevArrow,
+					nextArrow: mockNextArrow,
 				},
+			};
+
+			const expectedResult: WhatsOnProps = {
+				heading: 'Heading',
+				movieList: mockMovieList,
+				prevArrow: mockPrevArrow,
+				nextArrow: mockNextArrow,
 			};
 
 			// Act
 			const result = contentfulWhatsOnMapper(mockContentfulData);
 
 			// Assert
-			expect(result).toStrictEqual(result as WhatsOnProps);
+			expect(result).toStrictEqual(expectedResult);
+			expect(mockContentfulMovieListMapper).toHaveBeenCalledWith(
+				mockContentfulData.fields.items
+			);
+			expect(mockContentfulImageMapper).toHaveBeenCalledWith(
+				mockContentfulData.fields.prevArrow
+			);
+			expect(mockContentfulImageMapper).toHaveBeenCalledWith(
+				mockContentfulData.fields.nextArrow
+			);
 		});
 	});
 });
