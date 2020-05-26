@@ -4,7 +4,7 @@ import { WhatsOnProps } from '../../src';
 
 const mockUseContentful = jest.spyOn(contentful, 'useContentful');
 
-const mockMapper = jest.fn(
+const mockContentfulWhatsOnMapper = jest.fn(
 	(): WhatsOnProps => ({
 		heading: 'header',
 		movieList: [
@@ -20,8 +20,9 @@ const mockMapper = jest.fn(
 		nextArrow: { url: 'url' },
 	})
 );
+
 jest.mock('../../src/utils/ContentfulWhatsOnMapper', () => ({
-	contentfulWhatsOnMapper: () => mockMapper(),
+	contentfulWhatsOnMapper: () => mockContentfulWhatsOnMapper(),
 }));
 
 describe('useGetContentfulWhatsOn', () => {
@@ -29,56 +30,37 @@ describe('useGetContentfulWhatsOn', () => {
 		jest.resetAllMocks();
 	});
 
-	describe('When all data is present in the useContentful response, and object is fetched and not loading', () => {
-		it('returns a call to the contentfulWhatsOnMapper', () => {
+	describe('When useContentful returns fetched, not loading, and with data', () => {
+		it('returns the result of contentfulWhatsOnMapper', () => {
 			// Arrange
 			mockUseContentful.mockReturnValue({
 				fetched: true,
 				loading: false,
 				data: {
-					fields: {
-						heading: '',
-						movies: [
-							{
-								fields: {
-									posterImage: {
-										fields: {
-											file: {
-												url: '',
-											},
-											description: '',
-										},
-									},
-									title: '',
-									runtime: '',
-									certificate: '',
-									releaseYear: 0,
-								},
-							},
-						],
-					},
+					fields: 'some data',
 				},
 			});
-			const expectedResult = mockMapper();
-			mockMapper.mockClear();
+
+			const expectedResult = mockContentfulWhatsOnMapper();
+			mockContentfulWhatsOnMapper.mockClear();
 
 			// Act
 			const result = useGetContentfulWhatsOn('mockId');
 
 			// Assert
 			expect(result).toStrictEqual(expectedResult);
-			expect(mockMapper).toHaveBeenCalledTimes(1);
+			expect(mockContentfulWhatsOnMapper).toHaveBeenCalledTimes(1);
 		});
 	});
 
-	describe('When contentfulResponse.loading is set to true', () => {
+	describe('When useContentful returns loading', () => {
 		it('returns null', () => {
 			// Arrange
 			mockUseContentful.mockReturnValue({
 				fetched: true,
 				loading: true,
 				data: {
-					fields: { data: true },
+					fields: 'some data',
 				},
 			});
 
@@ -87,17 +69,18 @@ describe('useGetContentfulWhatsOn', () => {
 
 			// Assert
 			expect(result).toBeNull();
+			expect(mockContentfulWhatsOnMapper).not.toHaveBeenCalled();
 		});
 	});
 
-	describe('When contentfulResponse.fetched is set to false', () => {
+	describe('When useContentful returns not fetched', () => {
 		it('returns null', () => {
 			// Arrange
 			mockUseContentful.mockReturnValue({
 				fetched: false,
 				loading: false,
 				data: {
-					fields: { data: true },
+					fields: 'some data',
 				},
 			});
 
@@ -106,10 +89,11 @@ describe('useGetContentfulWhatsOn', () => {
 
 			// Assert
 			expect(result).toBeNull();
+			expect(mockContentfulWhatsOnMapper).not.toHaveBeenCalled();
 		});
 	});
 
-	describe('When contentfulResponse.data is set to undefined', () => {
+	describe('When useContentful returns no data', () => {
 		it('returns null', () => {
 			// Arrange
 			mockUseContentful.mockReturnValue({
@@ -123,20 +107,23 @@ describe('useGetContentfulWhatsOn', () => {
 
 			// Assert
 			expect(result).toBeNull();
+			expect(mockContentfulWhatsOnMapper).not.toHaveBeenCalled();
 		});
 	});
 
-	describe('When contentfulResponse.error is not undefined', () => {
+	describe('When useContentful returns an error', () => {
 		it('returns null', () => {
 			// Arrange
 			mockUseContentful.mockReturnValue({
 				fetched: true,
 				loading: false,
 				data: {
-					fields: { data: true },
+					fields: 'some data',
 				},
 				error: { error: 'error' },
 			});
+
+			// Stop console.error() in useGetContentfulWhatsOn
 			console.error = jest.fn();
 
 			// Act
@@ -144,6 +131,7 @@ describe('useGetContentfulWhatsOn', () => {
 
 			// Assert
 			expect(result).toBeNull();
+			expect(mockContentfulWhatsOnMapper).not.toHaveBeenCalled();
 		});
 	});
 });
