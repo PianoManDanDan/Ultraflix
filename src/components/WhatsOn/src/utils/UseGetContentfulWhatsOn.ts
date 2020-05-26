@@ -9,7 +9,11 @@ export const useGetContentfulWhatsOn = (
 		id: contentfulID,
 	});
 
-	if (contentfulResponse.loading || !contentfulResponse.fetched) {
+	if (
+		contentfulResponse.loading ||
+		!contentfulResponse.fetched ||
+		!contentfulResponse.data
+	) {
 		return null;
 	}
 
@@ -18,5 +22,11 @@ export const useGetContentfulWhatsOn = (
 		return null;
 	}
 
-	return contentfulWhatsOnMapper(contentfulResponse);
+	try {
+		return contentfulWhatsOnMapper(contentfulResponse.data);
+	} catch (err) {
+		console.error('Cannot retrieve WhatsOn Content');
+		console.error(err);
+		return null;
+	}
 };

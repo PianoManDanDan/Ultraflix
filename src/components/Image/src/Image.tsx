@@ -8,7 +8,7 @@ export const Image: React.FC<ImageProps> = (image) => {
 	}
 
 	return (
-		<div className={`image ${image.className ? image.className : ''}`}>
+		<div className={`image ${image.className || ''}`}>
 			<img src={image.url} alt={image.description} />
 		</div>
 	);

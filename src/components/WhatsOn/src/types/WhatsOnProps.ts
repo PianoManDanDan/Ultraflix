@@ -4,6 +4,6 @@ import { ImageProps } from '../../../Image/src';
 export type WhatsOnProps = {
 	heading: string;
 	movieList: MovieSlideProps[];
-	leftChevron: ImageProps;
-	rightChevron: ImageProps;
+	prevArrow: ImageProps;
+	nextArrow: ImageProps;
 };

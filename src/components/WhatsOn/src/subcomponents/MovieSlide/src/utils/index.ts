@@ -1,1 +1,1 @@
-export * from './MovieSlidePropsMapper';
+export * from './ContentfulMovieListMapper';

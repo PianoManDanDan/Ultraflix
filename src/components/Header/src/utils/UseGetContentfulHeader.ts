@@ -1,26 +1,32 @@
 import { HookResponse, useContentful } from 'react-contentful';
-import { HeaderProps } from '../types';
+import { HeaderProps } from '..';
 import { contentfulHeaderMapper } from '.';
 
 export const useGetContentfulHeader = (
 	contentfulID: string
 ): HeaderProps | null => {
-	const contentfulHeader: HookResponse = useContentful({
+	const contentfulResponse: HookResponse = useContentful({
 		id: contentfulID,
 	});
 
 	if (
-		contentfulHeader.loading ||
-		!contentfulHeader.fetched ||
-		!contentfulHeader.data
+		contentfulResponse.loading ||
+		!contentfulResponse.fetched ||
+		!contentfulResponse.data
 	) {
 		return null;
 	}
 
-	if (contentfulHeader.error) {
-		console.error(contentfulHeader.error);
+	if (contentfulResponse.error) {
+		console.error(contentfulResponse.error);
 		return null;
 	}
 
-	return contentfulHeaderMapper(contentfulHeader);
+	try {
+		return contentfulHeaderMapper(contentfulResponse.data);
+	} catch (err) {
+		console.error('Cannot retrieve Header content');
+		console.error(err);
+		return null;
+	}
 };

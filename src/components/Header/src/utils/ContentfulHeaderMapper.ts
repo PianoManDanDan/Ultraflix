@@ -1,8 +1,6 @@
-import { contentfulImageMapper } from '../../../Image/src/utils';
-import { HeaderProps } from '../types';
+import { contentfulImageMapper } from '../../../Image/src';
+import { HeaderProps } from '..';
 
-export const contentfulHeaderMapper = (headerContent: any): HeaderProps => {
-	return {
-		logo: contentfulImageMapper(headerContent.data['fields'].logo),
-	};
-};
+export const contentfulHeaderMapper = (headerContent: object): HeaderProps => ({
+	logo: contentfulImageMapper(headerContent['fields'].logo),
+});

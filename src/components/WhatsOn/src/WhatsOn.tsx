@@ -2,21 +2,21 @@ import React from 'react';
 import Slider from 'react-slick';
 import { WhatsOnProps, getMaxBreakpoint } from '.';
 import { MovieSlide } from './subcomponents/MovieSlide/src';
-import './WhatsOn.scss';
 import { Arrow } from './subcomponents/Arrow';
+import './WhatsOn.scss';
 
 export const WhatsOn: React.FC<WhatsOnProps> = ({
 	heading,
 	movieList,
-	leftChevron,
-	rightChevron,
+	prevArrow,
+	nextArrow,
 }) => {
 	if (
 		!heading ||
 		!movieList ||
 		movieList.length === 0 ||
-		!leftChevron ||
-		!rightChevron
+		!prevArrow ||
+		!nextArrow
 	) {
 		return null;
 	}
@@ -53,8 +53,8 @@ export const WhatsOn: React.FC<WhatsOnProps> = ({
 				focusOnSelect
 				centerPadding="0"
 				slidesToShow={5}
-				prevArrow={<Arrow arrow={leftChevron} />}
-				nextArrow={<Arrow arrow={rightChevron} />}
+				prevArrow={<Arrow arrow={prevArrow} />}
+				nextArrow={<Arrow arrow={nextArrow} />}
 				responsive={responsiveSizes}
 			>
 				{movieList.map((movie) => {

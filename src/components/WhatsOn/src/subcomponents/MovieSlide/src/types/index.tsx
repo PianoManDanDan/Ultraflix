@@ -1,1 +1,1 @@
-export * from './MovieSlideTypes';
+export * from './MovieSlideProps';

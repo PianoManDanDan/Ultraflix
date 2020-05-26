@@ -28,20 +28,18 @@ describe('MovieSlide Component', () => {
 		};
 	});
 
-	movieSlideKeys.forEach((key) => {
-		describe(`When ${key} is undefined`, () => {
-			it('Returns null', () => {
-				// Arrange
-				movieSlideContent[key] = undefined;
+	describe.each(movieSlideKeys)(`When %s is undefined`, (key) => {
+		it('Returns null', () => {
+			// Arrange
+			movieSlideContent[key] = undefined;
 
-				// Act
-				const { container } = render(
-					<MovieSlide {...(movieSlideContent as MovieSlideProps)} />
-				);
+			// Act
+			const { container } = render(
+				<MovieSlide {...(movieSlideContent as MovieSlideProps)} />
+			);
 
-				// Assert
-				expect(container).toBeEmpty();
-			});
+			// Assert
+			expect(container).toBeEmpty();
 		});
 	});
 

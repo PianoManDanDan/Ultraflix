@@ -1,36 +1,37 @@
 import * as contentful from 'react-contentful';
-import * as UseContefulWhatsOnMapper from '../../src/utils/ContentfulWhatsOnMapper';
 import { useGetContentfulWhatsOn } from '../../src/utils';
 import { WhatsOnProps } from '../../src';
 
 const mockUseContentful = jest.spyOn(contentful, 'useContentful');
-const mockContentfulWhatsOnMapper = jest.spyOn(
-	UseContefulWhatsOnMapper,
-	'contentfulWhatsOnMapper'
+
+const mockMapper = jest.fn(
+	(): WhatsOnProps => ({
+		heading: 'header',
+		movieList: [
+			{
+				posterImage: { url: 'url' },
+				title: 'title',
+				runtime: 'runtime',
+				certificate: 'certificate',
+				releaseYear: 1,
+			},
+		],
+		prevArrow: { url: 'url' },
+		nextArrow: { url: 'url' },
+	})
 );
+jest.mock('../../src/utils/ContentfulWhatsOnMapper', () => ({
+	contentfulWhatsOnMapper: () => mockMapper(),
+}));
 
 describe('useGetContentfulWhatsOn', () => {
 	afterEach(() => {
 		jest.resetAllMocks();
 	});
 
-	describe('When all data is present in the useContentful response', () => {
+	describe('When all data is present in the useContentful response, and object is fetched and not loading', () => {
 		it('returns a call to the contentfulWhatsOnMapper', () => {
 			// Arrange
-			const mockContentfulMapperResult: WhatsOnProps = {
-				heading: 'header',
-				movieList: [
-					{
-						posterImage: { url: 'url' },
-						title: 'title',
-						runtime: 'runtime',
-						certificate: 'certificate',
-						releaseYear: 1,
-					},
-				],
-				leftChevron: { url: 'url' },
-				rightChevron: { url: 'url' },
-			};
 			mockUseContentful.mockReturnValue({
 				fetched: true,
 				loading: false,
@@ -58,14 +59,15 @@ describe('useGetContentfulWhatsOn', () => {
 					},
 				},
 			});
-			mockContentfulWhatsOnMapper.mockReturnValue(mockContentfulMapperResult);
+			const expectedResult = mockMapper();
+			mockMapper.mockClear();
 
 			// Act
-			const result = useGetContentfulWhatsOn('abc');
+			const result = useGetContentfulWhatsOn('mockId');
 
 			// Assert
-			expect(result).toStrictEqual(mockContentfulMapperResult);
-			expect(mockContentfulWhatsOnMapper).toHaveBeenCalledTimes(1);
+			expect(result).toStrictEqual(expectedResult);
+			expect(mockMapper).toHaveBeenCalledTimes(1);
 		});
 	});
 
@@ -81,7 +83,7 @@ describe('useGetContentfulWhatsOn', () => {
 			});
 
 			// Act
-			const result = useGetContentfulWhatsOn('abc');
+			const result = useGetContentfulWhatsOn('mockId');
 
 			// Assert
 			expect(result).toBeNull();
@@ -100,7 +102,7 @@ describe('useGetContentfulWhatsOn', () => {
 			});
 
 			// Act
-			const result = useGetContentfulWhatsOn('abc');
+			const result = useGetContentfulWhatsOn('mockId');
 
 			// Assert
 			expect(result).toBeNull();
@@ -117,7 +119,7 @@ describe('useGetContentfulWhatsOn', () => {
 			});
 
 			// Act
-			const result = useGetContentfulWhatsOn('abc');
+			const result = useGetContentfulWhatsOn('mockId');
 
 			// Assert
 			expect(result).toBeNull();
@@ -138,11 +140,10 @@ describe('useGetContentfulWhatsOn', () => {
 			console.error = jest.fn();
 
 			// Act
-			const result = useGetContentfulWhatsOn('abc');
+			const result = useGetContentfulWhatsOn('mockId');
 
 			// Assert
 			expect(result).toBeNull();
-			expect(console.error).toHaveBeenCalledTimes(1);
 		});
 	});
 });
