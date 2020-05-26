@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image } from '../../Image/src';
-import { HeaderProps } from './types';
+import { HeaderProps } from '.';
 import './Header.scss';
 
 export const Header: React.FC<HeaderProps> = ({ logo }) => {
@@ -9,9 +9,11 @@ export const Header: React.FC<HeaderProps> = ({ logo }) => {
 	}
 	return (
 		<header className="header">
-			<a className="header__logo-link" href="/">
-				<Image className="header__logo" {...logo} />
-			</a>
+			<div className="header__logo">
+				<a className="header__logo-link" href="/">
+					<Image {...logo} />
+				</a>
+			</div>
 		</header>
 	);
 };
