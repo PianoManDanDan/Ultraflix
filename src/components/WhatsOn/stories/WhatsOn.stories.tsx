@@ -14,16 +14,16 @@ const nextArrow: ImageProps = {
 	description: 'Movie Slide Image',
 };
 
-const whatsOnProps: WhatsOnProps = {
+const getWhatsOnProps = (): WhatsOnProps => ({
 	heading: text('Header', 'Movies at Ultraflix'),
 	movieList: mockMovieList,
 	prevArrow,
 	nextArrow,
-};
+});
 
 export default {
 	title: 'WhatsOn',
 	component: WhatsOn,
 };
 
-export const Story = () => <WhatsOn {...whatsOnProps} />;
+export const Story = () => <WhatsOn {...getWhatsOnProps()} />;
