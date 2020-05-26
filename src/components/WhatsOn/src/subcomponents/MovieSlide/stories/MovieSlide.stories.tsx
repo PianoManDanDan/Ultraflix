@@ -1,4 +1,5 @@
 import React from 'react';
+import { text, number, select } from '@storybook/addon-knobs';
 import { MovieSlide } from '../src';
 
 export default {
@@ -12,9 +13,13 @@ export const Story = () => (
 			url: '/movie_slide_image.jpg',
 			description: 'Movie Slide Image',
 		}}
-		title="Happy Feet Two"
-		runtime="2 HR 4 MIN"
-		certificate="PG"
-		releaseYear={2020}
+		title={text('Film Title', 'Happy Feet 2')}
+		runtime={text('Runtime', '2 HR 4 MIN')}
+		certificate={select(
+			'Certificate',
+			{ U: 'U', PG: 'PG', Twelve: '12A', Fifteen: '15', Eighteen: '18' },
+			'PG'
+		)}
+		releaseYear={number('Release Year', 2020)}
 	/>
 );
