@@ -2,7 +2,7 @@
 
 @mixin sectionHeaderFont {
 	font-family: 'Oswald';
-	font-size: 7rem;
+	font-size: 5rem;
 	font-weight: 600;
 
 	@include mediaQueryFor(xsmall, max) {
