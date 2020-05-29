@@ -18,6 +18,15 @@ module.exports = {
 		path: path.resolve(__dirname, '../dist'),
 		filename: 'ultraflix.[name].bundle.js',
 	},
+	optimization: {
+		splitChunks: {
+			chunks: 'all',
+		},
+	},
+	performance: {
+		maxEntrypointSize: 350000,
+		maxAssetSize: 300000,
+	},
 	plugins: [
 		new CleanWebpackPlugin(),
 		new HtmlWebpackPlugin({
