@@ -14,11 +14,11 @@ TODO: Guide users through getting your code up and running on their own system. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+## `npm run start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -26,33 +26,58 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `npm test`
+## `npm run start:prod`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs the app in production mode.<br/>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm run build`
+The page will reload if you make edits.<br />
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## `npm run storybook`
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Runs storybook app.
+Open [http://localhost:6006](http://localhost:6006) to view it in the browser.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## `npm run build`
 
-### `npm run eject`
+Makes a development build of the app in the `/dist` folder.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## `npm run build:prod`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Makes a production build of the app in the `/dist` folder.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## `npm run build:prod-stats`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Makes a production build of the app in the `/dist` folder and also creates a webpack stats file called `webpack-stats.json` in the root of the repository. Running
 
-## Learn More
+```npx webpack-bundle-analyzer webpack-stats.json dist```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+in the console will then allow you to see the size and structure of the output webpack bundles, making it easier to see where the size of the bundles can be trimmed down.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## `npm run test`
+
+Run all tests.
+
+## `npm run test:watch`
+
+Run tests in watch mode (only runs tests that have been changed since they were last run).
+
+## `npm run test:ci`
+
+Run tests in ci mode.
+
+## `npm run generate`
+
+Generates new component with correct file structure and in correct place in app. If passed a name in the command (e.g. `npm run generate MyNewComponent`), it will use that name for the comnponent. Otherwise it will ask you for a new component name in the console.
+
+## `npm run lint`
+
+Runs linting test over files. Does not apply fixes, just flags linting breaches as a warning.
+
+## `npm run lint:fix`
+
+Runs linting test over all files and applies fixes.
+
+## `npm run eslint`
+
+Runs eslint linting test.
