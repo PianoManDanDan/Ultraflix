@@ -1,15 +1,29 @@
-@import url('https://fonts.googleapis.com/css?family=Lexend+Giga');
-@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import './sizes';
 
-@mixin titleFont {
-	font-family: 'Poppins';
-	font-size: 50px;
-	font-weight: 60;
+@mixin sectionHeaderFont {
+	font-family: 'Oswald';
+	font-size: 5rem;
+	font-weight: 600;
+
+	@include mediaQueryFor(xsmall, max) {
+		font-size: 12vw;
+	}
+}
+
+@mixin itemHeaderFont {
+	font-family: 'Oswald';
+	font-size: 3rem;
+	line-height: 3.5rem;
+	font-weight: 600;
+
+	@include mediaQueryFor(xsmall, max) {
+		font-size: 10vw;
+		line-height: 11vw;
+	}
 }
 
 @mixin bodyFont {
 	font-family: 'Lexend Giga';
 	font-size: 1.2rem;
 	font-weight: 60;
-	color: white;
 }

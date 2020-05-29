@@ -4,6 +4,12 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const SRC_PATH = path.join(__dirname, '../src');
+const SLICK_PATH = path.join(
+	__dirname,
+	'../node_modules/slick-carousel/slick/'
+);
+
 module.exports = {
 	entry: {
 		app: './src/index.tsx',
@@ -11,6 +17,15 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, '../dist'),
 		filename: 'ultraflix.[name].bundle.js',
+	},
+	optimization: {
+		splitChunks: {
+			chunks: 'all',
+		},
+	},
+	performance: {
+		maxEntrypointSize: 350000,
+		maxAssetSize: 300000,
 	},
 	plugins: [
 		new CleanWebpackPlugin(),
@@ -27,14 +42,25 @@ module.exports = {
 	],
 
 	resolve: {
-		extensions: ['.ts', '.tsx', '.js', '.jsx'],
+		extensions: [
+			'.ts',
+			'.tsx',
+			'.js',
+			'.jsx',
+			'.css',
+			'.scss',
+			'.eot',
+			'.ttf',
+			'.woff',
+		],
 	},
 
 	module: {
 		rules: [
 			{
 				test: /\.ts(x?)$/,
-				exclude: [/node_modules/, /\.stories\.ts(x?)$/],
+				include: [SRC_PATH],
+				exclude: [/\.stories\.ts(x?)$/, /\.story\.ts(x?)$/, /\.test\.ts(x?)$/],
 				use: [
 					{
 						loader: 'ts-loader',
@@ -42,16 +68,29 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.s?css$/,
-				exclude: /node_modules/,
+				test: /\.(s?)css$/,
+				include: [SRC_PATH],
 				use: ['style-loader', 'css-loader', 'sass-loader'],
 			},
 			{
 				test: /\.(svg|png|jpe?g|gif)$/,
-				exclude: /node_modules/,
+				include: [SLICK_PATH],
 				use: [
 					{
 						loader: 'url-loader',
+					},
+				],
+			},
+			{
+				test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+				include: [SLICK_PATH],
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[name].[ext]',
+							outputPath: 'fonts/',
+						},
 					},
 				],
 			},
@@ -63,9 +102,4 @@ module.exports = {
 			},
 		],
 	},
-
-	// externals: {
-	// 	'react': 'React',
-	// 	'react-dom': 'ReactDOM',
-	// },
 };

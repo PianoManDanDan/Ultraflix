@@ -3,7 +3,8 @@ module.exports = {
 		'../src/components/**/*.stories.tsx',
 	],
 	addons: [
-		'@storybook/addon-a11y/register',
-		'@storybook/addon-knobs/register'
+		'@storybook/addon-a11y',
+		'@storybook/addon-knobs',
+		'@storybook/addon-viewport',
 	]
 }

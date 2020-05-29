@@ -12,18 +12,22 @@
 		"@types/react-dom": "^16.9.6",
 		"babel-jest": "^25.4.0",
 		"contentful": "^7.14.2",
-		"node-sass": "^4.13.1",
-		"react": "^16.13.1",
+		"node-sass": "^4.14.1",
 		"react-app-polyfill": "^1.0.6",
 		"react-contentful": "^2.0.7",
-		"react-dom": "^16.13.1",
-		"react-scripts": "^3.4.1"
+		"react-slick": "^0.26.1",
+		"slick-carousel": "^1.8.1"
+	},
+	"peerDependencies": {
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.9.0",
 		"@contentful/rich-text-react-renderer": "^13.4.0",
 		"@storybook/addon-a11y": "^5.3.18",
 		"@storybook/addon-knobs": "^5.3.18",
+		"@storybook/addon-viewport": "^5.3.18",
 		"@storybook/react": "^5.3.18",
 		"@types/webpack": "^4.41.11",
 		"@types/webpack-dev-server": "^3.10.1",
@@ -38,18 +42,23 @@
 		"eslint-plugin-prettier": "^3.1.2",
 		"eslint-plugin-react": "^7.19.0",
 		"eslint-plugin-react-hooks": "^2.5.0",
+		"file-loader": "^6.0.0",
 		"html-loader": "^1.1.0",
 		"html-webpack-plugin": "^4.2.0",
 		"jest": "^25.4.0",
 		"jest-extended": "^0.11.5",
 		"jest-junit": "^10.0.0",
+		"plop": "^2.6.0",
 		"prettier": "^2.0.2",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"react-scripts": "^3.4.1",
 		"source-map-loader": "^0.2.4",
 		"svg-url-loader": "^5.0.0",
 		"ts-loader": "^6.2.2",
 		"typescript": "^3.8.3",
 		"webpack-cli": "^3.3.11",
-		"webpack-dev-server": "^3.10.3",
+		"webpack-dev-server": "^3.11.0",
 		"webpack-merge": "^4.2.2"
 	},
 	"scripts": {
@@ -58,12 +67,14 @@
 		"storybook": "start-storybook -p 6006 -s ./.storybook/assets",
 		"build": "webpack --config configs/webpack.dev.js",
 		"build:prod": "webpack --config configs/webpack.prod.js",
+		"build:prod-stats": "webpack --config configs/webpack.prod.js --profile --json > webpack-stats.json",
 		"test": "jest -i",
 		"test:watch": "jest --watch",
 		"test:ci": "jest --ci --reporters=default --reporters=jest-junit",
 		"lint": "eslint ./**",
 		"lint:fix": "eslint --fix ./**",
-		"eslint": "eslint"
+		"eslint": "eslint",
+		"generate": "plop"
 	},
 	"eslintConfig": {
 		"extends": "react-app"

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ImageProps } from './types';
+import './Image.scss';
 
 export const Image: React.FC<ImageProps> = (image) => {
 	if (!image || !image.url) {
@@ -7,6 +8,8 @@ export const Image: React.FC<ImageProps> = (image) => {
 	}
 
 	return (
-		<img className={image.className} src={image.url} alt={image.description} />
+		<div className={`image ${image.className || ''}`}>
+			<img src={image.url} alt={image.description} />
+		</div>
 	);
 };
