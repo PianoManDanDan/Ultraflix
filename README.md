@@ -48,9 +48,9 @@ Makes a production build of the app in the `/dist` folder.
 
 ## `npm run build:prod-stats`
 
-Makes a production build of the app in the `/dist` folder and also creates a webpack `stats.json` file in the root of the repository. Running
+Makes a production build of the app in the `/dist` folder and also creates a webpack stats file called `webpack-stats.json` in the root of the repository. Running
 
-```npx webpack-bundle-analyzer stats.json dist```
+```npx webpack-bundle-analyzer webpack-stats.json dist```
 
 in the console will then allow you to see the size and structure of the output webpack bundles, making it easier to see where the size of the bundles can be trimmed down.
 
