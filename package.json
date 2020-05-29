@@ -67,6 +67,7 @@
 		"storybook": "start-storybook -p 6006 -s ./.storybook/assets",
 		"build": "webpack --config configs/webpack.dev.js",
 		"build:prod": "webpack --config configs/webpack.prod.js",
+		"build:prod-stats": "webpack --config configs/webpack.prod.js --profile --json > stats.json",
 		"test": "jest -i",
 		"test:watch": "jest --watch",
 		"test:ci": "jest --ci --reporters=default --reporters=jest-junit",
