@@ -1,1 +1,10 @@
 @import '../../../globalStyles/app';
+@import '../../../globalStyles/colors';
+
+.react-rater-star {
+	color: color(homepage, penguin-white, 2);
+
+	& .is-active {
+		color: color(homepage, penguin-yellow, 2);
+	}
+}
