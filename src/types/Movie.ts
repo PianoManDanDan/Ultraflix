@@ -1,6 +1,6 @@
-import { ImageProps } from '../../../../../../Image/src/types';
+import { ImageProps } from '../components/Image/src/types';
 
-export type MovieSlideProps = {
+export type Movie = {
 	posterImage: ImageProps;
 	title: string;
 	runtime: string;

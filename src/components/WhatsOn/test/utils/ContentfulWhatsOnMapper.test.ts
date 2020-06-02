@@ -1,5 +1,5 @@
 import { contentfulWhatsOnMapper } from '../../src/utils/ContentfulWhatsOnMapper';
-import { MovieSlideProps } from '../../src/subcomponents/MovieSlide/src';
+import { Movie } from '../../../../types/Movie';
 import { ImageProps } from '../../../Image/src';
 import { WhatsOnProps } from '../../src';
 
@@ -17,7 +17,7 @@ jest.mock('../../../Image/src', () => ({
 }));
 
 describe('contentfulWhatsOnMapper', () => {
-	const mockMovieList: MovieSlideProps[] = [
+	const mockMovieList: Movie[] = [
 		{
 			posterImage: {
 				url: 'Movie slide props mapper url',

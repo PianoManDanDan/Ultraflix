@@ -1,4 +1,4 @@
-import { MovieSlideProps } from '..';
+import { Movie } from '../../../../../../../types/Movie';
 import { contentfulImageMapper } from '../../../../../../Image/src';
 
 const calculateRuntime = (contentfulTime: string): string => {
@@ -12,7 +12,7 @@ const calculateRuntime = (contentfulTime: string): string => {
 
 export const contentfulMovieListMapper = (
 	contentfulMovies: object[]
-): MovieSlideProps[] =>
+): Movie[] =>
 	contentfulMovies.map((movie) => ({
 		posterImage: contentfulImageMapper(movie['fields'].posterImage),
 		title: movie['fields'].title,

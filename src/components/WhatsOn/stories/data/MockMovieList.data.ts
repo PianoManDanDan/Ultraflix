@@ -1,6 +1,6 @@
-import { MovieSlideProps } from '../../src/subcomponents/MovieSlide/src';
+import { Movie } from '../../../../types/Movie';
 
-export const mockMovieList: MovieSlideProps[] = [
+export const mockMovieList: Movie[] = [
 	{
 		posterImage: {
 			url: '/movie_slide_image.jpg',
