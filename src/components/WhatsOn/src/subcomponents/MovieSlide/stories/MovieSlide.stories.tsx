@@ -1,7 +1,7 @@
 import React from 'react';
 import { text, number, select } from '@storybook/addon-knobs';
 import { MovieSlide } from '../src';
-import { Movie } from '../../../../../../types/Movie'
+import { Movie } from '../../../../../../types'
 
 const getMovieSlideProps = (): Movie => ({
 	posterImage: {
@@ -16,6 +16,8 @@ const getMovieSlideProps = (): Movie => ({
 		'PG'
 	),
 	releaseYear: number('Release Year', 2020),
+	description: text('Description', 'blah blah blah'),
+	rating: text('Rating', '5 stars')
 });
 
 export default {

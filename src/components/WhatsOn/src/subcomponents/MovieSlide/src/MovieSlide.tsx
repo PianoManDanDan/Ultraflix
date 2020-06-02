@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Movie } from '../../../../../../types/Movie';
+import { Movie } from '../../../../../../types';
 import { Image } from '../../../../../Image/src';
 import './MovieSlide.scss';
 

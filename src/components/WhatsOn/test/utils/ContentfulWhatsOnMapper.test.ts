@@ -1,5 +1,5 @@
 import { contentfulWhatsOnMapper } from '../../src/utils/ContentfulWhatsOnMapper';
-import { Movie } from '../../../../types/Movie';
+import { Movie } from '../../../../types';
 import { ImageProps } from '../../../Image/src';
 import { WhatsOnProps } from '../../src';
 
@@ -26,6 +26,8 @@ describe('contentfulWhatsOnMapper', () => {
 			runtime: 'runtime',
 			certificate: 'certificate',
 			releaseYear: 0,
+			description: 'About some penguins',
+			rating: '5 penguins',
 		},
 	];
 

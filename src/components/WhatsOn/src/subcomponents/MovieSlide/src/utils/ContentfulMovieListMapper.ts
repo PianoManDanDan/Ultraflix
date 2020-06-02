@@ -1,4 +1,4 @@
-import { Movie } from '../../../../../../../types/Movie';
+import { Movie } from '../../../../../../../types';
 import { contentfulImageMapper } from '../../../../../../Image/src';
 
 const calculateRuntime = (contentfulTime: string): string => {
@@ -19,4 +19,6 @@ export const contentfulMovieListMapper = (
 		runtime: calculateRuntime(movie['fields'].runtime),
 		certificate: movie['fields'].certificate,
 		releaseYear: movie['fields'].releaseYear,
+		description: movie['fields'].description,
+		rating: movie['fields'].description
 	}));

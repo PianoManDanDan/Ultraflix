@@ -6,4 +6,7 @@ export type Movie = {
 	runtime: string;
 	certificate: string;
 	releaseYear: number;
+	description: string;
+	rating: string;
+
 };

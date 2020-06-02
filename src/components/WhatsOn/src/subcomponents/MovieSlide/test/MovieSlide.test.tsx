@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { MovieSlide } from '../src';
-import { Movie } from '../../../../../../types/Movie';
+import { Movie } from '../../../../../../types';
 
 describe('MovieSlide Component', () => {
 	const movieSlideKeys = [

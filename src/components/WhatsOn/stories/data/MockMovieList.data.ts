@@ -1,4 +1,4 @@
-import { Movie } from '../../../../types/Movie';
+import { Movie } from '../../../../types';
 
 export const mockMovieList: Movie[] = [
 	{
@@ -10,6 +10,8 @@ export const mockMovieList: Movie[] = [
 		runtime: '2 HR 4 MIN',
 		certificate: 'PG',
 		releaseYear: 2020,
+		description: 'About some penguins',
+		rating: '5 penguins',
 	},
 	{
 		posterImage: {
@@ -20,6 +22,8 @@ export const mockMovieList: Movie[] = [
 		runtime: '2 HR 4 MIN',
 		certificate: 'PG',
 		releaseYear: 2020,
+		description: 'About some penguins',
+		rating: '5 penguins',
 	},
 	{
 		posterImage: {
@@ -30,6 +34,8 @@ export const mockMovieList: Movie[] = [
 		runtime: '2 HR 4 MIN',
 		certificate: 'PG',
 		releaseYear: 2020,
+		description: 'About some penguins',
+		rating: '5 penguins',
 	},
 	{
 		posterImage: {
@@ -40,6 +46,8 @@ export const mockMovieList: Movie[] = [
 		runtime: '2 HR 4 MIN',
 		certificate: 'PG',
 		releaseYear: 2020,
+		description: 'About some penguins',
+		rating: '5 penguins',
 	},
 	{
 		posterImage: {
@@ -50,6 +58,8 @@ export const mockMovieList: Movie[] = [
 		runtime: '2 HR 4 MIN',
 		certificate: 'PG',
 		releaseYear: 2020,
+		description: 'About some penguins',
+		rating: '5 penguins',
 	},
 	{
 		posterImage: {
@@ -60,6 +70,8 @@ export const mockMovieList: Movie[] = [
 		runtime: '2 HR 4 MIN',
 		certificate: 'PG',
 		releaseYear: 2020,
+		description: 'About some penguins',
+		rating: '5 penguins',
 	},
 	{
 		posterImage: {
@@ -70,6 +82,8 @@ export const mockMovieList: Movie[] = [
 		runtime: '2 HR 4 MIN',
 		certificate: 'PG',
 		releaseYear: 2020,
+		description: 'About some penguins',
+		rating: '5 penguins',
 	},
 	{
 		posterImage: {
@@ -80,5 +94,7 @@ export const mockMovieList: Movie[] = [
 		runtime: '2 HR 4 MIN',
 		certificate: 'PG',
 		releaseYear: 2020,
+		description: 'About some penguins',
+		rating: '5 penguins',
 	},
 ];
