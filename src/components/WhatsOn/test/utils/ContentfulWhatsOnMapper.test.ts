@@ -27,7 +27,7 @@ describe('contentfulWhatsOnMapper', () => {
 			certificate: 'certificate',
 			releaseYear: 0,
 			description: 'About some penguins',
-			rating: '5 penguins',
+			rating: 5,
 		},
 	];
 

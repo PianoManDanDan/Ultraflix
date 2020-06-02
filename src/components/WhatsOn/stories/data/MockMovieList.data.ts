@@ -11,7 +11,7 @@ export const mockMovieList: Movie[] = [
 		certificate: 'PG',
 		releaseYear: 2020,
 		description: 'About some penguins',
-		rating: '5 penguins',
+		rating: 5,
 	},
 	{
 		posterImage: {
@@ -23,7 +23,7 @@ export const mockMovieList: Movie[] = [
 		certificate: 'PG',
 		releaseYear: 2020,
 		description: 'About some penguins',
-		rating: '5 penguins',
+		rating: 5,
 	},
 	{
 		posterImage: {
@@ -35,7 +35,7 @@ export const mockMovieList: Movie[] = [
 		certificate: 'PG',
 		releaseYear: 2020,
 		description: 'About some penguins',
-		rating: '5 penguins',
+		rating: 5,
 	},
 	{
 		posterImage: {
@@ -47,7 +47,7 @@ export const mockMovieList: Movie[] = [
 		certificate: 'PG',
 		releaseYear: 2020,
 		description: 'About some penguins',
-		rating: '5 penguins',
+		rating: 5,
 	},
 	{
 		posterImage: {
@@ -59,7 +59,7 @@ export const mockMovieList: Movie[] = [
 		certificate: 'PG',
 		releaseYear: 2020,
 		description: 'About some penguins',
-		rating: '5 penguins',
+		rating: 5,
 	},
 	{
 		posterImage: {
@@ -71,7 +71,7 @@ export const mockMovieList: Movie[] = [
 		certificate: 'PG',
 		releaseYear: 2020,
 		description: 'About some penguins',
-		rating: '5 penguins',
+		rating: 5,
 	},
 	{
 		posterImage: {
@@ -83,7 +83,7 @@ export const mockMovieList: Movie[] = [
 		certificate: 'PG',
 		releaseYear: 2020,
 		description: 'About some penguins',
-		rating: '5 penguins',
+		rating: 5,
 	},
 	{
 		posterImage: {
@@ -95,6 +95,6 @@ export const mockMovieList: Movie[] = [
 		certificate: 'PG',
 		releaseYear: 2020,
 		description: 'About some penguins',
-		rating: '5 penguins',
+		rating: 5,
 	},
 ];

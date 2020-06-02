@@ -7,6 +7,6 @@ export type Movie = {
 	certificate: string;
 	releaseYear: number;
 	description: string;
-	rating: string;
+	rating: number;
 
 };

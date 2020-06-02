@@ -15,7 +15,7 @@ const mockContentfulWhatsOnMapper = jest.fn(
 				certificate: 'certificate',
 				releaseYear: 1,
 				description: 'About some penguins',
-				rating: '5 penguins',
+				rating: 5,
 			},
 		],
 		prevArrow: { url: 'url' },
