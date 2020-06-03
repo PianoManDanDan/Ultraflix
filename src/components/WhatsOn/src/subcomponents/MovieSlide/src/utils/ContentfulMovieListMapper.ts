@@ -20,5 +20,5 @@ export const contentfulMovieListMapper = (
 		certificate: movie['fields'].certificate,
 		releaseYear: movie['fields'].releaseYear,
 		description: movie['fields'].description,
-		rating: movie['fields'].description
+		rating: movie['fields'].rating
 	}));
