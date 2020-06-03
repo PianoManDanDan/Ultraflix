@@ -2,6 +2,7 @@
 
 @import '../../../globalStyles/app';
 @import '../../../globalStyles/colors';
+@import '../../../globalStyles/fonts';
 
 .react-rater-star {
 	color: color(homepage, penguin-white, 2);
@@ -11,4 +12,15 @@
 		color: color(homepage, penguin-yellow, 2);
 	}
 }
+
+.movie-details {
+	&-title {
+		@include sectionHeaderFont();
+	}
+	&-runtime, &-description, &-certificate {
+		@include bodyFont();
+	}
+	&-image {
+		width: 5rem;
+	}
 }
