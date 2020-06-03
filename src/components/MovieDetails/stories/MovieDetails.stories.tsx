@@ -9,7 +9,6 @@ const getMovieProps = (): Movie => ({
 		description: 'Movie Poster Image',
 	},
 	title: text('Film Title', 'Happy Feet 2'),
-	rating: number('Rating', 3),
 	runtime: text('Runtime', '2 HR 4 MIN'),
 	certificate: select(
 		'Certificate',
@@ -17,6 +16,13 @@ const getMovieProps = (): Movie => ({
 		'PG'
 	),
 	releaseYear: number('Release Year', 2020),
+	description: text('Movie Description', 'This is a movie'),
+	rating: number('Rating', 3, {
+		range: true,
+		min: 0,
+		max: 5,
+		step: 0.5,
+	}),
 });
 
 export default {
