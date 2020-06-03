@@ -1,8 +1,9 @@
 import React from 'react';
 import { text, number, select } from '@storybook/addon-knobs';
 import { MovieDetails } from '../src';
+import { Movie } from '../../../types';
 
-const getMovieProps = (): MovieProps => ({
+const getMovieProps = (): Movie => ({
 	posterImage: {
 		url: '/movie_slide_image.jpg',
 		description: 'Movie Poster Image',
@@ -24,5 +25,5 @@ export default {
 };
 
 export const Story = () => {
-	return <MovieDetails {...getMovieProps} />;
+	return <MovieDetails {...getMovieProps()} />;
 };

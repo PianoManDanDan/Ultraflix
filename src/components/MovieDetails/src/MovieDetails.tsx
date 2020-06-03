@@ -1,13 +1,17 @@
 import React from 'react';
 import Rater from 'react-rater';
 import { Image } from '../../Image/src';
+import { Movie } from '../../../types';
 import './MovieDetails.scss';
 
-export const MovieDetails: React.FC<MovieProps> = ({
+export const MovieDetails: React.FC<Movie> = ({
 	posterImage,
 	title,
-	rating,
 	runtime,
+	certificate,
+	releaseYear,
+	description,
+	rating,
 }) => {
 	return (
 		<div>
