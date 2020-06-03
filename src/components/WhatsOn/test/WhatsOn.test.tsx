@@ -33,6 +33,8 @@ describe('WhatsOn Component', () => {
 					runtime: '',
 					certificate: '',
 					releaseYear: 0,
+					description: 'About some penguins',
+					rating: 5,
 				},
 			],
 			prevArrow: {
