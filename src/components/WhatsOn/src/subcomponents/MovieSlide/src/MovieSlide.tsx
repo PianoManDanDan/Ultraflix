@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { MovieSlideProps } from './types';
+import { Movie } from '../../../../../../types';
 import { Image } from '../../../../../Image/src';
 import './MovieSlide.scss';
 
-export const MovieSlide: React.FC<MovieSlideProps> = ({
+export const MovieSlide: React.FC<Movie> = ({
 	posterImage,
 	title,
 	runtime,
