@@ -15,12 +15,15 @@ export const MovieDetails: React.FC<Movie> = ({
 }) => {
 	return (
 		<div>
-			<Image {...posterImage} />
-			<h2 className="movie-title">{title}</h2>
+			<Image className="movie-details-image" {...posterImage} />
+			<h2 className="movie-details-title">
+				{title} ({releaseYear})
+			</h2>
 			<Rater total={5} rating={rating} interactive={false} />
-			<p className="runtime">{runtime}</p>
+			<p className="movie-details-certificate">{certificate}</p>
+			<p className="movie-details-runtime">{runtime}</p>
 
-			{/* <MovieDetails /> */}
+			<p className="movie-details-description">{description}</p>
 		</div>
 	);
 };
