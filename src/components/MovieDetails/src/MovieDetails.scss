@@ -1,6 +1,5 @@
 @import '~react-rater/lib/react-rater.css';
 
-@import '../../../globalStyles/app';
 @import '../../../globalStyles/colors';
 @import '../../../globalStyles/fonts';
 
@@ -14,13 +13,20 @@
 }
 
 .movie-details {
-	&-title {
+	&__title {
 		@include sectionHeaderFont();
 	}
-	&-runtime, &-description, &-certificate {
+	&__runtime, &__description, &__certificate {
 		@include bodyFont();
 	}
-	&-image {
-		width: 5rem;
+	&__image {
+		width: 15rem;
+	}
+
+	.row {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 }
+
