@@ -3,6 +3,7 @@ import Rater from 'react-rater';
 import { Image } from '../../Image/src';
 import { Movie } from '../../../types';
 import './MovieDetails.scss';
+import { ratingRoundHalf } from './utils';
 
 export const MovieDetails: React.FC<Movie> = ({
 	posterImage,
@@ -24,6 +25,11 @@ export const MovieDetails: React.FC<Movie> = ({
 			<p className="movie-details-runtime">{runtime}</p>
 
 			<p className="movie-details-description">{description}</p>
+					<Rater
+						total={5}
+						rating={ratingRoundHalf(rating)}
+						interactive={false}
+					/>
 		</div>
 	);
 };
