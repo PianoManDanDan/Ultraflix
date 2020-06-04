@@ -17,11 +17,11 @@ const getMovieProps = (): Movie => ({
 	),
 	releaseYear: number('Release Year', 2020),
 	description: text('Movie Description', 'This is a movie'),
-	rating: number('Rating', 3, {
+	rating: number('Rating', 5, {
 		range: true,
 		min: 0,
-		max: 5,
-		step: 0.5,
+		max: 10,
+		step: 0.1,
 	}),
 });
 
