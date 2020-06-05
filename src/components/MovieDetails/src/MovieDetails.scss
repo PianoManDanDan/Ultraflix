@@ -13,6 +13,10 @@
 }
 
 .movie-details {
+	background: color(homepage, penguin-black, 2);
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+
 	&__title {
 		@include sectionHeaderFont();
 	}
@@ -26,7 +30,16 @@
 	.row {
 		display: flex;
 		align-items: center;
-		justify-content: center;
+		padding: 2rem;
+
+		@include mediaQueryFor(small, max) {
+			flex-direction: column;
+			padding: 1rem;
+		}
+
+		&:last-child {
+			align-items: flex-start;
+		}
 	}
 }
 

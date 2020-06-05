@@ -20,10 +20,8 @@ export const MovieDetails: React.FC<Movie> = ({
 				<div className="col-xs-12 col-md-2">
 					<Image className="movie-details__image" {...posterImage} />
 				</div>
-				<div className="col-xs-12 col-md-10">
-					<h2 className="movie-details__title">
-						{title} ({releaseYear})
-					</h2>
+				<div className="col-xs-12 col-md-10 movie-details__title">
+					{title} ({releaseYear})
 				</div>
 			</div>
 			<div className="row">
