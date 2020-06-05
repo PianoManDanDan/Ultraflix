@@ -16,11 +16,13 @@ export const ErrorBox: React.FC<ErrorBoxProps> = ({
 	}
 
 	return (
-		<div className="error-box app-content-container">
-			<div className="error-box__heading">
-				{heading} {errorCode ? ` (${errorCode})` : ''}
+		<div className="app-content-container">
+			<div className="error-box">
+				<div className="error-box__heading">
+					{heading} {errorCode ? ` (${errorCode})` : ''}
+				</div>
+				<div className="error-box__message">{message}</div>
 			</div>
-			<div className="error-box__message">{message}</div>
 		</div>
 	);
 };
