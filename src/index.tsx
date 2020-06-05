@@ -2,7 +2,6 @@ import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
 import {
 	ContentfulClient,
 	ContentfulProvider,
@@ -11,6 +10,7 @@ import {
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import { HomePage, NotFoundPage } from './pages';
+import './index.scss';
 
 const contentfulClient: ContentfulClientInterface = ContentfulClient({
 	accessToken: 'im2Om8TMefwnoIwcZsknuuh3mKseOiNucWFLwjsJKYg',
