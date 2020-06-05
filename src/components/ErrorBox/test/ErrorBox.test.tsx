@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { ErrorBox, ErrorBoxProps } from '../src';
 import '@testing-library/jest-dom/extend-expect';
 
-describe('Footer Component', () => {
+describe('ErrorBox Component', () => {
 	let errorBoxContent: Partial<ErrorBoxProps>;
 
 	beforeEach(() => {
