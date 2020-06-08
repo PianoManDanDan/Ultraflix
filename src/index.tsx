@@ -2,14 +2,15 @@ import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
 import {
 	ContentfulClient,
 	ContentfulProvider,
 	ContentfulClientInterface,
 } from 'react-contentful';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
-import { HomePage } from './pages';
+import { HomePage, NotFoundPage } from './pages';
+import './index.scss';
 
 const contentfulClient: ContentfulClientInterface = ContentfulClient({
 	accessToken: 'im2Om8TMefwnoIwcZsknuuh3mKseOiNucWFLwjsJKYg',
@@ -19,7 +20,16 @@ const contentfulClient: ContentfulClientInterface = ContentfulClient({
 ReactDOM.render(
 	<React.StrictMode>
 		<ContentfulProvider client={contentfulClient}>
-			<HomePage />
+			<Router>
+				<Switch>
+					<Route exact path="/">
+						<HomePage />
+					</Route>
+					<Route>
+						<NotFoundPage />
+					</Route>
+				</Switch>
+			</Router>
 		</ContentfulProvider>
 	</React.StrictMode>,
 	document.getElementById('root')
