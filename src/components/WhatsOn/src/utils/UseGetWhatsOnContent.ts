@@ -6,7 +6,7 @@ import { useGetMovies } from '../../../../utils/getMoviesFromAPI';
 export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
 	const whatsOnContent = useGetContentfulWhatsOn(contentfulID);
 
-	const movieIds = ['tt1375666'];
+	const movieIds = ['tt1375666', 'tt4154796'];
 
 	try {
 		const movieList = useGetMovies(movieIds);
