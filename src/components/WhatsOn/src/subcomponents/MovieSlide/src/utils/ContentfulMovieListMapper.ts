@@ -1,6 +1,5 @@
 import { Movie } from '../../../../../../../types';
 import { contentfulImageMapper } from '../../../../../../Image/src';
-import { getMovieById } from '../../../../../../../utils/getMoviesFromAPI';
 
 const calculateRuntime = (contentfulTime: string): string => {
 	const time: string =
@@ -21,13 +20,5 @@ export const contentfulMovieListMapper = (
 		certificate: movie['fields'].certificate,
 		releaseYear: movie['fields'].releaseYear,
 		description: movie['fields'].description,
-		rating: movie['fields'].rating
+		rating: movie['fields'].rating,
 	}));
-
-export const contentfulMovieIDMapper = (
-	contentfulMovies: object[]
-): Movie[] =>
-	contentfulMovies.map(movie => (
-		getMovieById(movie['fields'].id)
-	));
-
