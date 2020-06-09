@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ErrorBoxProps } from './types';
 import './ErrorBox.scss';
 
@@ -7,10 +7,6 @@ export const ErrorBox: React.FC<ErrorBoxProps> = ({
 	heading,
 	message,
 }) => {
-	useEffect(() => {
-		document.title = `${errorCode}`;
-	}, [errorCode]);
-
 	if (!heading || !message) {
 		return null;
 	}
