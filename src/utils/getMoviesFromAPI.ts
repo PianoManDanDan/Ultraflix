@@ -1,38 +1,27 @@
 import { useEffect, useState } from 'react';
 import { Movie } from '../types';
 
-const fetchData = async (endpoints, options = {}, setResponse) => {
-	try {
-		return await Promise.all(
-			endpoints.map((endpoint) =>
+export const useGetMovies = (movieIds: string[]): Movie[] => {
+	const [data, setData] = useState([]);
+
+	useEffect(() => {
+		Promise.all(
+			movieIds.map((endpoint) =>
 				fetch(
 					'https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/' +
 						endpoint,
-					options
+					{
+						headers: {
+							'x-rapidapi-host':
+								'imdb-internet-movie-database-unofficial.p.rapidapi.com',
+							'x-rapidapi-key':
+								'6970e07b1fmsh52f95ea014a5d4ep1f7143jsn437a856e55c7',
+						},
+					}
 				).then((res) => res.text())
 			)
-		).then((data) => setResponse(data));
-	} catch (error) {
-		console.log(error);
-	}
-	return null;
-};
-
-export const useGetMovies = (movieIds: string[]): Movie[] => {
-	const [response, setResponse] = useState([]);
-
-	const options = {
-		headers: {
-			'x-rapidapi-host':
-				'imdb-internet-movie-database-unofficial.p.rapidapi.com',
-			'x-rapidapi-key': '137e6c38d3msh643f9d2213419a5p18b6f7jsn2b8b38111a54',
-			'useQueryString': true,
-		},
-	};
-
-	useEffect(() => {
-		fetchData(movieIds, options, setResponse);
+		).then((res) => console.log(res));
 	}, []);
 
-	return response;
+	return data;
 };
