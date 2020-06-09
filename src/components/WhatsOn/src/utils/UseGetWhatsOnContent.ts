@@ -1,19 +1,33 @@
+import { useState, useEffect } from 'react';
 import { useGetContentfulWhatsOn } from '.';
 import { WhatsOnProps } from '../types';
-import { Movie } from '../../../../types';
 import { useGetMovies } from '../../../../utils/getMoviesFromAPI';
 
 export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
-	const whatsOnContent = useGetContentfulWhatsOn(contentfulID);
+	// const [movieIds, setMovieIds] = useState(['tt1375666', 'tt4154796']);
+
+	const whatsOnContentfulReponse = useGetContentfulWhatsOn(contentfulID);
+
+	// const movieIds = whatsOnContentfulReponse
+	// 	? whatsOnContentfulReponse.movieIds
+	// 	: [];
 
 	const movieIds = ['tt1375666', 'tt4154796'];
 
-	try {
-		const movieList = useGetMovies(movieIds);
-		console.log(movieList);
-	} catch (err) {
-		console.error(err);
+	const movieList = useGetMovies(movieIds);
+
+	console.log(movieList);
+
+	if (!whatsOnContentfulReponse) {
+		return null;
 	}
 
-	return useGetContentfulWhatsOn(contentfulID);
+	const { heading, prevArrow, nextArrow } = whatsOnContentfulReponse;
+
+	return {
+		heading,
+		movieList,
+		prevArrow,
+		nextArrow,
+	};
 };

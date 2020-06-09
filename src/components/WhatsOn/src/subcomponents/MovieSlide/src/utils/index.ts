@@ -1,1 +1,1 @@
-export * from './ContentfulMovieListMapper';
+export * from './ContentfulMovieIdsMapper';

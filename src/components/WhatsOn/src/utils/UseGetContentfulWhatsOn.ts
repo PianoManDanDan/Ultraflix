@@ -1,10 +1,10 @@
 import { HookResponse, useContentful } from 'react-contentful';
-import { WhatsOnProps } from '..';
+import { WhatsOnContenfulReponse } from '..';
 import { contentfulWhatsOnMapper } from '.';
 
 export const useGetContentfulWhatsOn = (
 	contentfulID: string
-): WhatsOnProps | null => {
+): WhatsOnContenfulReponse | null => {
 	const contentfulResponse: HookResponse = useContentful({
 		id: contentfulID,
 	});
