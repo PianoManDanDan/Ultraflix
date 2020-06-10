@@ -1,8 +1,9 @@
 import { ErrorBoxProps } from '..';
 
-export const contentfulErrorBoxMapper = (
+export const contentfulErrorMapper = (
 	errorBoxContent: object
-): ErrorBoxProps => ({
+): ErrorBoxProps & { pageTitle: string } => ({
+	pageTitle: errorBoxContent['fields'].title,
 	errorCode: errorBoxContent['fields'].errorCode,
 	heading: errorBoxContent['fields'].heading,
 	message: errorBoxContent['fields'].message,

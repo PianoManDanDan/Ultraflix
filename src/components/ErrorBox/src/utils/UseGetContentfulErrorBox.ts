@@ -1,10 +1,10 @@
 import { HookResponse, useContentful } from 'react-contentful';
 import { ErrorBoxProps } from '..';
-import { contentfulErrorBoxMapper } from '.';
+import { contentfulErrorMapper } from '.';
 
-export const useGetContentfulErrorBox = (
+export const useGetContentfulError = (
 	contentfulID: string
-): ErrorBoxProps | null => {
+): (ErrorBoxProps & { pageTitle: string }) | null => {
 	const contentfulResponse: HookResponse = useContentful({
 		id: contentfulID,
 	});
@@ -23,7 +23,7 @@ export const useGetContentfulErrorBox = (
 	}
 
 	try {
-		return contentfulErrorBoxMapper(contentfulResponse.data);
+		return contentfulErrorMapper(contentfulResponse.data);
 	} catch (err) {
 		console.error('Cannot retrieve ErrorBox content');
 		console.error(err);
