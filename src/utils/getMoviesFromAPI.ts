@@ -1,15 +1,14 @@
-import { useEffect, useState } from 'react';
-import { Movie } from '../types';
+import { useState, useEffect } from 'react';
 
-export const useGetMovies = (movieIds: string[]): Movie[] => {
-	const [data, setData] = useState([]);
+export const useGetMovies = (movieIds: string[]) => {
+	const [result, setResult] = useState<any[]>([]);
 
 	useEffect(() => {
 		Promise.all(
-			movieIds.map((endpoint) =>
+			movieIds.map((movieId) =>
 				fetch(
 					'https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/' +
-						endpoint,
+						movieId,
 					{
 						headers: {
 							'x-rapidapi-host':
@@ -18,10 +17,10 @@ export const useGetMovies = (movieIds: string[]): Movie[] => {
 								'6970e07b1fmsh52f95ea014a5d4ep1f7143jsn437a856e55c7',
 						},
 					}
-				).then((res) => res.text())
+				).then((res) => res.json())
 			)
-		).then((res) => console.log(res));
+		).then((res) => setResult(res));
 	}, []);
 
-	return data;
+	return result;
 };
