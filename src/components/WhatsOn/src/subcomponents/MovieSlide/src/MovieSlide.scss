@@ -1,5 +1,10 @@
 @import '../../../../../../globalStyles/fonts';
 
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
 .movie-slide {
 	text-align: center;
 	@include bodyFont();
