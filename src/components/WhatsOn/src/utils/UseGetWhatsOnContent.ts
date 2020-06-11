@@ -1,6 +1,8 @@
 import { useGetContentfulWhatsOn } from '.';
 import { WhatsOnProps } from '../types';
 import { useGetMovies } from '../../../../utils/getMoviesFromAPI';
+import { apiMovieMapper } from '../../../../utils/';
+import { Movie } from '../../../../types';
 
 export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
 	const whatsOnContentfulReponse = useGetContentfulWhatsOn(contentfulID);
@@ -12,7 +14,7 @@ export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
 
 	// const movieIds = ['tt1375666', 'tt4154796'];
 
-	const movieList = useGetMovies(movieIds);
+	const movieList: Movie[] = apiMovieMapper(useGetMovies(movieIds));
 
 	console.log(movieList);
 
