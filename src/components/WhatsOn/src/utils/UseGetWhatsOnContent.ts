@@ -1,30 +1,36 @@
+import { useState } from 'react';
 import { useGetContentfulWhatsOn } from '.';
 import { WhatsOnProps } from '../types';
-import { useGetMovies } from '../../../../utils/getMoviesFromAPI';
+import { getMovies } from '../../../../utils/getMoviesFromAPI';
+import { Movie } from '../../../../types';
 
 export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
 	const whatsOnContentfulReponse = useGetContentfulWhatsOn(contentfulID);
-	console.log(whatsOnContentfulReponse);
+	const [movieList, setMovieList] = useState<Movie[]>([]);
+	const [movieListIsLoading, setMovieListIsLoading] = useState(false);
 
 	const movieIds = whatsOnContentfulReponse
 		? whatsOnContentfulReponse.movieIds
-		: [];
+		: null;
 
-	// const movieIds = ['tt1375666', 'tt4154796'];
+	if (movieIds && !movieListIsLoading) {
+		setMovieListIsLoading(true);
+		console.log(movieListIsLoading);
+		getMovies(movieIds).then((movies) => setMovieList(movies));
+	}
 
-	const movieList = useGetMovies(movieIds);
-
-	console.log(movieList);
-
-	if (!whatsOnContentfulReponse || !movieList) {
+	if (!whatsOnContentfulReponse || movieList.length === 0) {
 		return null;
 	}
+
+	console.log('done');
+	console.log(movieList);
 
 	const { heading, prevArrow, nextArrow } = whatsOnContentfulReponse;
 
 	return {
 		heading,
-		movieList,
+		movieList: [],
 		prevArrow,
 		nextArrow,
 	};
