@@ -7,7 +7,7 @@ export const apiMovieMapper = (
 export const mapMovie = (
 	apiResponse: any
 ): Movie => ({
-	posterImage: apiResponse.poster,
+	posterImage: { url: apiResponse.poster },
 	title: apiResponse.title,
 	runtime: apiResponse.length,
 	certificate: 'Penguin Rating ;)',
