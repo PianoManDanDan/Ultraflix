@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useGetContentfulWhatsOn } from '.';
 import { WhatsOnProps } from '../types';
 import { getMovies } from '../../../../utils/getMoviesFromAPI';
-import { apiMovieMapper } from '../../../../utils'
+import { apiMovieMapper } from '../../../../utils';
 import { Movie } from '../../../../types';
 
 export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
@@ -32,7 +32,7 @@ export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
 
 	return {
 		heading,
-		movieList: [],
+		movieList,
 		prevArrow,
 		nextArrow,
 	};
