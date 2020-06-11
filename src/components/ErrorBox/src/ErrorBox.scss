@@ -1,0 +1,20 @@
+@import '../../../globalStyles/colors';
+@import '../../../globalStyles/fonts';
+
+.error-box {
+	padding: 5rem;
+	margin-top: 10rem;
+	margin-bottom: 10rem;
+	border: 1px solid color(homepage, penguin-gray, 1);
+	box-sizing: border-box;
+	background-color: color(homepage, penguin-black, 2);
+
+	&__heading {
+		@include itemHeaderFont();
+		padding-bottom: 2rem;
+	}
+
+	&__message {
+		@include bodyFont();
+	}
+}
