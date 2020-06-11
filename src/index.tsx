@@ -9,7 +9,7 @@ import {
 } from 'react-contentful';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
-import { HomePage, NotFoundPage } from './pages';
+import { HomePage, NotFoundPage, MovieDetailsPage } from './pages';
 import './index.scss';
 
 const contentfulClient: ContentfulClientInterface = ContentfulClient({
@@ -25,6 +25,7 @@ ReactDOM.render(
 					<Route exact path="/">
 						<HomePage />
 					</Route>
+					<Route path="/movies/:contentfulID" component={MovieDetailsPage} />
 					<Route>
 						<NotFoundPage />
 					</Route>
