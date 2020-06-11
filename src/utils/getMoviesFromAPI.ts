@@ -1,6 +1,3 @@
-import { useState, useEffect } from 'react';
-import { Movie } from '../types';
-
 const fetchData = async (endpoint: string) => {
 	try {
 		const response = await fetch(
@@ -19,6 +16,7 @@ const fetchData = async (endpoint: string) => {
 		return await response.json();
 	} catch (err) {
 		console.error(err);
+		return null;
 	}
 };
 

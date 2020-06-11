@@ -6,12 +6,13 @@ import { Movie } from '../../../../types';
 
 export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
 	const whatsOnContentfulReponse = useGetContentfulWhatsOn(contentfulID);
-	const [movieList, setMovieList] = useState<Movie[]>([]);
-	const [movieListIsLoading, setMovieListIsLoading] = useState(false);
 
 	const movieIds = whatsOnContentfulReponse
 		? whatsOnContentfulReponse.movieIds
 		: null;
+
+	const [movieList, setMovieList] = useState<Movie[]>([]);
+	const [movieListIsLoading, setMovieListIsLoading] = useState(false);
 
 	if (movieIds && !movieListIsLoading) {
 		setMovieListIsLoading(true);
