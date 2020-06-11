@@ -29,7 +29,8 @@ describe('ratingRoundHalf util', () => {
 				it('Throws a TypeError', () => {
 					try {
 						// Act
-						ratingRoundHalf(testString);
+						ratingRoundHalf((testString as unknown) as number);
+						fail('No error was thrown');
 					} catch (error) {
 						// Assert
 						expect(error).toBeInstanceOf(TypeError);
@@ -42,7 +43,8 @@ describe('ratingRoundHalf util', () => {
 			it('Throws a TypeError', () => {
 				try {
 					// Act
-					ratingRoundHalf(true);
+					ratingRoundHalf((true as unknown) as number);
+					fail('No error was thrown');
 				} catch (error) {
 					// Assert
 					expect(error).toBeInstanceOf(TypeError);
@@ -54,7 +56,8 @@ describe('ratingRoundHalf util', () => {
 			it('Throws a TypeError', () => {
 				try {
 					// Act
-					ratingRoundHalf(true);
+					ratingRoundHalf((null as unknown) as number);
+					fail('No error was thrown');
 				} catch (error) {
 					// Assert
 					expect(error).toBeInstanceOf(TypeError);
@@ -66,7 +69,8 @@ describe('ratingRoundHalf util', () => {
 			it('Throws a TypeError', () => {
 				try {
 					// Act
-					ratingRoundHalf(true);
+					ratingRoundHalf((undefined as unknown) as number);
+					fail('No error was thrown');
 				} catch (error) {
 					// Assert
 					expect(error).toBeInstanceOf(TypeError);
