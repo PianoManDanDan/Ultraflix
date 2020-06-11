@@ -14,8 +14,8 @@
 
 .movie-details {
 	background: color(homepage, penguin-black, 2);
-	margin-top: 2rem;
-	margin-bottom: 2rem;
+	margin-top: 5rem;
+	margin-bottom: 5rem;
 
 	&__title {
 		@include sectionHeaderFont();
