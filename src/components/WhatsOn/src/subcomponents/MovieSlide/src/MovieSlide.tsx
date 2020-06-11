@@ -4,6 +4,7 @@ import { Image } from '../../../../../Image/src';
 import './MovieSlide.scss';
 
 export const MovieSlide: React.FC<Movie> = ({
+	contentfulID,
 	posterImage,
 	title,
 	runtime,

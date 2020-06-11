@@ -1,6 +1,7 @@
 import { ImageProps } from '../components/Image/src/types';
 
 export type Movie = {
+	contentfulID: string;
 	posterImage: ImageProps;
 	title: string;
 	runtime?: string;

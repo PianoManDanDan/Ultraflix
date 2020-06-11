@@ -1,5 +1,5 @@
-import { Movie } from '../types';
 import { contentfulImageMapper } from '../components/Image/src';
+import { Movie } from '../types';
 
 const calculateRuntime = (contentfulTime: string): string => {
 	const time: string =
@@ -12,6 +12,7 @@ const calculateRuntime = (contentfulTime: string): string => {
 
 export const contentfulMovieMapper = (contentfulMovie: object): Movie => {
 	return {
+		contentfulID: contentfulMovie['sys'].id,
 		posterImage: contentfulImageMapper(contentfulMovie['fields'].posterImage),
 		title: contentfulMovie['fields'].title,
 		runtime: calculateRuntime(contentfulMovie['fields'].runtime),

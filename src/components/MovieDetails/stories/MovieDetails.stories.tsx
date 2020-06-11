@@ -4,6 +4,7 @@ import { MovieDetails } from '../src';
 import { Movie } from '../../../types';
 
 const getMovieProps = (): Movie => ({
+	contentfulID: 'id',
 	posterImage: {
 		url: '/movie_slide_image.jpg',
 		description: 'Movie Poster Image',
