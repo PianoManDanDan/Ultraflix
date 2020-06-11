@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Movie } from '../../../../../../types';
 import { Image } from '../../../../../Image/src';
 import './MovieSlide.scss';
-import { useEffect } from 'react';
 
 export const MovieSlide: React.FC<Movie> = ({
 	posterImage,
@@ -11,14 +10,9 @@ export const MovieSlide: React.FC<Movie> = ({
 	certificate,
 	releaseYear,
 }) => {
-
 	if (!posterImage || !title || !runtime || !certificate || !releaseYear) {
-		//return null;
+		return null;
 	}
-
-	useEffect(() => {
-		title;
-	});
 
 	return (
 		<div className="movie-slide container">
