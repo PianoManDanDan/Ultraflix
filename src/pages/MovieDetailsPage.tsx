@@ -18,6 +18,10 @@ export const MovieDetailsPage = ({ match }) => {
 		return <NotFoundPage />;
 	}
 
+	if (movie.title) {
+		document.title = `Ultraflix - ${movie.title}`;
+	}
+
 	return (
 		<div className="app-page-container">
 			<Header {...headerContent} />
