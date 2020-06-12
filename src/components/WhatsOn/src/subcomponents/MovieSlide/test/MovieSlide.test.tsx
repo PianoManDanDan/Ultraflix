@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+import { BrowserRouter } from 'react-router-dom';
 import { MovieSlide } from '../src';
 import { Movie } from '../../../../../../types';
 
@@ -47,7 +48,9 @@ describe('MovieSlide Component', () => {
 		it('Renders component with all content', () => {
 			// Act
 			const { container } = render(
-				<MovieSlide {...(movieSlideContent as Movie)} />
+				<BrowserRouter>
+					<MovieSlide {...(movieSlideContent as Movie)} />
+				</BrowserRouter>
 			);
 
 			// Assert
