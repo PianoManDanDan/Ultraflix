@@ -4,6 +4,7 @@ import { WhatsOnProps, getMaxBreakpoint } from '.';
 import { MovieSlide } from './subcomponents/MovieSlide/src';
 import { Arrow } from './subcomponents/Arrow';
 import './WhatsOn.scss';
+import { setTabIndex, removeTabIndex } from './utils';
 
 export const WhatsOn: React.FC<WhatsOnProps> = ({
 	heading,
@@ -56,6 +57,12 @@ export const WhatsOn: React.FC<WhatsOnProps> = ({
 				prevArrow={<Arrow arrow={prevArrow} />}
 				nextArrow={<Arrow arrow={nextArrow} />}
 				responsive={responsiveSizes}
+				onReInit={() => {
+					setTabIndex();
+				}}
+				beforeChange={(oldIndex, newIndex) => {
+					removeTabIndex(oldIndex);
+				}}
 			>
 				{movieList.map((movie) => {
 					return (
