@@ -3,28 +3,21 @@
 @import '../../../globalStyles/colors';
 @import '../../../globalStyles/fonts';
 
-.react-rater-star {
-	color: color(homepage, penguin-white, 2);
-	font-size: 3rem;
-
-	&.is-active, &.is-active-half:before {
-		color: color(homepage, penguin-yellow, 2);
-	}
-}
 
 .movie-details {
 	background: color(homepage, penguin-black, 2);
 	margin-top: 5rem;
 	margin-bottom: 5rem;
+	@include bodyFont();
 
 	&__title {
 		@include sectionHeaderFont();
 	}
-	&__runtime, &__description, &__certificate {
-		@include bodyFont();
-	}
 	&__image {
 		width: 15rem;
+	}
+	&__runtime, &__certificate {
+		padding: 0.75rem 0;
 	}
 
 	.row {
@@ -41,5 +34,14 @@
 			align-items: flex-start;
 		}
 	}
+
+	.react-rater-star {
+	color: color(homepage, penguin-white, 2);
+	font-size: 3rem;
+
+		&.is-active, &.is-active-half:before {
+			color: color(homepage, penguin-yellow, 2);
+		}
+}
 }
 

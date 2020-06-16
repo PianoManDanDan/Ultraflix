@@ -25,7 +25,10 @@ ReactDOM.render(
 					<Route exact path="/">
 						<HomePage />
 					</Route>
-					<Route path="/movies/:contentfulID" component={MovieDetailsPage} />
+					<Route
+						path="/movies/:movieContentfulID"
+						component={MovieDetailsPage}
+					/>
 					<Route>
 						<NotFoundPage />
 					</Route>

@@ -1,10 +1,5 @@
 @import '../../../../../../globalStyles/fonts';
 
-a {
-	text-decoration: none;
-	color: inherit;
-}
-
 .movie-slide {
 	text-align: center;
 	@include bodyFont();
@@ -31,5 +26,10 @@ a {
 
 	&__release-year {
 		padding: 0.5rem 0
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
 	}
 }

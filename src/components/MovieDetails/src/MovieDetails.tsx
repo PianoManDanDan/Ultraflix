@@ -24,13 +24,15 @@ export const MovieDetails: React.FC<Movie> = ({
 					<div className="col-xs-12 col-md-2">
 						<Image className="movie-details__image" {...posterImage} />
 					</div>
-					<div className="col-xs-12 col-md-10 movie-details__title">
-						{title} {releaseYear ? `(${releaseYear})` : ''}
+					<div className="col-xs-12 col-md-10">
+						<span className="movie-details__title">
+							{title} {releaseYear ? `(${releaseYear})` : ''}
+						</span>
 					</div>
 				</div>
 				<div className="row">
 					<div className="col-xs-12 col-md-2">
-						{rating ? (
+						{rating || rating === 0 ? (
 							<Rater
 								total={5}
 								rating={ratingRoundHalf(rating)}
@@ -40,11 +42,11 @@ export const MovieDetails: React.FC<Movie> = ({
 							''
 						)}
 
-						<p className="movie-details__certificate">{certificate || ''}</p>
-						<p className="movie-details__runtime">{runtime || ''}</p>
+						<div className="movie-details__certificate">{certificate}</div>
+						<div className="movie-details__runtime">{runtime}</div>
 					</div>
 					<div className="col-xs-12 col-md-10">
-						<p className="movie-details__description">{description || ''}</p>
+						<div className="movie-details__description">{description}</div>
 					</div>
 				</div>
 			</div>

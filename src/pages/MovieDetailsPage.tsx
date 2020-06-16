@@ -8,7 +8,7 @@ import { NotFoundPage } from '.';
 export const MovieDetailsPage = ({ match }) => {
 	const headerContent = useGetContentfulHeader('4V1H6JAO1iUCB0a9RW1kIs');
 	const footerContent = useGetContentfulFooter('4psLuIzH33I6TptbtKJkVX');
-	const movie = useGetContentfulMovie(match.params.contentfulID);
+	const movie = useGetContentfulMovie(match.params.movieContentfulID);
 
 	if (!headerContent || !footerContent) {
 		return null;

@@ -13,7 +13,7 @@ const getMovieProps = (): Movie => ({
 	runtime: text('Runtime', '2 HR 4 MIN'),
 	certificate: select(
 		'Certificate',
-		{ U: 'U', PG: 'PG', Twelve: '12A', Fifteen: '15', Eighteen: '18' },
+		{ 'U': 'U', 'PG': 'PG', '12A': '12A', '15': '15', '18': '18' },
 		'PG'
 	),
 	releaseYear: number('Release Year', 2020),
