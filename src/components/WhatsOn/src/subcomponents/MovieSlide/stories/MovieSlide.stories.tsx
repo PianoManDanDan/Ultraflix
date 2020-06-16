@@ -17,7 +17,8 @@ const getMovieSlideProps = (): Movie => ({
 	),
 	releaseYear: number('Release Year', 2020),
 	description: text('Description', 'blah blah blah'),
-	rating: number('Rating', 5)
+	rating: number('Rating', 5),
+	id: "1234567",
 });
 
 export default {
