@@ -1,10 +1,10 @@
 import { Movie } from '../types';
 
-export const apiMovieMapper = (
+export const mapMoviesFromImdb = (
 	apiResponse: object[]
-): Movie[] => apiResponse.map((movie) => mapMovie(movie));
+): Movie[] => apiResponse.map((movie) => mapSingleMovie(movie));
 
-export const mapMovie = (
+export const mapSingleMovie = (
 	apiResponse: any
 ): Movie => ({
 	posterImage: { url: apiResponse.poster },
