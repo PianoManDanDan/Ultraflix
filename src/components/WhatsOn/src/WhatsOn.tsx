@@ -4,6 +4,7 @@ import { WhatsOnProps, getMaxBreakpoint } from '.';
 import { MovieSlide } from './subcomponents/MovieSlide/src';
 import { Arrow } from './subcomponents/Arrow';
 import './WhatsOn.scss';
+import { enableTabbing, disableTabbing } from './utils';
 
 export const WhatsOn: React.FC<WhatsOnProps> = ({
 	heading,
@@ -56,6 +57,12 @@ export const WhatsOn: React.FC<WhatsOnProps> = ({
 				prevArrow={<Arrow arrow={prevArrow} />}
 				nextArrow={<Arrow arrow={nextArrow} />}
 				responsive={responsiveSizes}
+				onReInit={() => {
+					enableTabbing();
+				}}
+				beforeChange={(oldSlideIndex) => {
+					disableTabbing(oldSlideIndex);
+				}}
 			>
 				{movieList.map((movie) => {
 					return (
