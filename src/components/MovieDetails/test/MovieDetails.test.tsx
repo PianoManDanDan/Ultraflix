@@ -19,7 +19,7 @@ jest.mock('../../Image/src', () => ({
 }));
 
 jest.mock('../src/utils', () => ({
-	ratingRoundHalf: (): number => 0,
+	halveAndRound: (): number => 0,
 }));
 
 describe('MovieDetails Component', () => {
