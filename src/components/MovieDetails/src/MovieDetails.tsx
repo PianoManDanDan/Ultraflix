@@ -3,7 +3,7 @@ import Rater from 'react-rater';
 import { Image } from '../../Image/src';
 import { Movie } from '../../../types';
 import './MovieDetails.scss';
-import { ratingRoundHalf } from './utils';
+import { halveAndRound } from './utils';
 
 export const MovieDetails: React.FC<Movie> = ({
 	posterImage,
@@ -35,7 +35,7 @@ export const MovieDetails: React.FC<Movie> = ({
 						{rating || rating === 0 ? (
 							<Rater
 								total={5}
-								rating={ratingRoundHalf(rating)}
+								rating={halveAndRound(rating)}
 								interactive={false}
 							/>
 						) : (

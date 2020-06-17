@@ -1,1 +1,1 @@
-export * from './ratingRoundHalf';
+export * from './halveAndRound';

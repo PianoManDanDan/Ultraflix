@@ -1,6 +1,6 @@
-import { ratingRoundHalf } from '../../src/utils';
+import { halveAndRound } from '../../src/utils';
 
-describe('ratingRoundHalf util', () => {
+describe('halveAndRound util', () => {
 	describe('When passed a number', () => {
 		it('correctly halves the value and rounds to the nearest 0.5', () => {
 			// Arrange
@@ -10,10 +10,10 @@ describe('ratingRoundHalf util', () => {
 			const point75 = 12.75;
 
 			// Act
-			const integerResult = ratingRoundHalf(integer);
-			const point25Result = ratingRoundHalf(point25);
-			const point5Result = ratingRoundHalf(point5);
-			const point75Result = ratingRoundHalf(point75);
+			const integerResult = halveAndRound(integer);
+			const point25Result = halveAndRound(point25);
+			const point5Result = halveAndRound(point5);
+			const point75Result = halveAndRound(point75);
 
 			// Assert
 			expect(integerResult).toStrictEqual(6);
@@ -29,7 +29,7 @@ describe('ratingRoundHalf util', () => {
 				it('Throws a TypeError', () => {
 					try {
 						// Act
-						ratingRoundHalf((testString as unknown) as number);
+						halveAndRound((testString as unknown) as number);
 						fail('No error was thrown');
 					} catch (error) {
 						// Assert
@@ -43,7 +43,7 @@ describe('ratingRoundHalf util', () => {
 			it('Throws a TypeError', () => {
 				try {
 					// Act
-					ratingRoundHalf((true as unknown) as number);
+					halveAndRound((true as unknown) as number);
 					fail('No error was thrown');
 				} catch (error) {
 					// Assert
@@ -56,7 +56,7 @@ describe('ratingRoundHalf util', () => {
 			it('Throws a TypeError', () => {
 				try {
 					// Act
-					ratingRoundHalf((null as unknown) as number);
+					halveAndRound((null as unknown) as number);
 					fail('No error was thrown');
 				} catch (error) {
 					// Assert
@@ -69,7 +69,7 @@ describe('ratingRoundHalf util', () => {
 			it('Throws a TypeError', () => {
 				try {
 					// Act
-					ratingRoundHalf((undefined as unknown) as number);
+					halveAndRound((undefined as unknown) as number);
 					fail('No error was thrown');
 				} catch (error) {
 					// Assert
