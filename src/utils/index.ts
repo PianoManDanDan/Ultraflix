@@ -1,2 +1,3 @@
-export * from './imdbDataServices';
-export * from './imdbMappers';
+export * from './ContentfulMovieMappers';
+export * from './ImdbDataServices';
+export * from './ImdbMappers';

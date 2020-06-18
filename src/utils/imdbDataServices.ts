@@ -1,8 +1,8 @@
-export const getMovieFromImdb = async (endpoint: string) => {
+export const getMovieFromImdb = async (movieId: string) => {
 	try {
 		const response = await fetch(
 			'https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/' +
-				endpoint,
+				movieId,
 			{
 				headers: {
 					'x-rapidapi-host':

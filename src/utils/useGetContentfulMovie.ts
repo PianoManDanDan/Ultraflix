@@ -1,8 +1,10 @@
 import { useContentful, HookResponse } from 'react-contentful';
-import { Movie } from '../types';
+import { ContentfulMovie } from '../types';
 import { contentfulMovieMapper } from '.';
 
-export const useGetContentfulMovie = (contentfulID: string): Movie | null => {
+export const useGetContentfulMovie = (
+	contentfulID: string
+): ContentfulMovie | null => {
 	const contentfulResponse: HookResponse = useContentful({
 		id: contentfulID,
 	});

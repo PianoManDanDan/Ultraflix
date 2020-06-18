@@ -1,14 +1,28 @@
-import { Movie } from '../types';
+import { Movie, ContentfulMovie } from '../types';
 
-export const imdbMovieMapper = (apiResponse: any): Partial<Movie> => ({
-	posterImage: { url: apiResponse.poster },
-	title: apiResponse.title,
-	runtime: apiResponse.length,
-	certificate: 'Penguin Rating ;)',
-	releaseYear: apiResponse.year,
-	description: apiResponse.plot,
-	rating: apiResponse.rating,
+export const imdbMovieMapper = (
+	contentfulMovie: ContentfulMovie,
+	imbdMovie: any
+): Movie => ({
+	...contentfulMovie,
+	posterImage: { url: imbdMovie.poster },
+	title: imbdMovie.title,
+	runtime: imbdMovie.length,
+	releaseYear: imbdMovie.year,
+	description: imbdMovie.plot,
+	rating: imbdMovie.rating,
 });
 
-export const imdbMoviesMapper = (apiResponse: object[]): Movie[] =>
-	apiResponse.map((movie) => imdbMovieMapper(movie) as Movie);
+export const imdbMoviesMapper = (
+	contentfulMovieList: ContentfulMovie[],
+	imdbMovieList: object[]
+): Movie[] =>
+	contentfulMovieList.map((contentfulMovie) => {
+		const imdbMovie = imdbMovieList.forEach((imdbMovie) => {
+			if (contentfulMovie.imdbId === imdbMovie.id) {
+				return imdbMovie;
+			}
+		});
+
+		return imdbMovieMapper(contentfulMovie, imdbMovie);
+	});
