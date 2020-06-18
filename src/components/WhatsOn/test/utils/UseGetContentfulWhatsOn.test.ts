@@ -9,6 +9,7 @@ const mockContentfulWhatsOnMapper = jest.fn(
 		heading: 'header',
 		movieList: [
 			{
+				contentfulID: 'id',
 				posterImage: { url: 'url' },
 				title: 'title',
 				runtime: 'runtime',

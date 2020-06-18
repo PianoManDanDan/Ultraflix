@@ -19,6 +19,7 @@ jest.mock('../../../Image/src', () => ({
 describe('contentfulWhatsOnMapper', () => {
 	const mockMovieList: Movie[] = [
 		{
+			contentfulID: 'id',
 			posterImage: {
 				url: 'Movie slide props mapper url',
 			},
