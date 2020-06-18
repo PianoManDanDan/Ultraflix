@@ -1,4 +1,4 @@
-const fetchData = async (endpoint: string) => {
+export const getMovieFromImdb = async (endpoint: string) => {
 	try {
 		const response = await fetch(
 			'https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/' +
@@ -20,8 +20,5 @@ const fetchData = async (endpoint: string) => {
 	}
 };
 
-export const getMovies = (movieIds: string[]) => {
-	console.log('test');
-
-	return Promise.all(movieIds.map((movieId) => fetchData(movieId)));
-};
+export const getMoviesFromImdb = (movieIds: string[]) =>
+	Promise.all(movieIds.map((movieId) => getMovieFromImdb(movieId)));

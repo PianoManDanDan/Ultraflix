@@ -1,17 +1,14 @@
 import { Movie } from '../types';
 
-export const mapMoviesFromImdb = (
-	apiResponse: object[]
-): Movie[] => apiResponse.map((movie) => mapSingleMovie(movie));
-
-export const mapSingleMovie = (
-	apiResponse: any
-): Movie => ({
+export const imdbMovieMapper = (apiResponse: any): Partial<Movie> => ({
 	posterImage: { url: apiResponse.poster },
 	title: apiResponse.title,
 	runtime: apiResponse.length,
 	certificate: 'Penguin Rating ;)',
 	releaseYear: apiResponse.year,
 	description: apiResponse.plot,
-	rating: apiResponse.rating
+	rating: apiResponse.rating,
 });
+
+export const imdbMoviesMapper = (apiResponse: object[]): Movie[] =>
+	apiResponse.map((movie) => imdbMovieMapper(movie) as Movie);

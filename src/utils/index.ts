@@ -1,2 +1,2 @@
-export * from './getMoviesFromAPI';
-export * from './apiMovieMapper';
+export * from './imdbDataServices';
+export * from './imdbMappers';

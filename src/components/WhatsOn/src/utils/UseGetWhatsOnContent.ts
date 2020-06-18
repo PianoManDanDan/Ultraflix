@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useGetContentfulWhatsOn } from '.';
 import { WhatsOnProps } from '../types';
-import { getMovies } from '../../../../utils/getMoviesFromAPI';
-import { mapMoviesFromImdb } from '../../../../utils';
+import { getMoviesFromImdb, imdbMoviesMapper } from '../../../../utils';
+
 import { Movie } from '../../../../types';
 
 export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
@@ -18,7 +18,9 @@ export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
 	if (movieIds && !movieListIsLoading) {
 		setMovieListIsLoading(true);
 		console.log(movieListIsLoading);
-		getMovies(movieIds).then((movies) => setMovieList(mapMoviesFromImdb(movies)));
+		getMoviesFromImdb(movieIds).then((movies) =>
+			setMovieList(imdbMoviesMapper(movies))
+		);
 	}
 
 	if (!whatsOnContentfulReponse || movieList.length === 0) {
