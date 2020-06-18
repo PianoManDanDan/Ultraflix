@@ -1,5 +1,6 @@
 import React from 'react';
 import { text, number, select } from '@storybook/addon-knobs';
+import StoryRouter from 'storybook-react-router';
 import { MovieDetails } from '../src';
 import { Movie } from '../../../types';
 
@@ -29,6 +30,7 @@ const getMovieProps = (): Movie => ({
 export default {
 	title: 'MovieDetails',
 	component: MovieDetails,
+	decorators: [StoryRouter()],
 };
 
 export const Story = () => {
