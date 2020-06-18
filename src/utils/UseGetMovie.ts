@@ -5,33 +5,21 @@ import { Movie } from '../types';
 import { useGetContentfulMovie } from './UseGetContentfulMovie';
 
 export const useGetMovie = (contentfulID): Movie | null => {
-	const movieContentfulResponse = useGetContentfulMovie(contentfulID);
-
-	const movieId = movieContentfulResponse
-		? movieContentfulResponse.imdbId
-		: null;
+	const contentfulMovie = useGetContentfulMovie(contentfulID);
 
 	const [movie, setMovie] = useState<Movie>();
 	const [movieIsLoading, setMovieIsLoading] = useState(false);
 
-	if (movieId && !movieIsLoading) {
+	if (contentfulMovie && !movieIsLoading) {
 		setMovieIsLoading(true);
-		getMovieFromImdb(movieId).then((movie) => setMovie(imdbMovieMapper(movie)));
+		getMovieFromImdb(contentfulMovie).then((imbdMovie) =>
+			setMovie(imdbMovieMapper(contentfulMovie, imbdMovie))
+		);
 	}
 
-	if (!whatsOnContentfulReponse || movieList.length === 0) {
+	if (!movie) {
 		return null;
 	}
 
-	console.log('done');
-	console.log(movieList);
-
-	const { heading, prevArrow, nextArrow } = whatsOnContentfulReponse;
-
-	return {
-		heading,
-		movieList,
-		prevArrow,
-		nextArrow,
-	};
+	return movie;
 };

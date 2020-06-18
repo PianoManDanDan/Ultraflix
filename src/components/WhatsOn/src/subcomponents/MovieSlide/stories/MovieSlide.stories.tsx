@@ -4,7 +4,8 @@ import { MovieSlide } from '../src';
 import { Movie } from '../../../../../../types';
 
 const getMovieSlideProps = (): Movie => ({
-	contentfulID: 'id',
+	contentfulId: 'id',
+	imdbId: 'id',
 	posterImage: {
 		url: '/movie_slide_image.jpg',
 		description: 'Movie Slide Image',

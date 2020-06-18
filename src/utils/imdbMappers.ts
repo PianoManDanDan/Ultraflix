@@ -5,23 +5,24 @@ export const imdbMovieMapper = (
 	imbdMovie: any
 ): Movie => ({
 	...contentfulMovie,
-	posterImage: { url: imbdMovie.poster },
+	posterImage: {
+		url: imbdMovie.poster,
+		description: `${imbdMovie.title} poster image`,
+	},
 	title: imbdMovie.title,
 	runtime: imbdMovie.length,
 	releaseYear: imbdMovie.year,
 	description: imbdMovie.plot,
-	rating: imbdMovie.rating,
+	rating: parseFloat(imbdMovie.rating),
 });
 
 export const imdbMoviesMapper = (
 	contentfulMovieList: ContentfulMovie[],
-	imdbMovieList: object[]
+	imdbMovieList: any[]
 ): Movie[] =>
 	contentfulMovieList.map((contentfulMovie) => {
-		const imdbMovie = imdbMovieList.forEach((imdbMovie) => {
-			if (contentfulMovie.imdbId === imdbMovie.id) {
-				return imdbMovie;
-			}
+		const imdbMovie = imdbMovieList.find((movie) => {
+			return movie.id === contentfulMovie.imdbId;
 		});
 
 		return imdbMovieMapper(contentfulMovie, imdbMovie);

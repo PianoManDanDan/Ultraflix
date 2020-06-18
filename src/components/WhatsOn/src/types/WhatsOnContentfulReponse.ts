@@ -1,5 +1,6 @@
 import { WhatsOnProps } from '.';
+import { ContentfulMovie } from '../../../../types';
 
 export type WhatsOnContenfulReponse = Omit<WhatsOnProps, 'movieList'> & {
-	movieIds: string[];
+	movieList: ContentfulMovie[];
 };

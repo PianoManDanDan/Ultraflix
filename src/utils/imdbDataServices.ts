@@ -1,4 +1,6 @@
-export const getMovieFromImdb = async (movieId: string) => {
+import { ContentfulMovie } from '../types';
+
+const fetchMovieFromImdb = async (movieId: string) => {
 	try {
 		const response = await fetch(
 			'https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/' +
@@ -20,5 +22,8 @@ export const getMovieFromImdb = async (movieId: string) => {
 	}
 };
 
-export const getMoviesFromImdb = (movieIds: string[]) =>
-	Promise.all(movieIds.map((movieId) => getMovieFromImdb(movieId)));
+export const getMovieFromImdb = (movie: ContentfulMovie) =>
+	fetchMovieFromImdb(movie.imdbId);
+
+export const getMoviesFromImdb = (movieList: ContentfulMovie[]) =>
+	Promise.all(movieList.map((movie) => getMovieFromImdb(movie)));

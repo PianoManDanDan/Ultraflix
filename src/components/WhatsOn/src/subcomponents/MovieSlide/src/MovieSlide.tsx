@@ -5,7 +5,7 @@ import { Image } from '../../../../../Image/src';
 import './MovieSlide.scss';
 
 export const MovieSlide: React.FC<Movie> = ({
-	contentfulID,
+	contentfulId,
 	posterImage,
 	title,
 	runtime,
@@ -18,7 +18,7 @@ export const MovieSlide: React.FC<Movie> = ({
 
 	return (
 		<div className="movie-slide container">
-			<Link to={`/movies/${contentfulID}`}>
+			<Link to={`/movies/${contentfulId}`}>
 				<Image {...posterImage} />
 				<div className="movie-slide__info">
 					<div className="movie-slide__title">{title}</div>
