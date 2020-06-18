@@ -36,12 +36,12 @@
 	}
 
 	.react-rater-star {
-	color: color(homepage, penguin-white, 2);
-	font-size: 3rem;
+		color: color(homepage, penguin-white, 2);
+		font-size: 3rem;
 
 		&.is-active, &.is-active-half:before {
 			color: color(homepage, penguin-yellow, 2);
 		}
-}
+	}
 }
 
