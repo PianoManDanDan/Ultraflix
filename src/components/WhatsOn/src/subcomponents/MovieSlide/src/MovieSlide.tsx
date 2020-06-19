@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { Movie } from '../../../../../../types';
+import { Movie } from '../../../../../../shared/types';
 import { Image } from '../../../../../Image/src';
 import './MovieSlide.scss';
 

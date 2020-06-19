@@ -1,4 +1,4 @@
-import sizes from '../../../../globalStyles/_sizes.scss';
+import sizes from '../../../../shared/globalStyles/_sizes.scss';
 
 const formatBreakpoints = (breakpoint: string): number => {
 	// Remove px from end of string (e.g 480px)

@@ -2,7 +2,7 @@ import React from 'react';
 import { Header, useGetContentfulHeader } from '../components/Header/src';
 import { Footer, useGetContentfulFooter } from '../components/Footer/src';
 import { MovieDetails } from '../components/MovieDetails/src';
-import { useGetMovie } from '../utils';
+import { useGetMovie } from '../shared/utils';
 
 export const MovieDetailsPage = ({ match }) => {
 	const headerContent = useGetContentfulHeader('4V1H6JAO1iUCB0a9RW1kIs');

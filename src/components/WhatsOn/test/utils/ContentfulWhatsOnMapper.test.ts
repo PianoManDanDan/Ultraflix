@@ -1,5 +1,5 @@
 import { contentfulWhatsOnMapper } from '../../src/utils/ContentfulWhatsOnMapper';
-import { Movie } from '../../../../types';
+import { Movie } from '../../../../shared/types';
 import { ImageProps } from '../../../Image/src';
 import { WhatsOnProps } from '../../src';
 

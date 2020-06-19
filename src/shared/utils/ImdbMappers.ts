@@ -2,7 +2,7 @@ import { Movie, ContentfulMovie } from '../types';
 
 export const imdbMovieMapper = (
 	contentfulMovie: ContentfulMovie,
-	imbdMovie: any
+	imbdMovie
 ): Movie => ({
 	...contentfulMovie,
 	posterImage: {
@@ -18,7 +18,7 @@ export const imdbMovieMapper = (
 
 export const imdbMoviesMapper = (
 	contentfulMovieList: ContentfulMovie[],
-	imdbMovieList: any[]
+	imdbMovieList
 ): Movie[] =>
 	contentfulMovieList.map((contentfulMovie) => {
 		const imdbMovie = imdbMovieList.find((movie) => {

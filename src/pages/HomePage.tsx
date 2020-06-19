@@ -1,8 +1,7 @@
 import React from 'react';
 import { Header, useGetContentfulHeader } from '../components/Header/src';
 import { Footer, useGetContentfulFooter } from '../components/Footer/src';
-import { WhatsOn, useGetContentfulWhatsOn } from '../components/WhatsOn/src';
-import { useGetWhatsOnContent } from '../components/WhatsOn/src/utils/UseGetWhatsOnContent';
+import { WhatsOn, useGetWhatsOnContent } from '../components/WhatsOn/src';
 
 export const HomePage: React.FC<{}> = () => {
 	const headerContent = useGetContentfulHeader('4V1H6JAO1iUCB0a9RW1kIs');
@@ -12,9 +11,6 @@ export const HomePage: React.FC<{}> = () => {
 	if (!headerContent || !footerContent || !whatsOnContent) {
 		return null;
 	}
-
-	// get MovieById("tt1375666");
-	// get idFromimdb("The Wrong Trousers");
 
 	return (
 		<div className="app-page-container">

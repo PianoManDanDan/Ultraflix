@@ -1,6 +1,6 @@
 import { WhatsOnContenfulReponse } from '..';
 import { contentfulImageMapper } from '../../../Image/src';
-import { contentfulMoviesMapper } from '../../../../utils';
+import { contentfulMoviesMapper } from '../../../../shared/utils';
 
 export const contentfulWhatsOnMapper = (
 	whatsOnContent: object

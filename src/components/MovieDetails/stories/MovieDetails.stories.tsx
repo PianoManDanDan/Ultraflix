@@ -1,7 +1,7 @@
 import React from 'react';
 import { text, number, select } from '@storybook/addon-knobs';
 import { MovieDetails } from '../src';
-import { Movie } from '../../../types';
+import { Movie } from '../../../shared/types';
 
 const getMovieProps = (): Movie => ({
 	contentfulId: 'id',

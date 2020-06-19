@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useGetContentfulWhatsOn } from '.';
 import { WhatsOnProps } from '../types';
-import { getMoviesFromImdb, imdbMoviesMapper } from '../../../../utils';
+import { getMoviesFromImdb, imdbMoviesMapper } from '../../../../shared/utils';
 
-import { Movie } from '../../../../types';
+import { Movie } from '../../../../shared/types';
 
 export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
 	const whatsOnContentfulReponse = useGetContentfulWhatsOn(contentfulID);
