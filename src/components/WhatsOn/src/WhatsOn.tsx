@@ -27,18 +27,21 @@ export const WhatsOn: React.FC<WhatsOnProps> = ({
 			breakpoint: getMaxBreakpoint('md'),
 			settings: {
 				slidesToShow: 5,
+				centerPadding: '0',
 			},
 		},
 		{
 			breakpoint: getMaxBreakpoint('sm'),
 			settings: {
 				slidesToShow: 3,
+				centerPadding: '70px',
 			},
 		},
 		{
 			breakpoint: getMaxBreakpoint('xs'),
 			settings: {
 				slidesToShow: 1,
+				centerPadding: '100px',
 			},
 		},
 	];
