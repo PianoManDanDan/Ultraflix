@@ -1,12 +1,12 @@
 import { WhatsOnContenfulReponse } from '..';
 import { contentfulImageMapper } from '../../../Image/src';
-import { contentfulMoviesMapper } from '../../../../shared/utils';
+import { contentfulMovieListMapper } from '../../../../shared/utils';
 
 export const contentfulWhatsOnMapper = (
 	whatsOnContent: object
 ): WhatsOnContenfulReponse => ({
 	heading: whatsOnContent['fields'].heading,
-	movieList: contentfulMoviesMapper(whatsOnContent['fields'].items),
+	movieList: contentfulMovieListMapper(whatsOnContent['fields'].items),
 	prevArrow: contentfulImageMapper(whatsOnContent['fields'].prevArrow),
 	nextArrow: contentfulImageMapper(whatsOnContent['fields'].nextArrow),
 });

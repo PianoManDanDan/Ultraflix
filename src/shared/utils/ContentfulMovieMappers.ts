@@ -6,5 +6,5 @@ export const contentfulMovieMapper = (movie): ContentfulMovie => ({
 	certificate: movie['fields'].certificate,
 });
 
-export const contentfulMoviesMapper = (contentfulMovies): ContentfulMovie[] =>
-	contentfulMovies.map((movie) => contentfulMovieMapper(movie));
+export const contentfulMovieListMapper = (movieList): ContentfulMovie[] =>
+	movieList.map((movie) => contentfulMovieMapper(movie));

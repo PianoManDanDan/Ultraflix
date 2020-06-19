@@ -11,12 +11,12 @@ export const imdbMovieMapper = (
 	},
 	title: imbdMovie.title,
 	runtime: imbdMovie.length,
-	releaseYear: imbdMovie.year,
+	releaseYear: parseInt(imbdMovie.year, 10),
 	description: imbdMovie.plot,
 	rating: parseFloat(imbdMovie.rating),
 });
 
-export const imdbMoviesMapper = (
+export const imdbMovieListMapper = (
 	contentfulMovieList: ContentfulMovie[],
 	imdbMovieList
 ): Movie[] =>

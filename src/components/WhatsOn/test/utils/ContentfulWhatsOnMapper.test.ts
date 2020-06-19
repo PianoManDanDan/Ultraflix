@@ -5,7 +5,7 @@ import { WhatsOnProps } from '../../src';
 
 const mockContentfulMovieListMapper = jest.fn((movieList) => movieList);
 
-jest.mock('../../src/subcomponents/MovieSlide/src', () => ({
+jest.mock('../../../../shared/utils', () => ({
 	contentfulMovieListMapper: (movieList) =>
 		mockContentfulMovieListMapper(movieList),
 }));

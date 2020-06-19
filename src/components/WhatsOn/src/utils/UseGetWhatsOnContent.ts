@@ -1,24 +1,27 @@
 import { useState } from 'react';
 import { useGetContentfulWhatsOn } from '.';
 import { WhatsOnProps } from '../types';
-import { getMoviesFromImdb, imdbMoviesMapper } from '../../../../shared/utils';
+import {
+	getMoviesFromImdb,
+	imdbMovieListMapper,
+} from '../../../../shared/utils';
 
 import { Movie } from '../../../../shared/types';
 
 export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
 	const whatsOnContentfulReponse = useGetContentfulWhatsOn(contentfulID);
 
-	const contentfulMovies = whatsOnContentfulReponse
+	const contentfulMovieList = whatsOnContentfulReponse
 		? whatsOnContentfulReponse.movieList
 		: null;
 
 	const [movieList, setMovieList] = useState<Movie[]>([]);
 	const [movieListIsLoading, setMovieListIsLoading] = useState(false);
 
-	if (contentfulMovies && !movieListIsLoading) {
+	if (contentfulMovieList && !movieListIsLoading) {
 		setMovieListIsLoading(true);
-		getMoviesFromImdb(contentfulMovies).then((imdbMovies) =>
-			setMovieList(imdbMoviesMapper(contentfulMovies, imdbMovies))
+		getMoviesFromImdb(contentfulMovieList).then((imdbMovieList) =>
+			setMovieList(imdbMovieListMapper(contentfulMovieList, imdbMovieList))
 		);
 	}
 
