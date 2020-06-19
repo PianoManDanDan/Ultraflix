@@ -1,4 +1,5 @@
 export type ContentfulMovie = {
-	id: string;
+	contentfulId: string;
+	imdbId: string;
 	certificate: string;
 };

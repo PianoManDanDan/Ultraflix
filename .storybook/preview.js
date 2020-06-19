@@ -3,6 +3,7 @@ import 'regenerator-runtime/runtime';
 import '../src/globalStyles/global.scss';
 
 import { addDecorator, addParameters } from '@storybook/react';
+import StoryRouter from 'storybook-react-router';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withA11y } from '@storybook/addon-a11y';
 
@@ -12,5 +13,6 @@ addParameters({
 	},
 });
 
+addDecorator(StoryRouter());
 addDecorator(withA11y);
 addDecorator(withKnobs);

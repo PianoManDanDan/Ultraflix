@@ -1,22 +1,27 @@
 import React from 'react';
 import { Header, useGetContentfulHeader } from '../components/Header/src';
 import { Footer, useGetContentfulFooter } from '../components/Footer/src';
-import { WhatsOn, useGetWhatsOnContent } from '../components/WhatsOn/src';
+import { MovieDetails } from '../components/MovieDetails/src';
+import { useGetMovie } from '../shared/utils';
 
-export const HomePage: React.FC<{}> = () => {
+export const MovieDetailsPage = ({ match }) => {
 	const headerContent = useGetContentfulHeader('4V1H6JAO1iUCB0a9RW1kIs');
 	const footerContent = useGetContentfulFooter('4psLuIzH33I6TptbtKJkVX');
-	const whatsOnContent = useGetWhatsOnContent('3eClse9t6aIwURH79xlUAK');
+	const movie = useGetMovie(match.params.movieContentfulID);
 
-	if (!headerContent || !footerContent || !whatsOnContent) {
+	if (!headerContent || !footerContent || !movie) {
 		return null;
+	}
+
+	if (movie.title) {
+		document.title = `Ultraflix - ${movie.title}`;
 	}
 
 	return (
 		<div className="app-page-container">
 			<Header {...headerContent} />
 			<div className="app-page-content-container">
-				<WhatsOn {...whatsOnContent} />
+				<MovieDetails {...movie} />
 			</div>
 			<Footer {...footerContent} />
 		</div>

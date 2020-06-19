@@ -1,8 +1,10 @@
-const fetchData = async (endpoint: string) => {
+import { ContentfulMovie } from '../types';
+
+const fetchMovieFromImdb = async (movieId: string) => {
 	try {
 		const response = await fetch(
 			'https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/' +
-				endpoint,
+				movieId,
 			{
 				headers: {
 					'x-rapidapi-host':
@@ -20,8 +22,8 @@ const fetchData = async (endpoint: string) => {
 	}
 };
 
-export const getMovies = (movieIds: string[]) => {
-	console.log('test');
+export const getMovieFromImdb = (movie: ContentfulMovie) =>
+	fetchMovieFromImdb(movie.imdbId);
 
-	return Promise.all(movieIds.map((movieId) => fetchData(movieId)));
-};
+export const getMoviesFromImdb = (movieList: ContentfulMovie[]) =>
+	Promise.all(movieList.map((movie) => getMovieFromImdb(movie)));

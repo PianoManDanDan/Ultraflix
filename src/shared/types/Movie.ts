@@ -1,5 +1,5 @@
-import { ImageProps } from '../components/Image/src/types';
-import { ContentfulMovie } from '../types';
+import { ImageProps } from '../../components/Image/src/types';
+import { ContentfulMovie } from '.';
 
 export type Movie = ContentfulMovie & {
 	posterImage: ImageProps;
