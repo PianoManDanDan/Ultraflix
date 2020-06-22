@@ -25,7 +25,7 @@ export const useGetContentfulMovie = (
 	try {
 		return contentfulMovieMapper(contentfulResponse.data);
 	} catch (err) {
-		console.error('Cannot retrieve WhatsOn Content');
+		console.error('Cannot retrieve Movie Content');
 		console.error(err);
 		return null;
 	}

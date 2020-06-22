@@ -17,6 +17,7 @@ const fetchMovieFromImdb = async (movieId: string) => {
 
 		return await response.json();
 	} catch (err) {
+		console.error('Cannot retrieve Movie Content');
 		console.error(err);
 		return null;
 	}
@@ -25,5 +26,5 @@ const fetchMovieFromImdb = async (movieId: string) => {
 export const getMovieFromImdb = (movie: ContentfulMovie) =>
 	fetchMovieFromImdb(movie.imdbId);
 
-export const getMoviesFromImdb = (movieList: ContentfulMovie[]) =>
+export const getMovieListFromImdb = (movieList: ContentfulMovie[]) =>
 	Promise.all(movieList.map((movie) => getMovieFromImdb(movie)));

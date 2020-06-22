@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useGetContentfulWhatsOn } from '.';
 import { WhatsOnProps } from '../types';
 import {
-	getMoviesFromImdb,
+	getMovieListFromImdb,
 	imdbMovieListMapper,
 } from '../../../../shared/utils';
 
@@ -20,7 +20,7 @@ export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
 
 	if (contentfulMovieList && !movieListIsLoading) {
 		setMovieListIsLoading(true);
-		getMoviesFromImdb(contentfulMovieList).then((imdbMovieList) =>
+		getMovieListFromImdb(contentfulMovieList).then((imdbMovieList) =>
 			setMovieList(imdbMovieListMapper(contentfulMovieList, imdbMovieList))
 		);
 	}
