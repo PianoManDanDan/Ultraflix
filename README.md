@@ -21,7 +21,7 @@ In the project directory, you can run:
 ## `npm run start`
 
 Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
@@ -29,7 +29,7 @@ You will also see any lint errors in the console.
 ## `npm run start:prod`
 
 Runs the app in production mode.<br/>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
 
 The page will reload if you make edits.<br />
 
@@ -53,6 +53,11 @@ Makes a production build of the app in the `/dist` folder and also creates a web
 ```npx webpack-bundle-analyzer webpack-stats.json dist```
 
 in the console will then allow you to see the size and structure of the output webpack bundles, making it easier to see where the size of the bundles can be trimmed down.
+
+## `npm run view-build-stats`
+
+Runs `npm run build:prod-stats` starts bundle analyzer server.
+Open [http://127.0.0.1:8888](http://127.0.0.1:8888) to view it in the browser.
 
 ## `npm run test`
 
