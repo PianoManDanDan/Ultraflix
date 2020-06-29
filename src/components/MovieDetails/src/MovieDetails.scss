@@ -16,14 +16,19 @@
 	&__image {
 		width: 15rem;
 	}
-	&__runtime, &__certificate {
-		padding: 0.75rem 0;
+	&__certificate-runtime, &__no-rating {
+		padding-bottom: 0.75rem;
+	}
+	&-head, &-content {
+		padding: 2rem;
+	}
+
+	&-content {
+		padding-top: 0;
 	}
 
 	.row {
 		display: flex;
-		align-items: center;
-		padding: 2rem;
 
 		@include mediaQueryFor(small, max) {
 			flex-direction: column;
@@ -35,12 +40,20 @@
 		}
 	}
 
-	.react-rater-star {
-		color: color(homepage, penguin-white, 2);
-		font-size: 3rem;
+	.react-rater {
+		position: relative;
+		top: -1rem;
+		@include mediaQueryFor(small, max) {
+			top: -2rem;
+		}
+	
+		&-star {
+			color: color(homepage, penguin-white, 2);
+			font-size: 3rem;
 
-		&.is-active, &.is-active-half:before {
-			color: color(homepage, penguin-yellow, 2);
+			&.is-active, &.is-active-half:before {
+				color: color(homepage, penguin-yellow, 2);
+			}
 		}
 	}
 }
