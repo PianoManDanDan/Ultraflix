@@ -14,9 +14,10 @@ describe('enableTabbing', () => {
 			enableTabbing();
 
 			// Assert
-			expect(
-				document.querySelector('.slick-current')?.tabIndex as HTMLElement
-			).toBe(0);
+			const { tabIndex } = document.querySelector(
+				'.slick-current'
+			) as HTMLElement;
+			expect(tabIndex).toBe(0);
 		});
 	});
 	describe('When the element does not exist in the DOM', () => {
@@ -32,9 +33,10 @@ describe('enableTabbing', () => {
 			enableTabbing();
 
 			// Assert
-			expect(
-				document.querySelector('.not-current')?.tabIndex as HTMLElement
-			).toBe(-1);
+			const { tabIndex } = document.querySelector(
+				'.not-current'
+			) as HTMLElement;
+			expect(tabIndex).toBe(-1);
 			expect(document.querySelector('.slick-current')).toBe(null);
 		});
 	});
@@ -54,9 +56,10 @@ describe('disableTabbing', () => {
 			disableTabbing(1);
 
 			// Assert
-			expect(
-				document.querySelector('[data-index="1"]')?.tabIndex as HTMLElement
-			).toBe(-1);
+			const { tabIndex } = document.querySelector(
+				'[data-index="1"]'
+			) as HTMLElement;
+			expect(tabIndex).toBe(-1);
 		});
 	});
 	describe('When the element does not exist in the DOM', () => {
@@ -72,9 +75,10 @@ describe('disableTabbing', () => {
 			disableTabbing(1);
 
 			// Assert
-			expect(
-				document.querySelector('[data-index="0"]')?.tabIndex as HTMLElement
-			).toBe(0);
+			const { tabIndex } = document.querySelector(
+				'[data-index="0"]'
+			) as HTMLElement;
+			expect(tabIndex).toBe(0);
 			expect(document.querySelector('[data-index="1"]')).toBe(null);
 		});
 	});
