@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { getMovieFromImdb, movieMapper, useGetContentfulContent } from '.';
+import { getMovieFromImdb, imdbMovieMapper, useGetContentfulContent } from '.';
 import { Movie } from '../types';
 import { contentfulMovieMapper } from './MovieMappers';
 
@@ -19,7 +19,7 @@ export const useGetMovieContent = (contentfulID): Movie | null => {
 
 		try {
 			getMovieFromImdb(contentfulMovie).then((imbdMovie) =>
-				setMovie(movieMapper(contentfulMovie, imbdMovie))
+				setMovie(imdbMovieMapper(contentfulMovie, imbdMovie))
 			);
 		} catch (err) {
 			console.error(err);

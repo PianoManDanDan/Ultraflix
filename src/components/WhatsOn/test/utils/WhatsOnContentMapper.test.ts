@@ -1,4 +1,4 @@
-import { WhatsOnContentMapper } from '../../src/utils/WhatsOnContentMapper';
+import { whatsOnContentMapper } from '../../src/utils';
 import { Movie } from '../../../../shared/types';
 import { ImageProps } from '../../../Image/src';
 import { WhatsOnProps } from '../../src';
@@ -65,7 +65,7 @@ describe('contentfulWhatsOnMapper', () => {
 			};
 
 			// Act
-			const result = WhatsOnContentMapper(mockContentfulData);
+			const result = whatsOnContentMapper(mockContentfulData);
 
 			// Assert
 			expect(result).toStrictEqual(expectedResult);

@@ -1,9 +1,10 @@
 import { contentfulImageMapper } from '../../../Image/src';
 import { WhatsOnProps } from '../types';
+import { Movie } from '../../../../shared/types';
 
 export const whatsOnContentMapper = (
 	whatsOnContent,
-	movieList
+	movieList: Movie[]
 ): WhatsOnProps => ({
 	heading: whatsOnContent['fields'].heading,
 	movieList,

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { WhatsOnProps } from '../types';
 import {
 	getMovieListFromImdb,
-	movieListMapper,
+	imdbMovieListMapper,
 	useGetContentfulContent,
 	contentfulMovieListMapper,
 } from '../../../../shared/utils';
@@ -27,9 +27,7 @@ export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
 
 		try {
 			getMovieListFromImdb(contentfulMovieList).then((imdbMovieList) => {
-				console.log(contentfulMovieList);
-				console.log(imdbMovieList);
-				setMovieList(movieListMapper(contentfulMovieList, imdbMovieList));
+				setMovieList(imdbMovieListMapper(contentfulMovieList, imdbMovieList));
 			});
 		} catch (err) {
 			console.error(err);
