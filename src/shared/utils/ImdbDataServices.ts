@@ -1,5 +1,3 @@
-import { ContentfulMovie } from '../types';
-
 const fetchMovieFromImdb = async (movieId: string) => {
 	try {
 		const response = await fetch(
@@ -23,8 +21,7 @@ const fetchMovieFromImdb = async (movieId: string) => {
 	}
 };
 
-export const getMovieFromImdb = (movie: ContentfulMovie) =>
-	fetchMovieFromImdb(movie.imdbId);
+export const getMovieFromImdb = (movie) => fetchMovieFromImdb(movie.imdbId);
 
-export const getMovieListFromImdb = (movieList: ContentfulMovie[]) =>
+export const getMovieListFromImdb = (movieList) =>
 	Promise.all(movieList.map((movie) => getMovieFromImdb(movie)));

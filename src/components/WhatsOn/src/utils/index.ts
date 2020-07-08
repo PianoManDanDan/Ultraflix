@@ -1,5 +1,4 @@
 export * from './UseGetWhatsOnContent';
-export * from './UseGetContentfulWhatsOn';
-export * from './ContentfulWhatsOnMapper';
+export * from './WhatsOnContentMapper';
 export * from './GetMaxBreakpoint';
 export * from './UpdateTabIndex';

@@ -1,5 +1,5 @@
 import * as contentful from 'react-contentful';
-import { useGetContentfulWhatsOn } from '../../src/utils';
+import { useGetContentfulContent } from '../../src/utils';
 import { WhatsOnProps } from '../../src';
 
 const mockUseContentful = jest.spyOn(contentful, 'useContentful');
@@ -49,7 +49,7 @@ describe('useGetContentfulWhatsOn', () => {
 			mockContentfulWhatsOnMapper.mockClear();
 
 			// Act
-			const result = useGetContentfulWhatsOn('mockId');
+			const result = useGetContentfulContent('mockId');
 
 			// Assert
 			expect(result).toStrictEqual(expectedResult);
@@ -69,7 +69,7 @@ describe('useGetContentfulWhatsOn', () => {
 			});
 
 			// Act
-			const result = useGetContentfulWhatsOn('mockId');
+			const result = useGetContentfulContent('mockId');
 
 			// Assert
 			expect(result).toBeNull();
@@ -89,7 +89,7 @@ describe('useGetContentfulWhatsOn', () => {
 			});
 
 			// Act
-			const result = useGetContentfulWhatsOn('mockId');
+			const result = useGetContentfulContent('mockId');
 
 			// Assert
 			expect(result).toBeNull();
@@ -107,7 +107,7 @@ describe('useGetContentfulWhatsOn', () => {
 			});
 
 			// Act
-			const result = useGetContentfulWhatsOn('mockId');
+			const result = useGetContentfulContent('mockId');
 
 			// Assert
 			expect(result).toBeNull();
@@ -131,7 +131,7 @@ describe('useGetContentfulWhatsOn', () => {
 			console.error = jest.fn();
 
 			// Act
-			const result = useGetContentfulWhatsOn('mockId');
+			const result = useGetContentfulContent('mockId');
 
 			// Assert
 			expect(result).toBeNull();

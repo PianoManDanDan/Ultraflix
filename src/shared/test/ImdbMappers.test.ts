@@ -1,25 +1,25 @@
 import { ContentfulMovie, Movie } from '../types';
-import { imdbMovieMapper, imdbMovieListMapper } from '../utils';
+import { movieMapper, movieListMapper } from '../utils';
 import {
-	mappedContentfulMovie1,
-	imdbMovieResponse1,
-	mappedMovie1,
-	mappedContentfulMovie2,
-	mappedMovie2,
-	imdbMovieResponse2,
+	mockMappedContentfulMovie1,
+	mockImdbMovieResponse1,
+	mockMappedMovie1,
+	mockMappedContentfulMovie2,
+	mockMappedMovie2,
+	mockImdbMovieResponse2,
 } from './data/MovieMapperTest.data';
 
 describe('imdbMovieMapper', () => {
 	describe('When passed a object of the ContentfulMovie type and data in correct shape', () => {
 		it('should return data mapped to Movie type', () => {
 			// Act
-			const result = imdbMovieMapper(
-				mappedContentfulMovie1,
-				imdbMovieResponse1
+			const result = movieMapper(
+				mockMappedContentfulMovie1,
+				mockImdbMovieResponse1
 			);
 
 			// Assert
-			expect(result).toStrictEqual(mappedMovie1);
+			expect(result).toStrictEqual(mockMappedMovie1);
 		});
 	});
 });
@@ -29,16 +29,19 @@ describe('imdbMovieListMapper', () => {
 		it('should return the data mapped to Movie array type', () => {
 			// Arrange
 			const mockContentfulMovieList: ContentfulMovie[] = [
-				mappedContentfulMovie1,
-				mappedContentfulMovie2,
+				mockMappedContentfulMovie1,
+				mockMappedContentfulMovie2,
 			];
 
-			const mockImdbReponseData = [imdbMovieResponse1, imdbMovieResponse2];
+			const mockImdbReponseData = [
+				mockImdbMovieResponse1,
+				mockImdbMovieResponse2,
+			];
 
-			const expectedResult: Movie[] = [mappedMovie1, mappedMovie2];
+			const expectedResult: Movie[] = [mockMappedMovie1, mockMappedMovie2];
 
 			// Act
-			const result = imdbMovieListMapper(
+			const result = movieListMapper(
 				mockContentfulMovieList,
 				mockImdbReponseData
 			);

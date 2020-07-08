@@ -1,45 +1,45 @@
 import { useState } from 'react';
-import { useGetContentfulWhatsOn } from '.';
 import { WhatsOnProps } from '../types';
 import {
 	getMovieListFromImdb,
-	imdbMovieListMapper,
+	movieListMapper,
+	useGetContentfulContent,
 } from '../../../../shared/utils';
-
+import { whatsOnContentMapper } from '.';
 import { Movie } from '../../../../shared/types';
 
 export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
-	const whatsOnContentfulReponse = useGetContentfulWhatsOn(contentfulID);
+	const contentfulResponse = useGetContentfulContent(contentfulID);
+	const contentfulData = contentfulResponse.data;
 
-	const contentfulMovieList = whatsOnContentfulReponse
-		? whatsOnContentfulReponse.movieList
+	const contentfulMovieList = contentfulData
+		? contentfulData['fields'].items
 		: null;
 
 	const [movieList, setMovieList] = useState<Movie[]>([]);
-	const [movieListIsLoading, setMovieListIsLoading] = useState(false);
+	const [gettingMovieListFromImdb, setGettingMovieListFromImdb] = useState(
+		false
+	);
 
-	if (contentfulMovieList && !movieListIsLoading) {
-		setMovieListIsLoading(true);
+	if (contentfulMovieList && !gettingMovieListFromImdb) {
+		setGettingMovieListFromImdb(true);
 
 		try {
 			getMovieListFromImdb(contentfulMovieList).then((imdbMovieList) =>
-				setMovieList(imdbMovieListMapper(contentfulMovieList, imdbMovieList))
+				setMovieList(movieListMapper(contentfulMovieList, imdbMovieList))
 			);
 		} catch (err) {
 			console.error(err);
 		}
 	}
 
-	if (!whatsOnContentfulReponse || movieList.length === 0) {
+	if (!contentfulData || !movieList) {
 		return null;
 	}
 
-	const { heading, prevArrow, nextArrow } = whatsOnContentfulReponse;
-
-	return {
-		heading,
-		movieList,
-		prevArrow,
-		nextArrow,
-	};
+	try {
+		return whatsOnContentMapper(contentfulData, movieList);
+	} catch (err) {
+		return null;
+	}
 };

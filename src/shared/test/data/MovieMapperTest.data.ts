@@ -1,6 +1,6 @@
 import { ContentfulMovie, Movie } from '../../types';
 
-export const contentfulMovieResponse1 = {
+export const mockContentfulMovieResponse1 = {
 	sys: {
 		id: 'firstContentfulId',
 	},
@@ -10,13 +10,13 @@ export const contentfulMovieResponse1 = {
 	},
 };
 
-export const mappedContentfulMovie1: ContentfulMovie = {
+export const mockMappedContentfulMovie1: ContentfulMovie = {
 	contentfulId: 'firstContentfulId',
 	imdbId: 'firstImbdId',
 	certificate: 'U',
 };
 
-export const imdbMovieResponse1 = {
+export const mockImdbMovieResponse1 = {
 	id: 'firstImbdId',
 	title: "Surf's Up",
 	poster:
@@ -28,8 +28,8 @@ export const imdbMovieResponse1 = {
 	rating: '6.7',
 };
 
-export const mappedMovie1: Movie = {
-	...mappedContentfulMovie1,
+export const mockMappedMovie1: Movie = {
+	...mockMappedContentfulMovie1,
 	title: "Surf's Up",
 	posterImage: {
 		url:
@@ -43,7 +43,7 @@ export const mappedMovie1: Movie = {
 	rating: 6.7,
 };
 
-export const contentfulMovieResponse2 = {
+export const mockContentfulMovieResponse2 = {
 	sys: {
 		id: 'secondContentfulId',
 	},
@@ -53,13 +53,13 @@ export const contentfulMovieResponse2 = {
 	},
 };
 
-export const mappedContentfulMovie2: ContentfulMovie = {
+export const mockMappedContentfulMovie2: ContentfulMovie = {
 	contentfulId: 'secondContentfulId',
 	imdbId: 'secondImbdId',
 	certificate: '12A',
 };
 
-export const imdbMovieResponse2 = {
+export const mockImdbMovieResponse2 = {
 	id: 'secondImbdId',
 	title: 'Penguins',
 	poster:
@@ -71,8 +71,8 @@ export const imdbMovieResponse2 = {
 	rating: '6.7',
 };
 
-export const mappedMovie2: Movie = {
-	...mappedContentfulMovie2,
+export const mockMappedMovie2: Movie = {
+	...mockMappedContentfulMovie2,
 	title: 'Penguins',
 	posterImage: {
 		url:

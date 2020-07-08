@@ -1,10 +1,9 @@
-import { Movie, ContentfulMovie } from '../types';
+import { Movie } from '../types';
 
-export const imdbMovieMapper = (
-	contentfulMovie: ContentfulMovie,
-	imbdMovie
-): Movie => ({
-	...contentfulMovie,
+export const movieMapper = (contentfulMovie, imbdMovie): Movie => ({
+	contentfulId: contentfulMovie['sys'].id,
+	imdbId: contentfulMovie['fields'].id,
+	certificate: contentfulMovie['fields'].certificate,
 	posterImage: {
 		url: imbdMovie.poster,
 		description: `${imbdMovie.title} poster image`,
@@ -16,14 +15,11 @@ export const imdbMovieMapper = (
 	rating: parseFloat(imbdMovie.rating),
 });
 
-export const imdbMovieListMapper = (
-	contentfulMovieList: ContentfulMovie[],
-	imdbMovieList
-): Movie[] =>
+export const movieListMapper = (contentfulMovieList, imdbMovieList): Movie[] =>
 	contentfulMovieList.map((contentfulMovie) => {
 		const imdbMovie = imdbMovieList.find((movie) => {
 			return movie.id === contentfulMovie.imdbId;
 		});
 
-		return imdbMovieMapper(contentfulMovie, imdbMovie);
+		return movieMapper(contentfulMovie, imdbMovie);
 	});
