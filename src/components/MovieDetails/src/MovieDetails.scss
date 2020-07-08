@@ -5,60 +5,62 @@
 
 
 .movie-details {
+	display: inline-block;
 	background: color(homepage, penguin-black, 2);
-	margin-top: 5rem;
-	margin-bottom: 5rem;
+	padding: 1.5rem;
+	margin: 5rem 0;
+	width: 100%;
 	@include bodyFont();
+
+	@include mediaQueryFor(small, max) {
+		display: flex;
+		flex-direction: column;
+		padding: 1.25rem;
+	}
 
 	&__title {
 		@include sectionHeaderFont();
+		order: 0;
+		padding-bottom: 1rem;
 	}
 	&__image {
 		width: 15rem;
+		padding: 2rem;
+		margin: auto;
 
 		@include mediaQueryFor(small, max) {
 			margin: auto;
 		}
 	}
-	&__certificate-runtime, &__no-rating {
-		padding-bottom: 0.75rem;
-	}
-	&-head, &-content {
-		padding: 2rem;
-	}
-
-	&-head {
-		width: 100%;
-		@include mediaQueryFor(small, max) {
-			display: flex;
-			flex-direction: column-reverse;
-		}
-	}
-
-	&-content {
-		padding-top: 0;
-	}
-
-	.row {
-		display: flex;
-
-		@include mediaQueryFor(small, max) {
-			flex-direction: column;
-			padding: 1rem;
-		}
-
-		&:last-child {
-			align-items: flex-start;
-		}
-	}
-
-	.react-rater {
+	&__rating {
 		position: relative;
 		top: -1rem;
 		@include mediaQueryFor(small, max) {
 			top: -2rem;
 		}
-	
+	}
+	&__no-rating {
+		padding-bottom: 1.5rem;
+		@include mediaQueryFor(small, max) {
+			padding-top: 1.5rem;
+		}
+	}
+
+	#movie-details__sidebar {
+		text-align: center;
+		@include mediaQueryFor(small, max) {
+			order: 1;
+		}
+	}
+	#movie-details__description {
+		padding-top: 2rem;
+		@include mediaQueryFor(small, max) {
+			order: 2;
+			padding-top: 0;
+		}
+	}
+
+	.react-rater {
 		&-star {
 			color: color(homepage, penguin-white, 2);
 			font-size: 3rem;
