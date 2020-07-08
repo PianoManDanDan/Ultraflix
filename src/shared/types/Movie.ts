@@ -1,9 +1,7 @@
 import { ImageProps } from '../../components/Image/src/types';
+import { ContentfulMovie } from './ContentfulMovie';
 
-export type Movie = {
-	contentfulId: string;
-	imdbId: string;
-	certificate: string;
+export type Movie = ContentfulMovie & {
 	posterImage: ImageProps;
 	title: string;
 	runtime: string;

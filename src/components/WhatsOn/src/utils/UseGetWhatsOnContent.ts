@@ -4,6 +4,7 @@ import {
 	getMovieListFromImdb,
 	movieListMapper,
 	useGetContentfulContent,
+	contentfulMovieListMapper,
 } from '../../../../shared/utils';
 import { whatsOnContentMapper } from '.';
 import { Movie } from '../../../../shared/types';
@@ -13,7 +14,7 @@ export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
 	const contentfulData = contentfulResponse.data;
 
 	const contentfulMovieList = contentfulData
-		? contentfulData['fields'].items
+		? contentfulMovieListMapper(contentfulData['fields'].items)
 		: null;
 
 	const [movieList, setMovieList] = useState<Movie[]>([]);
@@ -25,9 +26,11 @@ export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
 		setGettingMovieListFromImdb(true);
 
 		try {
-			getMovieListFromImdb(contentfulMovieList).then((imdbMovieList) =>
-				setMovieList(movieListMapper(contentfulMovieList, imdbMovieList))
-			);
+			getMovieListFromImdb(contentfulMovieList).then((imdbMovieList) => {
+				console.log(contentfulMovieList);
+				console.log(imdbMovieList);
+				setMovieList(movieListMapper(contentfulMovieList, imdbMovieList));
+			});
 		} catch (err) {
 			console.error(err);
 		}

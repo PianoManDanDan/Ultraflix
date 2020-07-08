@@ -1,3 +1,5 @@
+import { ContentfulMovie } from '../types';
+
 const fetchMovieFromImdb = async (movieId: string) => {
 	try {
 		const response = await fetch(
@@ -15,13 +17,13 @@ const fetchMovieFromImdb = async (movieId: string) => {
 
 		return await response.json();
 	} catch (err) {
-		console.error('Cannot retrieve Movie Content');
 		console.error(err);
 		return null;
 	}
 };
 
-export const getMovieFromImdb = (movie) => fetchMovieFromImdb(movie.imdbId);
+export const getMovieFromImdb = (movie: ContentfulMovie) =>
+	fetchMovieFromImdb(movie.imdbId);
 
-export const getMovieListFromImdb = (movieList) =>
+export const getMovieListFromImdb = (movieList: ContentfulMovie[]) =>
 	Promise.all(movieList.map((movie) => getMovieFromImdb(movie)));

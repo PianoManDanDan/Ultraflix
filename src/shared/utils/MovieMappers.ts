@@ -1,9 +1,7 @@
-import { Movie } from '../types';
+import { Movie, ContentfulMovie } from '../types';
 
 export const movieMapper = (contentfulMovie, imbdMovie): Movie => ({
-	contentfulId: contentfulMovie['sys'].id,
-	imdbId: contentfulMovie['fields'].id,
-	certificate: contentfulMovie['fields'].certificate,
+	...contentfulMovie,
 	posterImage: {
 		url: imbdMovie.poster,
 		description: `${imbdMovie.title} poster image`,
@@ -23,3 +21,12 @@ export const movieListMapper = (contentfulMovieList, imdbMovieList): Movie[] =>
 
 		return movieMapper(contentfulMovie, imdbMovie);
 	});
+
+export const contentfulMovieMapper = (movie): ContentfulMovie => ({
+	contentfulId: movie['sys'].id,
+	imdbId: movie['fields'].id,
+	certificate: movie['fields'].certificate,
+});
+
+export const contentfulMovieListMapper = (movieList): ContentfulMovie[] =>
+	movieList.map((movie) => contentfulMovieMapper(movie));
