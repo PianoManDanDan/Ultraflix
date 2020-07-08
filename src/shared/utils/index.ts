@@ -1,5 +1,5 @@
 export * from './UseGetContentfulMovie';
-export * from './UseGetMovie';
+export * from './UseGetMovieContent';
 export * from './ContentfulMovieMappers';
 export * from './ImdbDataServices';
 export * from './ImdbMappers';

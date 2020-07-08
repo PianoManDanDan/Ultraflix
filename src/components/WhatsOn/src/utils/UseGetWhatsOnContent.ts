@@ -20,9 +20,14 @@ export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
 
 	if (contentfulMovieList && !movieListIsLoading) {
 		setMovieListIsLoading(true);
-		getMovieListFromImdb(contentfulMovieList).then((imdbMovieList) =>
-			setMovieList(imdbMovieListMapper(contentfulMovieList, imdbMovieList))
-		);
+
+		try {
+			getMovieListFromImdb(contentfulMovieList).then((imdbMovieList) =>
+				setMovieList(imdbMovieListMapper(contentfulMovieList, imdbMovieList))
+			);
+		} catch (err) {
+			console.error(err);
+		}
 	}
 
 	if (!whatsOnContentfulReponse || movieList.length === 0) {
