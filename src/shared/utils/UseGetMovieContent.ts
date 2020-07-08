@@ -1,36 +1,24 @@
 import { useState } from 'react';
 import { getMovieFromImdb, imdbMovieMapper } from '.';
 import { Movie } from '../types';
-import {
-	useGetMovieFromContentful,
-	ContentfulReponse,
-} from './UseGetContentfulMovie';
+import { useGetContentfulMovie } from './UseGetContentfulMovie';
 
-export const useGetMovieContent = (
-	contentfulID
-): ContentfulReponse & { movie?: Movie } => {
-	const { loading, error, contentfulMovie } = useGetMovieFromContentful(
-		contentfulID
-	);
+export const useGetMovieContent = (contentfulID): Movie | null => {
+	const contentfulMovie = useGetContentfulMovie(contentfulID);
 
 	const [movie, setMovie] = useState<Movie>();
-	const [gettingMovieFromApi, setGettingMovieFromApi] = useState(false);
+	const [movieIsLoading, setMovieIsLoading] = useState(false);
 
-	if (contentfulMovie && !gettingMovieFromApi) {
-		setGettingMovieFromApi(true);
-
-		try {
-			getMovieFromImdb(contentfulMovie).then((imbdMovie) =>
-				setMovie(imdbMovieMapper(contentfulMovie, imbdMovie))
-			);
-		} catch (err) {
-			console.error(err);
-		}
+	if (contentfulMovie && !movieIsLoading) {
+		setMovieIsLoading(true);
+		getMovieFromImdb(contentfulMovie).then((imbdMovie) =>
+			setMovie(imdbMovieMapper(contentfulMovie, imbdMovie))
+		);
 	}
 
-	return {
-		loading,
-		error,
-		movie,
-	};
+	if (!movie) {
+		return null;
+	}
+
+	return movie;
 };
