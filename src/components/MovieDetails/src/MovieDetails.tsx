@@ -20,8 +20,8 @@ export const MovieDetails: React.FC<Movie> = ({
 	return (
 		<div className="app-content-container">
 			<div className="movie-details">
-				<div className="movie-details-head">
-					<div className="row">
+				<div className="row">
+					<div className="movie-details-head">
 						<div className="col-xs-12 col-md-2">
 							<Image className="movie-details__image" {...posterImage} />
 						</div>

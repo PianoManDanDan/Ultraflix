@@ -15,12 +15,24 @@
 	}
 	&__image {
 		width: 15rem;
+
+		@include mediaQueryFor(small, max) {
+			margin: auto;
+		}
 	}
 	&__certificate-runtime, &__no-rating {
 		padding-bottom: 0.75rem;
 	}
 	&-head, &-content {
 		padding: 2rem;
+	}
+
+	&-head {
+		width: 100%;
+		@include mediaQueryFor(small, max) {
+			display: flex;
+			flex-direction: column-reverse;
+		}
 	}
 
 	&-content {
