@@ -12,10 +12,17 @@ import { Movie } from '../../../../shared/types';
 export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
 	const contentfulResponse = useGetContentfulContent(contentfulID);
 	const contentfulData = contentfulResponse.data;
+	let contentfulMovieList;
 
-	const contentfulMovieList = contentfulData
-		? contentfulMovieListMapper(contentfulData['fields'].items)
-		: null;
+	try {
+		if (contentfulData) {
+			contentfulMovieList = contentfulMovieListMapper(
+				contentfulData['fields'].items
+			);
+		}
+	} catch (err) {
+		console.error(err);
+	}
 
 	const [movieList, setMovieList] = useState<Movie[]>([]);
 	const [gettingMovieListFromImdb, setGettingMovieListFromImdb] = useState(

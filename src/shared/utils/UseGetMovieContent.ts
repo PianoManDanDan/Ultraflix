@@ -1,15 +1,20 @@
 import { useState } from 'react';
 import { getMovieFromImdb, imdbMovieMapper, useGetContentfulContent } from '.';
-import { Movie } from '../types';
+import { Movie, ContentfulMovie } from '../types';
 import { contentfulMovieMapper } from './MovieMappers';
 
 export const useGetMovieContent = (contentfulID): Movie | null => {
 	const contentfulResponse = useGetContentfulContent(contentfulID);
 	const contentfulData = contentfulResponse.data;
+	let contentfulMovie;
 
-	const contentfulMovie = contentfulData
-		? contentfulMovieMapper(contentfulResponse.data)
-		: null;
+	try {
+		if (contentfulData) {
+			contentfulMovie = contentfulMovieMapper(contentfulData);
+		}
+	} catch (err) {
+		console.error(err);
+	}
 
 	const [movie, setMovie] = useState<Movie>();
 	const [movieIsLoading, setMovieIsLoading] = useState(false);
