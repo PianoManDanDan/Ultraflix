@@ -1,6 +1,6 @@
 import * as contentful from 'react-contentful';
-import { useGetContentfulContent } from '../../src/utils';
-import { WhatsOnProps } from '../../src';
+import { WhatsOnProps } from '../../components/WhatsOn/src';
+import { useGetContentfulContent } from '../utils';
 
 const mockUseContentful = jest.spyOn(contentful, 'useContentful');
 

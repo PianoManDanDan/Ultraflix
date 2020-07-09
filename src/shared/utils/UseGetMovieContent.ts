@@ -1,7 +1,11 @@
 import { useState } from 'react';
-import { getMovieFromImdb, imdbMovieMapper, useGetContentfulContent } from '.';
-import { Movie, ContentfulMovie } from '../types';
-import { contentfulMovieMapper } from './MovieMappers';
+import {
+	getMovieFromImdb,
+	imdbMovieMapper,
+	useGetContentfulContent,
+	contentfulMovieMapper,
+} from '.';
+import { Movie } from '../types';
 
 export const useGetMovieContent = (contentfulID): Movie | null => {
 	const contentfulResponse = useGetContentfulContent(contentfulID);
