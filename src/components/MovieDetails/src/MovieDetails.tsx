@@ -39,13 +39,16 @@ export const MovieDetails: React.FC<Movie> = ({
 					</div>
 				</div>
 				<div className="col-xs-12 col-md-10">
-					<span className="movie-details__title">
+					<div className="movie-details__title">
 						{title} {releaseYear ? `(${releaseYear})` : ''}
-					</span>
+					</div>
 				</div>
 
-				<div className="col-xs-12 col-md-10" id="movie-details__description">
-					{description}
+				<div
+					className="col-xs-12 col-md-10"
+					id="movie-details__description-container"
+				>
+					<div className="movie-details__description">{description}</div>
 				</div>
 			</div>
 		</div>
