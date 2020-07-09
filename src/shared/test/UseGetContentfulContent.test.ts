@@ -1,131 +1,99 @@
 import * as contentful from 'react-contentful';
-import { WhatsOnProps } from '../../components/WhatsOn/src';
 import { useGetContentfulContent } from '../utils';
+import { ContentfulResponse } from '../types';
 
 const mockUseContentful = jest.spyOn(contentful, 'useContentful');
 
-const mockContentfulWhatsOnMapper = jest.fn(
-	(): WhatsOnProps => ({
-		heading: 'header',
-		movieList: [
-			{
-				contentfulId: 'id',
-				imdbId: 'id',
-				posterImage: { url: 'url' },
-				title: 'title',
-				runtime: 'runtime',
-				certificate: 'certificate',
-				releaseYear: 1,
-				description: 'About some penguins',
-				rating: 5,
-			},
-		],
-		prevArrow: { url: 'url' },
-		nextArrow: { url: 'url' },
-	})
-);
-
-jest.mock('../../src/utils/ContentfulWhatsOnMapper', () => ({
-	contentfulWhatsOnMapper: () => mockContentfulWhatsOnMapper(),
-}));
-
 describe('useGetContentfulWhatsOn', () => {
+	const mockData = {
+		fields: 'some data',
+	};
+
 	afterEach(() => {
 		jest.resetAllMocks();
 	});
 
-	describe('When useContentful returns fetched, not loading, and with data', () => {
-		it('returns the result of contentfulWhatsOnMapper', () => {
+	describe('When useContentful returns fetched, not loading, and data', () => {
+		it('Returns the response as ContentfulResponse type', () => {
 			// Arrange
 			mockUseContentful.mockReturnValue({
 				fetched: true,
 				loading: false,
-				data: {
-					fields: 'some data',
-				},
+				data: mockData,
 			});
 
-			const expectedResult = mockContentfulWhatsOnMapper();
-			mockContentfulWhatsOnMapper.mockClear();
+			const expectedResult: ContentfulResponse = {
+				loading: false,
+				error: false,
+				data: mockData,
+			};
 
 			// Act
 			const result = useGetContentfulContent('mockId');
 
 			// Assert
-			expect(result).toStrictEqual(expectedResult);
-			expect(mockContentfulWhatsOnMapper).toHaveBeenCalledTimes(1);
+			expect(result).toEqual(expectedResult);
+			expect(mockUseContentful).toHaveBeenCalled();
 		});
 	});
 
 	describe('When useContentful returns loading', () => {
-		it('returns null', () => {
+		it('Returns the response as ContentfulResponse type', () => {
 			// Arrange
 			mockUseContentful.mockReturnValue({
 				fetched: true,
 				loading: true,
-				data: {
-					fields: 'some data',
-				},
 			});
+
+			const expectedResult: ContentfulResponse = {
+				loading: true,
+				error: false,
+			};
 
 			// Act
 			const result = useGetContentfulContent('mockId');
 
 			// Assert
-			expect(result).toBeNull();
-			expect(mockContentfulWhatsOnMapper).not.toHaveBeenCalled();
+			expect(result).toEqual(expectedResult);
+			expect(mockUseContentful).toHaveBeenCalled();
 		});
 	});
 
 	describe('When useContentful returns not fetched', () => {
-		it('returns null', () => {
+		it('Returns the response as ContentfulResponse type', () => {
 			// Arrange
 			mockUseContentful.mockReturnValue({
 				fetched: false,
 				loading: false,
-				data: {
-					fields: 'some data',
-				},
 			});
+
+			const expectedResult: ContentfulResponse = {
+				loading: false,
+				error: false,
+			};
 
 			// Act
 			const result = useGetContentfulContent('mockId');
 
 			// Assert
-			expect(result).toBeNull();
-			expect(mockContentfulWhatsOnMapper).not.toHaveBeenCalled();
-		});
-	});
-
-	describe('When useContentful returns no data', () => {
-		it('returns null', () => {
-			// Arrange
-			mockUseContentful.mockReturnValue({
-				fetched: true,
-				loading: true,
-				data: undefined,
-			});
-
-			// Act
-			const result = useGetContentfulContent('mockId');
-
-			// Assert
-			expect(result).toBeNull();
-			expect(mockContentfulWhatsOnMapper).not.toHaveBeenCalled();
+			expect(result).toEqual(expectedResult);
+			expect(mockUseContentful).toHaveBeenCalled();
 		});
 	});
 
 	describe('When useContentful returns an error', () => {
-		it('returns null', () => {
+		it('Returns the response as ContentfulResponse type', () => {
 			// Arrange
 			mockUseContentful.mockReturnValue({
-				fetched: true,
+				fetched: false,
 				loading: false,
-				data: {
-					fields: 'some data',
-				},
-				error: { error: 'error' },
+				error: {},
 			});
+
+			const expectedResult: ContentfulResponse = {
+				loading: false,
+				error: true,
+			};
 
 			// Stop console.error() in useGetContentfulWhatsOn
 			console.error = jest.fn();
@@ -134,8 +102,8 @@ describe('useGetContentfulWhatsOn', () => {
 			const result = useGetContentfulContent('mockId');
 
 			// Assert
-			expect(result).toBeNull();
-			expect(mockContentfulWhatsOnMapper).not.toHaveBeenCalled();
+			expect(result).toEqual(expectedResult);
+			expect(mockUseContentful).toHaveBeenCalled();
 		});
 	});
 });

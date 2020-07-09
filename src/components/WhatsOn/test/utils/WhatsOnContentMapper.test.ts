@@ -65,13 +65,10 @@ describe('contentfulWhatsOnMapper', () => {
 			};
 
 			// Act
-			const result = whatsOnContentMapper(mockContentfulData);
+			const result = whatsOnContentMapper(mockContentfulData, mockMovieList);
 
 			// Assert
 			expect(result).toStrictEqual(expectedResult);
-			expect(mockContentfulMovieListMapper).toHaveBeenCalledWith(
-				mockContentfulData.fields.items
-			);
 			expect(mockContentfulImageMapper).toHaveBeenCalledWith(
 				mockContentfulData.fields.prevArrow
 			);
