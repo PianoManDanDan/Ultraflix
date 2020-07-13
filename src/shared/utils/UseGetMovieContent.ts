@@ -7,37 +7,34 @@ import {
 } from '.';
 import { Movie } from '../types';
 
-export const useGetMovieContent = (contentfulID): Movie | null => {
-	const contentfulResponse = useGetContentfulContent(contentfulID);
+export const useGetMovieContent = (contentfulId: string): Movie | null => {
+	const contentfulResponse = useGetContentfulContent(contentfulId);
 	const contentfulData = contentfulResponse.data;
 	let contentfulMovie;
+
+	const [movie, setMovie] = useState<Movie>();
+	const [movieIsLoading, setMovieIsLoading] = useState(false);
 
 	try {
 		if (contentfulData) {
 			contentfulMovie = contentfulMovieMapper(contentfulData);
 		}
-	} catch (err) {
-		console.error(err);
-	}
 
-	const [movie, setMovie] = useState<Movie>();
-	const [movieIsLoading, setMovieIsLoading] = useState(false);
+		if (contentfulMovie && !movieIsLoading) {
+			setMovieIsLoading(true);
 
-	if (contentfulMovie && !movieIsLoading) {
-		setMovieIsLoading(true);
-
-		try {
 			getMovieFromImdb(contentfulMovie).then((imbdMovie) =>
 				setMovie(imdbMovieMapper(contentfulMovie, imbdMovie))
 			);
-		} catch (err) {
-			console.error(err);
 		}
-	}
 
-	if (!movie) {
+		if (!movie) {
+			return null;
+		}
+
+		return movie;
+	} catch (err) {
+		console.error(err);
 		return null;
 	}
-
-	return movie;
 };

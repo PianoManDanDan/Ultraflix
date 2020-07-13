@@ -65,7 +65,7 @@ describe('contentfulWhatsOnMapper', () => {
 			};
 
 			// Act
-			const result = whatsOnContentMapper(mockContentfulData, mockMovieList);
+			const result = whatsOnContentMapper(mockContentfulData);
 
 			// Assert
 			expect(result).toStrictEqual(expectedResult);

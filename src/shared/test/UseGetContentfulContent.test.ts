@@ -4,7 +4,7 @@ import { ContentfulResponse } from '../types';
 
 const mockUseContentful = jest.spyOn(contentful, 'useContentful');
 
-describe('useGetContentfulWhatsOn', () => {
+describe('useGetContentfulContent', () => {
 	const mockData = {
 		fields: 'some data',
 	};

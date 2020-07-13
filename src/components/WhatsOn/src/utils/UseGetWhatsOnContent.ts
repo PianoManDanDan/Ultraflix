@@ -9,10 +9,17 @@ import {
 import { whatsOnContentMapper } from '.';
 import { Movie } from '../../../../shared/types';
 
-export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
-	const contentfulResponse = useGetContentfulContent(contentfulID);
+export const useGetWhatsOnContent = (
+	contentfulId: string
+): WhatsOnProps | null => {
+	const contentfulResponse = useGetContentfulContent(contentfulId);
 	const contentfulData = contentfulResponse.data;
 	let contentfulMovieList;
+
+	const [movieList, setMovieList] = useState<Movie[]>([]);
+	const [gettingMovieListFromImdb, setGettingMovieListFromImdb] = useState(
+		false
+	);
 
 	try {
 		if (contentfulData) {
@@ -20,34 +27,22 @@ export const useGetWhatsOnContent = (contentfulID): WhatsOnProps | null => {
 				contentfulData['fields'].items
 			);
 		}
-	} catch (err) {
-		console.error(err);
-	}
 
-	const [movieList, setMovieList] = useState<Movie[]>([]);
-	const [gettingMovieListFromImdb, setGettingMovieListFromImdb] = useState(
-		false
-	);
+		if (contentfulMovieList && !gettingMovieListFromImdb) {
+			setGettingMovieListFromImdb(true);
 
-	if (contentfulMovieList && !gettingMovieListFromImdb) {
-		setGettingMovieListFromImdb(true);
-
-		try {
 			getMovieListFromImdb(contentfulMovieList).then((imdbMovieList) => {
 				setMovieList(imdbMovieListMapper(contentfulMovieList, imdbMovieList));
 			});
-		} catch (err) {
-			console.error(err);
 		}
-	}
 
-	if (!contentfulData || !movieList) {
-		return null;
-	}
+		if (!contentfulData || !movieList) {
+			return null;
+		}
 
-	try {
-		return whatsOnContentMapper(contentfulData, movieList);
+		return { ...whatsOnContentMapper(contentfulData), movieList };
 	} catch (err) {
+		console.error(err);
 		return null;
 	}
 };
