@@ -5,42 +5,76 @@
 
 
 .movie-details {
+	display: inline-block;
 	background: color(homepage, penguin-black, 2);
-	margin-top: 5rem;
-	margin-bottom: 5rem;
+	margin: 5rem 0;
+	width: 100%;
 	@include bodyFont();
+
+	@include mediaQueryFor(small, max) {
+		display: flex;
+		flex-direction: column;
+	}
 
 	&__title {
 		@include sectionHeaderFont();
+		order: 0;
+		padding: 1.5rem;
+		@include mediaQueryFor(small, max) {
+			padding: 1.25rem;
+		}
 	}
 	&__image {
 		width: 15rem;
-	}
-	&__runtime, &__certificate {
-		padding: 0.75rem 0;
-	}
-
-	.row {
-		display: flex;
-		align-items: center;
 		padding: 2rem;
+		margin: auto;
 
 		@include mediaQueryFor(small, max) {
-			flex-direction: column;
-			padding: 1rem;
+			margin: auto;
 		}
-
-		&:last-child {
-			align-items: flex-start;
+	}
+	&__rating {
+		position: relative;
+		top: -1rem;
+		padding-bottom: 1rem;
+		@include mediaQueryFor(small, max) {
+			top: -2rem;
+			padding-bottom: 0;
+		}
+	}
+	&__no-rating {
+		padding-bottom: 1.5rem;
+		@include mediaQueryFor(small, max) {
+			padding-top: 1.5rem;
+		}
+	}
+	&__description {
+		padding: 1.5rem;
+		@include mediaQueryFor(small, max) {
+			padding-top: 0;
 		}
 	}
 
-	.react-rater-star {
-		color: color(homepage, penguin-white, 2);
-		font-size: 3rem;
+	#movie-details__sidebar {
+		text-align: center;
+		@include mediaQueryFor(small, max) {
+			order: 1;
+		}
+	}
+	#movie-details__description-container {
+		@include mediaQueryFor(small, max) {
+			order: 2;
+		}
+	}
 
-		&.is-active, &.is-active-half:before {
-			color: color(homepage, penguin-yellow, 2);
+	.react-rater {
+		&-star {
+			color: color(homepage, penguin-white, 2);
+			font-size: 3rem;
+
+			&.is-active, &.is-active-half:before {
+				color: color(homepage, penguin-yellow, 2);
+			}
 		}
 	}
 }
