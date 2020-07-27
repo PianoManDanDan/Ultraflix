@@ -57,9 +57,8 @@ describe('contentfulWhatsOnMapper', () => {
 				},
 			};
 
-			const expectedResult: WhatsOnProps = {
+			const expectedResult: Omit<WhatsOnProps, 'movieList'> = {
 				heading: 'Heading',
-				movieList: mockMovieList,
 				prevArrow: mockPrevArrow,
 				nextArrow: mockNextArrow,
 			};
