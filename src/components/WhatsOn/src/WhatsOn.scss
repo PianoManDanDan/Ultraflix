@@ -76,7 +76,7 @@
 				opacity: 1;
 			}
 
-			div[tabindex="-1"]:focus {
+			div:focus {
 				outline: none;
 				border: 1px solid white;
 				border-radius: 3px;
