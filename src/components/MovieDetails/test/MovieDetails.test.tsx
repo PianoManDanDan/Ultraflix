@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-extended';
 import { MovieDetails } from '../src';
-import { Movie } from '../../../types';
+import { Movie } from '../../../shared/types';
 
 const mockRater = jest.fn(() => <div />);
 

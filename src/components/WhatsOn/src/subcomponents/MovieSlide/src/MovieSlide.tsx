@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { Movie } from '../../../../../../types';
+import { Movie } from '../../../../../../shared/types';
 import { Image } from '../../../../../Image/src';
 import './MovieSlide.scss';
 
 export const MovieSlide: React.FC<Movie> = ({
-	contentfulID,
+	contentfulId,
 	posterImage,
 	title,
 	runtime,
@@ -18,7 +18,7 @@ export const MovieSlide: React.FC<Movie> = ({
 
 	return (
 		<div className="movie-slide container">
-			<Link to={`/movies/${contentfulID}`} tabIndex={-1}>
+			<Link to={`/movies/${contentfulId}`} tabIndex={-1}>
 				<Image {...posterImage} />
 				<div className="movie-slide__info">
 					<div className="movie-slide__title">{title}</div>

@@ -1,8 +1,9 @@
-import { Movie } from '../../../../types';
+import { Movie } from '../../../../shared/types';
 
 export const mockMovieList: Movie[] = [
 	{
-		contentfulID: 'id',
+		contentfulId: 'id',
+		imdbId: 'id',
 		posterImage: {
 			url: '/movie_slide_image.jpg',
 			description: 'Movie Slide Image',
@@ -15,7 +16,8 @@ export const mockMovieList: Movie[] = [
 		rating: 5,
 	},
 	{
-		contentfulID: 'id',
+		contentfulId: 'id',
+		imdbId: 'id',
 		posterImage: {
 			url: '/movie_slide_image.jpg',
 			description: 'Movie Slide Image',
@@ -28,7 +30,8 @@ export const mockMovieList: Movie[] = [
 		rating: 5,
 	},
 	{
-		contentfulID: 'id',
+		contentfulId: 'id',
+		imdbId: 'id',
 		posterImage: {
 			url: '/movie_slide_image.jpg',
 			description: 'Movie Slide Image',
@@ -41,7 +44,8 @@ export const mockMovieList: Movie[] = [
 		rating: 5,
 	},
 	{
-		contentfulID: 'id',
+		contentfulId: 'id',
+		imdbId: 'id',
 		posterImage: {
 			url: '/movie_slide_image.jpg',
 			description: 'Movie Slide Image',
@@ -54,7 +58,8 @@ export const mockMovieList: Movie[] = [
 		rating: 5,
 	},
 	{
-		contentfulID: 'id',
+		contentfulId: 'id',
+		imdbId: 'id',
 		posterImage: {
 			url: '/movie_slide_image.jpg',
 			description: 'Movie Slide Image',
@@ -67,7 +72,8 @@ export const mockMovieList: Movie[] = [
 		rating: 5,
 	},
 	{
-		contentfulID: 'id',
+		contentfulId: 'id',
+		imdbId: 'id',
 		posterImage: {
 			url: '/movie_slide_image.jpg',
 			description: 'Movie Slide Image',
@@ -80,7 +86,8 @@ export const mockMovieList: Movie[] = [
 		rating: 5,
 	},
 	{
-		contentfulID: 'id',
+		contentfulId: 'id',
+		imdbId: 'id',
 		posterImage: {
 			url: '/movie_slide_image.jpg',
 			description: 'Movie Slide Image',
@@ -93,7 +100,8 @@ export const mockMovieList: Movie[] = [
 		rating: 5,
 	},
 	{
-		contentfulID: 'id',
+		contentfulId: 'id',
+		imdbId: 'id',
 		posterImage: {
 			url: '/movie_slide_image.jpg',
 			description: 'Movie Slide Image',

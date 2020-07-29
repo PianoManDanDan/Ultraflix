@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { MemoryRouter } from 'react-router-dom';
 import { MovieSlide } from '../src';
-import { Movie } from '../../../../../../types';
+import { Movie } from '../../../../../../shared/types';
 
 describe('MovieSlide Component', () => {
 	const movieSlideKeys = [

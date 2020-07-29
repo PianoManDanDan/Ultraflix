@@ -1,11 +1,11 @@
-import { contentfulWhatsOnMapper } from '../../src/utils/ContentfulWhatsOnMapper';
-import { Movie } from '../../../../types';
+import { whatsOnContentMapper } from '../../src/utils';
+import { Movie } from '../../../../shared/types';
 import { ImageProps } from '../../../Image/src';
 import { WhatsOnProps } from '../../src';
 
 const mockContentfulMovieListMapper = jest.fn((movieList) => movieList);
 
-jest.mock('../../src/subcomponents/MovieSlide/src', () => ({
+jest.mock('../../../../shared/utils', () => ({
 	contentfulMovieListMapper: (movieList) =>
 		mockContentfulMovieListMapper(movieList),
 }));
@@ -19,7 +19,8 @@ jest.mock('../../../Image/src', () => ({
 describe('contentfulWhatsOnMapper', () => {
 	const mockMovieList: Movie[] = [
 		{
-			contentfulID: 'id',
+			contentfulId: 'id',
+			imdbId: 'id',
 			posterImage: {
 				url: 'Movie slide props mapper url',
 			},
@@ -56,21 +57,17 @@ describe('contentfulWhatsOnMapper', () => {
 				},
 			};
 
-			const expectedResult: WhatsOnProps = {
+			const expectedResult: Omit<WhatsOnProps, 'movieList'> = {
 				heading: 'Heading',
-				movieList: mockMovieList,
 				prevArrow: mockPrevArrow,
 				nextArrow: mockNextArrow,
 			};
 
 			// Act
-			const result = contentfulWhatsOnMapper(mockContentfulData);
+			const result = whatsOnContentMapper(mockContentfulData);
 
 			// Assert
 			expect(result).toStrictEqual(expectedResult);
-			expect(mockContentfulMovieListMapper).toHaveBeenCalledWith(
-				mockContentfulData.fields.items
-			);
 			expect(mockContentfulImageMapper).toHaveBeenCalledWith(
 				mockContentfulData.fields.prevArrow
 			);

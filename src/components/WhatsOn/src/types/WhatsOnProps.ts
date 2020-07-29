@@ -1,4 +1,4 @@
-import { Movie } from '../../../../types';
+import { Movie } from '../../../../shared/types';
 import { ImageProps } from '../../../Image/src';
 
 export type WhatsOnProps = {

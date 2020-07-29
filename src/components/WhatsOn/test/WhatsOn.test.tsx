@@ -25,7 +25,8 @@ describe('WhatsOn Component', () => {
 			heading: 'Test',
 			movieList: [
 				{
-					contentfulID: 'id',
+					contentfulId: 'id',
+					imdbId: 'id',
 					posterImage: {
 						url: '',
 						description: '',

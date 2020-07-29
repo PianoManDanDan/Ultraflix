@@ -1,7 +1,7 @@
 import React from 'react';
 import Rater from 'react-rater';
 import { Image } from '../../Image/src';
-import { Movie } from '../../../types';
+import { Movie } from '../../../shared/types';
 import './MovieDetails.scss';
 import { halveAndRound } from './utils';
 
