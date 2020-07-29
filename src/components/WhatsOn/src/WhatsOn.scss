@@ -1,9 +1,9 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
-@import '../../../globalStyles/colors';
-@import '../../../globalStyles/fonts';
-@import '../../../globalStyles/sizes';
+@import '../../../shared/globalStyles/colors';
+@import '../../../shared/globalStyles/fonts';
+@import '../../../shared/globalStyles/sizes';
 
 .whats-on {
 	&__header {
@@ -61,6 +61,11 @@
 			transition: transform 0.5s ease;
 			transition: opacity 0.5s ease;
 			opacity: 0.5;
+			cursor: pointer;
+
+			&:not(.slick-current) a {
+				pointer-events: none;
+			}
 
 			&:hover {
 				opacity: 1;
@@ -69,6 +74,12 @@
 			&.slick-center {
 				transform: scale(1, 1);
 				opacity: 1;
+			}
+
+			div:focus {
+				outline: none;
+				border: 1px solid white;
+				border-radius: 3px;
 			}
 		}
 	}

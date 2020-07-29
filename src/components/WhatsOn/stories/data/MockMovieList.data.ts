@@ -1,7 +1,9 @@
-import { MovieSlideProps } from '../../src/subcomponents/MovieSlide/src';
+import { Movie } from '../../../../shared/types';
 
-export const mockMovieList: MovieSlideProps[] = [
+export const mockMovieList: Movie[] = [
 	{
+		contentfulId: 'id',
+		imdbId: 'id',
 		posterImage: {
 			url: '/movie_slide_image.jpg',
 			description: 'Movie Slide Image',
@@ -10,8 +12,12 @@ export const mockMovieList: MovieSlideProps[] = [
 		runtime: '2 HR 4 MIN',
 		certificate: 'PG',
 		releaseYear: 2020,
+		description: 'About some penguins',
+		rating: 5,
 	},
 	{
+		contentfulId: 'id',
+		imdbId: 'id',
 		posterImage: {
 			url: '/movie_slide_image.jpg',
 			description: 'Movie Slide Image',
@@ -20,8 +26,12 @@ export const mockMovieList: MovieSlideProps[] = [
 		runtime: '2 HR 4 MIN',
 		certificate: 'PG',
 		releaseYear: 2020,
+		description: 'About some penguins',
+		rating: 5,
 	},
 	{
+		contentfulId: 'id',
+		imdbId: 'id',
 		posterImage: {
 			url: '/movie_slide_image.jpg',
 			description: 'Movie Slide Image',
@@ -30,8 +40,12 @@ export const mockMovieList: MovieSlideProps[] = [
 		runtime: '2 HR 4 MIN',
 		certificate: 'PG',
 		releaseYear: 2020,
+		description: 'About some penguins',
+		rating: 5,
 	},
 	{
+		contentfulId: 'id',
+		imdbId: 'id',
 		posterImage: {
 			url: '/movie_slide_image.jpg',
 			description: 'Movie Slide Image',
@@ -40,8 +54,12 @@ export const mockMovieList: MovieSlideProps[] = [
 		runtime: '2 HR 4 MIN',
 		certificate: 'PG',
 		releaseYear: 2020,
+		description: 'About some penguins',
+		rating: 5,
 	},
 	{
+		contentfulId: 'id',
+		imdbId: 'id',
 		posterImage: {
 			url: '/movie_slide_image.jpg',
 			description: 'Movie Slide Image',
@@ -50,8 +68,12 @@ export const mockMovieList: MovieSlideProps[] = [
 		runtime: '2 HR 4 MIN',
 		certificate: 'PG',
 		releaseYear: 2020,
+		description: 'About some penguins',
+		rating: 5,
 	},
 	{
+		contentfulId: 'id',
+		imdbId: 'id',
 		posterImage: {
 			url: '/movie_slide_image.jpg',
 			description: 'Movie Slide Image',
@@ -60,8 +82,12 @@ export const mockMovieList: MovieSlideProps[] = [
 		runtime: '2 HR 4 MIN',
 		certificate: 'PG',
 		releaseYear: 2020,
+		description: 'About some penguins',
+		rating: 5,
 	},
 	{
+		contentfulId: 'id',
+		imdbId: 'id',
 		posterImage: {
 			url: '/movie_slide_image.jpg',
 			description: 'Movie Slide Image',
@@ -70,8 +96,12 @@ export const mockMovieList: MovieSlideProps[] = [
 		runtime: '2 HR 4 MIN',
 		certificate: 'PG',
 		releaseYear: 2020,
+		description: 'About some penguins',
+		rating: 5,
 	},
 	{
+		contentfulId: 'id',
+		imdbId: 'id',
 		posterImage: {
 			url: '/movie_slide_image.jpg',
 			description: 'Movie Slide Image',
@@ -80,5 +110,7 @@ export const mockMovieList: MovieSlideProps[] = [
 		runtime: '2 HR 4 MIN',
 		certificate: 'PG',
 		releaseYear: 2020,
+		description: 'About some penguins',
+		rating: 5,
 	},
 ];

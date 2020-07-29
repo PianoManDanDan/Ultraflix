@@ -1,4 +1,4 @@
-@import '../../../../../../globalStyles/fonts';
+@import '../../../../../../shared/globalStyles/fonts';
 
 .movie-slide {
 	text-align: center;
@@ -26,5 +26,10 @@
 
 	&__release-year {
 		padding: 0.5rem 0
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
 	}
 }

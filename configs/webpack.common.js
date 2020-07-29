@@ -3,6 +3,7 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const SRC_PATH = path.join(__dirname, '../src');
 const SLICK_PATH = path.join(
@@ -17,6 +18,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, '../dist'),
 		filename: 'ultraflix.[name].bundle.js',
+		publicPath: '/',
 	},
 	optimization: {
 		splitChunks: {
@@ -38,6 +40,14 @@ module.exports = {
 				viewport: 'width=device-width, initial-scale=1.0',
 				robots: 'noindex,nofollow',
 			},
+		}),
+		new CopyPlugin({
+			patterns: [
+				{
+					from: path.resolve(__dirname, './web.config'),
+					to: path.resolve(__dirname, '../dist'),
+				},
+			],
 		}),
 	],
 
@@ -101,5 +111,10 @@ module.exports = {
 				loader: 'source-map-loader',
 			},
 		],
+	},
+	node: {
+		fs: "empty",
+		net: "empty",
+		tls: "empty",
 	},
 };

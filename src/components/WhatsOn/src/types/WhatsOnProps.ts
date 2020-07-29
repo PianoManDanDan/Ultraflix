@@ -1,9 +1,9 @@
-import { MovieSlideProps } from '../subcomponents/MovieSlide/src';
+import { Movie } from '../../../../shared/types';
 import { ImageProps } from '../../../Image/src';
 
 export type WhatsOnProps = {
 	heading: string;
-	movieList: MovieSlideProps[];
+	movieList: Movie[];
 	prevArrow: ImageProps;
 	nextArrow: ImageProps;
 };

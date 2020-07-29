@@ -1,10 +1,10 @@
 import { HookResponse, useContentful } from 'react-contentful';
-import { WhatsOnProps } from '..';
-import { contentfulWhatsOnMapper } from '.';
+import { ErrorBoxProps } from '..';
+import { contentfulErrorMapper } from '.';
 
-export const useGetContentfulWhatsOn = (
+export const useGetContentfulError = (
 	contentfulID: string
-): WhatsOnProps | null => {
+): (ErrorBoxProps & { pageTitle: string }) | null => {
 	const contentfulResponse: HookResponse = useContentful({
 		id: contentfulID,
 	});
@@ -23,9 +23,9 @@ export const useGetContentfulWhatsOn = (
 	}
 
 	try {
-		return contentfulWhatsOnMapper(contentfulResponse.data);
+		return contentfulErrorMapper(contentfulResponse.data);
 	} catch (err) {
-		console.error('Cannot retrieve WhatsOn Content');
+		console.error('Cannot retrieve ErrorBox content');
 		console.error(err);
 		return null;
 	}

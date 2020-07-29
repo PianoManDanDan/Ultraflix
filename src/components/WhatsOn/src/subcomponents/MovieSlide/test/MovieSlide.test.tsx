@@ -1,8 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+import { MemoryRouter } from 'react-router-dom';
 import { MovieSlide } from '../src';
-import { MovieSlideProps } from '../src/types';
+import { Movie } from '../../../../../../shared/types';
 
 describe('MovieSlide Component', () => {
 	const movieSlideKeys = [
@@ -13,7 +14,7 @@ describe('MovieSlide Component', () => {
 		'releaseYear',
 	];
 
-	let movieSlideContent: Partial<MovieSlideProps>;
+	let movieSlideContent: Partial<Movie>;
 
 	beforeEach(() => {
 		movieSlideContent = {
@@ -35,7 +36,7 @@ describe('MovieSlide Component', () => {
 
 			// Act
 			const { container } = render(
-				<MovieSlide {...(movieSlideContent as MovieSlideProps)} />
+				<MovieSlide {...(movieSlideContent as Movie)} />
 			);
 
 			// Assert
@@ -47,7 +48,9 @@ describe('MovieSlide Component', () => {
 		it('Renders component with all content', () => {
 			// Act
 			const { container } = render(
-				<MovieSlide {...(movieSlideContent as MovieSlideProps)} />
+				<MemoryRouter>
+					<MovieSlide {...(movieSlideContent as Movie)} />
+				</MemoryRouter>
 			);
 
 			// Assert

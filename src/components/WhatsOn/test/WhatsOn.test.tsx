@@ -25,6 +25,8 @@ describe('WhatsOn Component', () => {
 			heading: 'Test',
 			movieList: [
 				{
+					contentfulId: 'id',
+					imdbId: 'id',
 					posterImage: {
 						url: '',
 						description: '',
@@ -33,6 +35,8 @@ describe('WhatsOn Component', () => {
 					runtime: '',
 					certificate: '',
 					releaseYear: 0,
+					description: 'About some penguins',
+					rating: 5,
 				},
 			],
 			prevArrow: {

@@ -1,8 +1,11 @@
 import React from 'react';
 import { text, number, select } from '@storybook/addon-knobs';
-import { MovieSlide, MovieSlideProps } from '../src';
+import { MovieSlide } from '../src';
+import { Movie } from '../../../../../../shared/types';
 
-const getMovieSlideProps = (): MovieSlideProps => ({
+const getMovieSlideProps = (): Movie => ({
+	contentfulId: 'id',
+	imdbId: 'id',
 	posterImage: {
 		url: '/movie_slide_image.jpg',
 		description: 'Movie Slide Image',
@@ -15,6 +18,8 @@ const getMovieSlideProps = (): MovieSlideProps => ({
 		'PG'
 	),
 	releaseYear: number('Release Year', 2020),
+	description: text('Description', 'blah blah blah'),
+	rating: number('Rating', 5),
 });
 
 export default {

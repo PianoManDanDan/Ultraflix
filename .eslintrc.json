@@ -39,7 +39,7 @@
 		"prefer-template": "off",
 		"semi": ["error", "always"],
 		"no-plusplus": "off",
-		"dot-notation": ["error", {"allowPattern": "^fields$"}],
+		"dot-notation": ["error", {"allowPattern": "^(fields|sys)$"}],
 		"prettier/prettier": [
 			"error",
 			{
