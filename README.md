@@ -1,16 +1,19 @@
 # Introduction 
-This is the React frontend for the Ultraflix website.
+This is the React website for a mock cinema company called "Ultraflix". This was a project done whilst on furlough during the 2020 Covid-19 pandemic, originally hosted on Azure but later ported over to Github. Some contributors don't have a Github account, so a full list of contributors is provided below:
+
+**Developers:**
+* Daniel Martin ([@PianoManDanDan](https://github.com/PianoManDanDan/))
+* Thomas Williams ([@tefwilliams](https://github.com/tefwilliams/))
+* Rachel Khan
+* Georgie Partington
+* Nicola Spicer
+
+**QA Testers:**
+* Anna Fillbrook ([@annafillbrook](https://github.com/annafillbrook/))
 
 # Getting Started
 1. Run `npm i`
-2. Run `npm start`
-
-
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+2. Run `npm run start`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -59,6 +62,20 @@ in the console will then allow you to see the size and structure of the output w
 Runs `npm run build:prod-stats` starts bundle analyzer server.
 Open [http://127.0.0.1:8888](http://127.0.0.1:8888) to view it in the browser.
 
+
+## `npm run predeploy`
+
+Creates a production build. Used for publishing to gh-pages.
+
+## `npm run deploy`
+
+Deploys build to gh-pages.
+
+## `npm run publish`
+
+Runs `predeploy` and `deploy` scripts. Used to publish to gh-pages.
+
+
 ## `npm run test`
 
 Run all tests.
@@ -73,7 +90,7 @@ Run tests in ci mode.
 
 ## `npm run generate`
 
-Generates new component with correct file structure and in correct place in app. If passed a name in the command (e.g. `npm run generate MyNewComponent`), it will use that name for the comnponent. Otherwise it will ask you for a new component name in the console.
+Generates new component with correct file structure and in correct place in app. If passed a name in the command (e.g. `npm run generate MyNewComponent`), it will use that name for the component. Otherwise it will ask you for a new component name in the console.
 
 ## `npm run lint`
 
