@@ -6,7 +6,7 @@ This is the React website for a mock cinema company called "Ultraflix". This was
 * Thomas Williams ([@tefwilliams](https://github.com/tefwilliams/))
 * Rachel Khan
 * Georgie Partington
-* Nicola Spicer
+* Nicola Spicer ([@NSpicer](https://github.com/NSpicer/))
 
 **QA Testers:**
 * Anna Fillbrook ([@annafillbrook](https://github.com/annafillbrook/))
