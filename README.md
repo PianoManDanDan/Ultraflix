@@ -15,7 +15,7 @@ This is the React website for a mock cinema company called "Ultraflix". This was
 1. Run `npm i`
 2. Run `npm run start`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Alternatively, a live version of the project can be viewed online at [https://pianomandandan.github.io/Ultraflix/](https://pianomandandan.github.io/Ultraflix/).
 
 # Available Scripts
 
