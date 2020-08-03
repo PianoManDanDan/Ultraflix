@@ -6,6 +6,9 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
 	mode: 'production',
 	devtool: false,
+	output: {
+		publicPath: '/Ultraflix/',
+	},
 	externals: {
 		'react': 'React',
 		'react-dom': 'ReactDOM',
