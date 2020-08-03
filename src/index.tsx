@@ -7,7 +7,7 @@ import {
 	ContentfulProvider,
 	ContentfulClientInterface,
 } from 'react-contentful';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import { HomePage, NotFoundPage, MovieDetailsPage } from './pages';
 import './index.scss';
@@ -20,7 +20,7 @@ const contentfulClient: ContentfulClientInterface = ContentfulClient({
 ReactDOM.render(
 	<React.StrictMode>
 		<ContentfulProvider client={contentfulClient}>
-			<Router>
+			<HashRouter basename="/">
 				<Switch>
 					<Route exact path="/">
 						<HomePage />
@@ -33,7 +33,7 @@ ReactDOM.render(
 						<NotFoundPage />
 					</Route>
 				</Switch>
-			</Router>
+			</HashRouter>
 		</ContentfulProvider>
 	</React.StrictMode>,
 	document.getElementById('root')

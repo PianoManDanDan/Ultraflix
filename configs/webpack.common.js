@@ -18,7 +18,6 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, '../dist'),
 		filename: 'ultraflix.[name].bundle.js',
-		publicPath: '/',
 	},
 	optimization: {
 		splitChunks: {
@@ -113,8 +112,8 @@ module.exports = {
 		],
 	},
 	node: {
-		fs: "empty",
-		net: "empty",
-		tls: "empty",
+		fs: 'empty',
+		net: 'empty',
+		tls: 'empty',
 	},
 };
